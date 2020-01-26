@@ -5,6 +5,11 @@ class Team extends React.Component {
     return (
       <div>
       <h3>Team {this.props.id}</h3>
+      <button 
+      id={this.props.id}
+      onClick={(event)=>this.props.selectWinner(event)}>
+      Select Winner
+      </button>
       </div>
     )
   }
