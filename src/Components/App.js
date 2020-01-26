@@ -1,7 +1,7 @@
 import React from 'react';
 //import logo from './logo.svg';
 import Bracket from './Bracket'
-import './App.css';
+import '../App.css';
 
 
 class App extends React.Component {

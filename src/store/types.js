@@ -1,3 +1,7 @@
+
+//FETCH data from api 
+export const GET_TEAMS = 'GET_TEAMS';
+
 //add winners to next round (round++)
 export const ADD_WINNERS = 'ADD_WINNERS';
 
