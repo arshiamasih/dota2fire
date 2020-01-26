@@ -9,7 +9,7 @@ class App extends React.Component {
   } 
   
   async componentDidMount() {
-    const response = await fetch('https://api.opendota.com/api/publicMatches')
+    const response = await fetch('https://api.opendota.com/api/teams')
     const data = await response.json()
     console.log(data)
   }
