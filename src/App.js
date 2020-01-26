@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import Bracket from './Bracket'
 import './App.css';
 
@@ -21,7 +21,7 @@ class App extends React.Component {
         <header className="App-header">
        
           <p>
-            Edit <code>src/App.js</code> and save to reload.
+           <code>DOTA 2 FIRE</code> 
           </p>
           <Bracket/>
         </header>
