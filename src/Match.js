@@ -34,6 +34,7 @@ class Match extends React.Component {
   render() {
     //isWinner prop if selected
     //or by higher score manually input by user
+    
     const { teams }  = this.state
     return (
       <div className={'match'}>
