@@ -28,6 +28,17 @@
   color: #61dafb;
 }
 
+.bracket{
+  display: flex;
+  flex-direction: row;
+}
+
+.round {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
