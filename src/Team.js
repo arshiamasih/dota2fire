@@ -4,7 +4,7 @@ class Team extends React.Component {
   render() {
     return (
       <div>
-      <h3>Team {this.props.id}</h3>
+      <p>Team {this.props.id}</p>
       <button 
       id={this.props.id}
       onClick={(event)=>this.props.selectWinner(event)}>
