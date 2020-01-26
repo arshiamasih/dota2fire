@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import {getTeams} from '../rstore/actions'
 import Team from './Team'
 
 class Match extends React.Component {
@@ -17,6 +19,11 @@ class Match extends React.Component {
           isWinner: false},    
       ]
     }
+  }
+
+  componentDidMount(){
+    this.props.getTeams()
+    console.log(this.props)
   }
 
   selectWinner=(event)=>{
@@ -52,4 +59,12 @@ class Match extends React.Component {
     )
   }
 }
-export default Match
+
+const mapState = (store) => ({
+  teamsTest: store.teamReducer.teams
+})
+
+const mapDispatch = (dispatch) => ({
+  getTeams: ()=>dispatch(getTeams())
+})
+export default connect(mapState, mapDispatch)(Match)
