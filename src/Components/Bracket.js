@@ -1,23 +1,31 @@
 import React from 'react'
 import Round from './Round'
-import Round2 from './Round2'
-import Round3 from './Round3'
-import Round4 from './Round4'
+
 
 class Bracket extends React.Component {
-  //map to state
-  //iterate through matches based on winners
+  //map to state to get team length, pass value into createRounds method
+  //use iterator instead of for loop??
   //round level prop
+
+  createRounds(n) {
+    const numTeams =  Math.log2(n)
+    let matchCalculation = n
+    const rounds = []
+    for(let i = 0; i <= numTeams; i++) {
+      rounds.push(<Round numMatches={matchCalculation}/>)
+      matchCalculation = matchCalculation/2
+      console.log(matchCalculation)
+    }
+    return rounds
+  }
   render(){
+   const numTeams = 16 // teams array.length 
    return( <div className={'bracket'}>
-    <Round/>
-    <Round2/>
-    <Round3/>
-    <Round4/>
+    {this.createRounds(numTeams)}
     </div>
    )
   }
-
 }
+
 
 export default Bracket
