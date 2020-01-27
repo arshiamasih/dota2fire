@@ -3,23 +3,16 @@ import Round from './Round'
 
 
 class Bracket extends React.Component {
-  //map to state to get team length, pass value into createRounds method
-  //use iterator instead of for loop??
-  //round level prop
 
   createRounds(n) {
     const numTeams =  Math.log2(n)
     let matchCalculation = n
-    const rounds = []
-    for(let i = 0; i <= numTeams; i++) {
-      rounds.push(<Round numMatches={matchCalculation}/>)
-      matchCalculation = matchCalculation/2
-      console.log(matchCalculation)
-    }
-    return rounds
+    return [...Array(numTeams)].map(() => {
+      return <div><Round numMatches={matchCalculation /= 2}/></div>
+    });
   }
   render(){
-   const numTeams = 16 // teams array.length 
+   const numTeams = 16 // teams array.length from state
    return( <div className={'bracket'}>
     {this.createRounds(numTeams)}
     </div>

@@ -25,6 +25,8 @@ class Match extends React.Component {
   render() {
     //isWinner prop if selected
     //or by higher score manually input by user
+    //match will take team IDs from props and pair teams accordingly
+    //only 1 team in winner round (not technically a match?)
     
     const { teams }  = this.props.teams
     return (

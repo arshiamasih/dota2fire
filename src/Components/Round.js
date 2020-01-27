@@ -20,7 +20,7 @@ class Round extends React.Component {
     //dynamic className to update to 1 when this.props === 1
     return (
     <div className={'round'}>
-      {numMatches === 1 ? <h3> WINNER! </h3> : null}
+      {numMatches === 1 ? <p> Final round! </p> : null}
       {this.createMatches(numMatches)}
     </div>
     )
