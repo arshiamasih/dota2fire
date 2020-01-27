@@ -1,10 +1,7 @@
 import { ADD_WINNERS, GET_TEAMS } from "./types";
 
 const initialState = {
-  rounds: {
-    winners: []
-  },
-  teams: {}
+  teams: []
 }
 const teamReducer=(state = initialState, action) => {
   switch (action.type) {
@@ -13,14 +10,16 @@ const teamReducer=(state = initialState, action) => {
         ...state
       };
     case GET_TEAMS:
+      console.log('test reducer', state)
       return {
-        ...state,
-        teams: action.payload
+        teams: action.payload.teams
       };  
     default:
       return state;  
   }
 
 }
+
+
 
 export default teamReducer

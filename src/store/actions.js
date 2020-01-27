@@ -5,9 +5,14 @@ export const addWinners = () => ({
   type: ADD_WINNERS
 })
 
-export const getTeams = () => ({
+export const fetchTeamData = (teams) => ({
   type: GET_TEAMS,
-  payload: {
+  payload: teams
+})
+
+export const getTeams = () => (dispatch) => {
+  console.log('test actions get teams')
+  const teams = {
     teams: [
       {id: 1,
         name: 'Warriors',
@@ -20,5 +25,6 @@ export const getTeams = () => ({
         isWinner: false},    
     ]
   }
-})
+  return dispatch(fetchTeamData(teams))
+}
 

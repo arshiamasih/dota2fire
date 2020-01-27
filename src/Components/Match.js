@@ -1,29 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {getTeams} from '../rstore/actions'
+import {getTeams} from '../store/actions'
 import Team from './Team'
 
 class Match extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      teams: [
-        {id: 1,
-          name: 'Warriors',
-          rank: 1,
-          isWinner: false
-        },
-        {id: 2,
-          name:'Vikings',
-          rank: 3,
-          isWinner: false},    
-      ]
-    }
-  }
-
+  
   componentDidMount(){
     this.props.getTeams()
-    console.log(this.props)
+
   }
 
   selectWinner=(event)=>{
@@ -42,7 +26,7 @@ class Match extends React.Component {
     //isWinner prop if selected
     //or by higher score manually input by user
     
-    const { teams }  = this.state
+    const { teams }  = this.props.teams
     return (
       <div className={'match'}>
       {teams.map((team, i) => {
@@ -60,9 +44,11 @@ class Match extends React.Component {
   }
 }
 
-const mapState = (store) => ({
-  teamsTest: store.teamReducer.teams
-})
+const mapState = (state) => {
+  return {
+    teams: state.teamsTest
+  }
+}
 
 const mapDispatch = (dispatch) => ({
   getTeams: ()=>dispatch(getTeams())
