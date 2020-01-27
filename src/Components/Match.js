@@ -1,13 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {getTeams} from '../store/actions'
+import { getTeams } from '../store/actions'
 import Team from './Team'
 
 class Match extends React.Component {
   
   componentDidMount(){
     this.props.getTeams()
-
   }
 
   selectWinner=(event)=>{
