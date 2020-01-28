@@ -9,11 +9,11 @@ class App extends React.Component {
     super(props)
   } 
   
-  async componentDidMount() {
-    const response = await fetch('https://api.opendota.com/api/teams')
-    const data = await response.json()
-    console.log(data)
-  }
+  // async componentDidMount() {
+  //   const response = await fetch('https://api.opendota.com/api/teams')
+  //   const data = await response.json()
+  //   console.log(data)
+  // }
   
   render(){
     return (

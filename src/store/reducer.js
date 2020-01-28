@@ -10,9 +10,9 @@ const teamReducer=(state = initialState, action) => {
         ...state
       };
     case GET_TEAMS:
-      console.log('test reducer', state)
+      console.log('test reducer', action.payload)
       return {
-        teams: action.payload.teams
+        teams: action.payload
       };  
     default:
       return state;  

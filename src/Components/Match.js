@@ -2,12 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { getTeams } from '../store/actions'
 import Team from './Team'
+import { defineTeamNum } from './Bracket'
 
 class Match extends React.Component {
 
   
   componentDidMount(){
-    this.props.getTeams()
+   this.props.getTeams(defineTeamNum.num)
     console.log('mounted')
     //state changes to re-render if necessary
   }
@@ -21,11 +22,13 @@ class Match extends React.Component {
       return
     }
     return teamsCopy.splice(0,2).map((team, i) => {
+     
       return (
       <div key={i}>
        
         <Team 
-          id={team.id}
+          id={i+1}
+          teamName={team['name']}
           isWinner={team.isWinner}
           selectWinner={this.selectWinner}/>
           
@@ -74,6 +77,6 @@ const mapState = (state) => {
 }
 
 const mapDispatch = (dispatch) => ({
-  getTeams: ()=>dispatch(getTeams())
+  getTeams: (n)=>dispatch(getTeams(n))
 })
 export default connect(mapState, mapDispatch)(Match)
