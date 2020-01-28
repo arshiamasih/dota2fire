@@ -4,8 +4,11 @@ import Match from './Match'
 class Round extends React.Component {
   //map to state
   //iterate through matches based on winners
+
   createMatches(n) {
-    return [...Array(n)].map(() => <div><Match/></div>);
+  let positionVal = 1
+  return [...Array(n)].map(() => {
+    return <div><Match position={positionVal++}/></div>});
   }
  
   render(){

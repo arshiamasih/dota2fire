@@ -43,6 +43,8 @@
 .match {
   border: 1px solid black;
   margin: 1em;
+  width: 150px;
+  height: 150px;
 }
 
 .team {
