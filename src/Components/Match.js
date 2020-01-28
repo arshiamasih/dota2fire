@@ -6,26 +6,18 @@ import { defineTeamNum } from './Bracket'
 
 class Match extends React.Component {
 
-  
   componentDidMount(){
    this.props.getTeams(defineTeamNum.num)
-    console.log('mounted')
-    //state changes to re-render if necessary
   }
 
   //mutates state 
   createPairedTeams(teamsCopy = this.props.teams.teams){
-    //console.log(this.props.teams)
-    //const { teams }  = this.props.teams
-    //const teamsCopy = [...teams]
     if (teamsCopy.length === 0) {
       return
     }
     return teamsCopy.splice(0,2).map((team, i) => {
-     
       return (
       <div key={i}>
-       
         <Team 
           id={i+1}
           teamName={team['name']}
@@ -34,9 +26,7 @@ class Match extends React.Component {
           
       </div> )
       })
-      
     return this.createPairedTeams(teamsCopy)  
-
   }
 
   // selectWinner=(event)=>{

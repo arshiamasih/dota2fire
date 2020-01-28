@@ -14,7 +14,7 @@ class Bracket extends React.Component {
     });
   }
   render(){
-   const numTeams = defineTeamNum.num // teams array.length from state
+   const numTeams = defineTeamNum.num
    return( <div className={'bracket'}>
     {this.createRounds(numTeams)}
     </div>
