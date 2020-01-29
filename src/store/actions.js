@@ -2,7 +2,11 @@ import {ADD_WINNERS, GET_TEAMS} from './types'
 
 
 export const addWinners = () => ({
-  type: ADD_WINNERS
+  type: ADD_WINNERS,
+  payload: {
+    teamData,
+    positions
+  }
 })
 
 export const fetchTeamData = (teams) => ({
