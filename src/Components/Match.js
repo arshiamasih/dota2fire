@@ -1,45 +1,36 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { getTeams } from '../store/actions'
 import Team from './Team'
-import { defineTeamNum } from './Bracket'
 
 class Match extends React.Component {
-
-  componentDidMount(){
-   this.props.getTeams(defineTeamNum.num)
-  }
-
-  //mutates state 
-  createPairedTeams(teamsCopy = this.props.teams.teams){
-    if (teamsCopy.length === 0) {
-      return
-    }
+ 
+  
+  //this logic doesn't totaly make sense here.
+  createInitialPairedTeams(teams){
+   //gets team data from props and executes this.
+    const teamsProps = [...teams]
+    const teamsCopy = [...teams]
     return teamsCopy.splice(0,2).map((team, i) => {
       return (
       <div key={i}>
         <Team 
-          id={i+1}
+          id={i}
+          teams={teamsProps}
+          matchPosition={this.props.matchPosition}
+          roundPosition={this.props.roundPosition}
           teamName={team['name']}
           isWinner={team.isWinner}
           selectWinner={this.selectWinner}/>
           
       </div> )
       })
-    return this.createPairedTeams(teamsCopy)  
+   
   }
 
-  // selectWinner=(event)=>{
-  //   const {id} = event.target
-  //   console.log(`selecting winner team ${event.target.id}`)
-  //   const teamsID = [...this.state.teams]
-  //   for(let i = 0; i < teamsID.length; i++) {
-  //     if(parseInt(id) === teamsID[i].id) {
-  //       teamsID[i].isWinner = true
-  //     }
-  //   }
-  //   this.setState({ teams: teamsID })
-  // }
+  selectWinner=(event)=>{
+    const {id} = event.target
+    console.log(`selecting winner team ${event.target.id}`)
+   
+  }
 
 
   render() {
@@ -48,25 +39,18 @@ class Match extends React.Component {
     //match will take team IDs from props and pair teams accordingly
     //only 1 team in winner round (not technically a match?)
     
-    const { teams }  = this.props.teams
-  
+    //const { teams }  = this.props.teams
+    console.log('MATCH', this.props.roundPosition)
+    const teams = [...this.props.teams.teams]
     return (
       <div className={'match'}>
       <p style={{fontSize: '10px'}}>{this.props.position}</p> 
-      
-      {this.createPairedTeams()}
+    
+      {this.props.roundPosition === 0 ? this.createInitialPairedTeams(teams) : null}
+      {this.props.roundPosition === 1 && this.props.matchPosition ? <p>hi</p> : null}
       </div>
     )
   }
 }
 
-const mapState = (state) => {
-  return {
-    teams: state.teamsTest
-  }
-}
-
-const mapDispatch = (dispatch) => ({
-  getTeams: (n)=>dispatch(getTeams(n))
-})
-export default connect(mapState, mapDispatch)(Match)
+export default Match 
