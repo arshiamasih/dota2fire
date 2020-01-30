@@ -1,7 +1,5 @@
 import React from 'react'
 import Team from './Team'
-import { connect } from 'react-redux'
-import { getWinner } from '../store/actions'
 
 
 class Match extends React.Component {
@@ -20,29 +18,29 @@ class Match extends React.Component {
 }
 
   //this logic doesn't totaly make sense here.
-  createInitialPairedTeams(teams){
+  // createInitialPairedTeams(teams){
 
-   //gets team data from props and executes this.
-    const teamsProps = [...teams]
-    const teamsCopy = [...teams]
+  //  //gets team data from props and executes this.
+  //   const teamsProps = [...teams]
+  //   const teamsCopy = [...teams]
   
-    return teamsCopy.splice(0,2).map((team, i) => {
-      return (
-      <div key={i}>
-        <Team
-          id={i}
-          // teams={teamsProps}
-          matchPosition={this.props.matchPosition}
-          roundPosition={this.props.roundPosition}
-          teamName={team['name']}
-          isWinner={team.isWinner}
-          selectWinner={this.selectWinner}
-    />
+  //   return teamsCopy.splice(0,2).map((team, i) => {
+  //     return (
+  //     <div key={i}>
+  //       <Team
+  //         id={i}
+  //         // teams={teamsProps}
+  //         matchPosition={this.props.matchPosition}
+  //         roundPosition={this.props.roundPosition}
+  //         teamName={team['name']}
+  //         isWinner={team.isWinner}
+  //         selectWinner={this.selectWinner}
+  //   />
           
-      </div> )
-      })
+  //     </div> )
+  //     })
    
-  }
+  // }
 
 selectWinner = async (event) =>{
     event.preventDefault()
@@ -65,23 +63,35 @@ selectWinner = async (event) =>{
   render() {
     //const { teams }  = this.props.teams
     const teams = [...this.props.teams.teams]
+    //console.log(this.props)
     return (
       <div className={'match'}>
       <p style={{fontSize: '10px'}}>{this.props.position}</p> 
     
-      {this.props.roundPosition === 0 ? this.createInitialPairedTeams(teams) : null}
-
-      {/* HARD CODED LOGIC TO TEST WINNER POSITION */}
+      {/* {this.props.roundPosition === 0 ? this.createInitialPairedTeams(teams) : null}
       {this.props.roundPosition === 1 && this.props.matchPosition === 0 ? <p>hi</p> : null}
-      {this.props.roundPosition === 1 && this.props.matchPosition === 1 ? <p>bye</p> : null} 
-    
+      {this.props.roundPosition === 1 && this.props.matchPosition === 1 ? <p>bye</p> : null} */}
+
+
+      {teams.splice(0,2).map((team, i) => {
+      return (
+      <div key={i}>
+        <Team
+          id={i}
+          // teams={teamsProps}
+          matchPosition={this.props.matchPosition}
+          roundPosition={this.props.roundPosition}
+          name={team['name']}
+          isWinner={team.isWinner}
+          selectWinner={this.selectWinner}
+    />
+          
+      </div> )
+      })}
+      
       </div>
     )
   }
 }
 
-const mapDispatch = (dispatch) => ({
-  getWinner: (t, p)=>dispatch(getWinner(t , p))
-})
-
-export default connect(null, mapDispatch)(Match)
+export default Match 
