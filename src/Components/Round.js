@@ -3,7 +3,6 @@ import Match from './Match'
 
 class Round extends React.Component {
   //map to state
-  //iterate through matches based on winners
 
   createMatches(n) {
   let positionVal = 0
@@ -16,7 +15,7 @@ class Round extends React.Component {
  
   render(){
     //round accepts a prop to dictate # of matches
-    const {numMatches} = this.props
+    const { numMatches } = this.props
    
     return (
     <div className={'round'}>

@@ -3,7 +3,7 @@ import Round from './Round'
 import { connect } from 'react-redux'
 import { getTeams } from '../store/actions'
 
-//changes the # teams to dynamically update rounds & brackets 
+//changes the # teams to dynamically update rounds & brackets & # of teams
 export const defineTeamNum = {num: 8}
 
 class Bracket extends React.Component {
@@ -16,8 +16,10 @@ class Bracket extends React.Component {
   createRounds(n) {
     const numTeams =  Math.log2(n)
     let matchCalculation = n
+    //should not use index for key & position
     return [...Array(numTeams)].map((_, i) => {
       return <div><Round 
+      key={i}
       teams={this.props.teams}
       roundPosition={i} 
       numMatches={matchCalculation /= 2}/></div>

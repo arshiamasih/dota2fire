@@ -9,6 +9,7 @@ class App extends React.Component {
     super(props)
   } 
   
+  //MOVED TO REDUX
   // async componentDidMount() {
   //   const response = await fetch('https://api.opendota.com/api/teams')
   //   const data = await response.json()

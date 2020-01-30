@@ -4,15 +4,15 @@ const Team = (props) => {
 
     return (
       <div className={'team'}>
-      <p >Team {this.props.name}</p>
+      <p >Team {props.name}</p>
       <button 
-      id={this.props.id}
-      matchPosition={this.props.matchPosition}
-      roundPostion={this.props.roundPosition}
+      id={props.id}
+      matchPosition={props.matchPosition}
+      roundPostion={props.roundPosition}
       className={'select-winner'}
-      name={this.props.tname}
-      onClick={this.props.selectWinner}>
-      Winner
+      name={props.name}
+      onClick={props.selectWinner}>
+      Select Winner
       </button>
       </div>
     )
