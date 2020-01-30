@@ -1,9 +1,23 @@
 import React from 'react'
 import Team from './Team'
+import { connect } from 'react-redux'
+import { getWinner } from '../store/actions'
 
 
 class Match extends React.Component {
- 
+  constructor(props) {
+    super(props)
+
+  this.state = {
+    name: '',
+    positions: {
+      round: '',
+      match: null,
+      team: null
+    }
+  }
+  this.selectWinner = this.selectWinner.bind(this)
+}
 
   //this logic doesn't totaly make sense here.
   createInitialPairedTeams(teams){
@@ -22,21 +36,33 @@ class Match extends React.Component {
           roundPosition={this.props.roundPosition}
           teamName={team['name']}
           isWinner={team.isWinner}
-          selectWinner={this.selectWinner}/>
+          selectWinner={this.selectWinner}
+    />
           
       </div> )
       })
    
   }
 
- 
+selectWinner = async (event) =>{
+    event.preventDefault()
+    const {id, name} = event.target
+    const {roundPosition, matchPosition} = {...this.props}
+    const position =  {
+      round: roundPosition,
+      match: matchPosition,
+      team: id
+    }
+     await this.setState({
+      positions: position
+    })
+    
+    //this.props.getWinner(this.state.name, this.state.positions)
+    console.log('SELECT WINNER', this.state.positions)
+   
+  }
 
   render() {
-    //isWinner prop if selected
-    //or by higher score manually input by user
-    //match will take team IDs from props and pair teams accordingly
-    //only 1 team in winner round (not technically a match?)
-    
     //const { teams }  = this.props.teams
     const teams = [...this.props.teams.teams]
     return (
@@ -44,12 +70,18 @@ class Match extends React.Component {
       <p style={{fontSize: '10px'}}>{this.props.position}</p> 
     
       {this.props.roundPosition === 0 ? this.createInitialPairedTeams(teams) : null}
+
+      {/* HARD CODED LOGIC TO TEST WINNER POSITION */}
       {this.props.roundPosition === 1 && this.props.matchPosition === 0 ? <p>hi</p> : null}
-      {this.props.roundPosition === 1 && this.props.matchPosition === 1 ? <p>bye</p> : null}
-      
+      {this.props.roundPosition === 1 && this.props.matchPosition === 1 ? <p>bye</p> : null} 
+    
       </div>
     )
   }
 }
 
-export default Match 
+const mapDispatch = (dispatch) => ({
+  getWinner: (t, p)=>dispatch(getWinner(t , p))
+})
+
+export default connect(null, mapDispatch)(Match)
