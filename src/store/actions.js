@@ -2,6 +2,7 @@ import {ADD_WINNERS, GET_TEAMS} from './types'
 
 
 export const addWinners = (teamData, positions) => ({
+  //round should round++ 
   type: ADD_WINNERS,
   payload: {
     teamData,

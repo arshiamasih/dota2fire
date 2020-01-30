@@ -4,12 +4,14 @@ const initialState = {
   teams: [],
   winner: {}
 }
+
+//object.assign?
 const teamReducer=(state = initialState, action) => {
   switch (action.type) {
     case ADD_WINNERS:
       return {
         ...state,
-        winners: 'testing winner data'
+        winner: action.payload
       };
     case GET_TEAMS:
       return {

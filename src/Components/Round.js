@@ -5,12 +5,12 @@ class Round extends React.Component {
   //map to state
 
   createMatches(n) {
-  let positionVal = 0
-  return [...Array(n)].map(() => {
-    return <div><Match 
-    teams= {this.props.teams}
-    roundPosition={this.props.roundPosition}
-    matchPosition={positionVal++}/></div>});
+    let positionVal = 0
+    return [...Array(n)].map(() => {
+      return <div><Match 
+      teams= {this.props.teams}
+      roundPosition={this.props.roundPosition}
+      matchPosition={positionVal++}/></div>});
   }
  
   render(){
