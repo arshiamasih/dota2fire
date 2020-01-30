@@ -1,7 +1,7 @@
 import {ADD_WINNERS, GET_TEAMS} from './types'
 
 
-export const addWinners = () => ({
+export const addWinners = (teamData, positions) => ({
   type: ADD_WINNERS,
   payload: {
     teamData,
@@ -21,6 +21,11 @@ export const getTeams = (num) => async (dispatch) => {
   const data = await response.json()
   const teams = data.slice(0,num);
   return dispatch(fetchTeamData(teams))
+}
+
+export const getWinner = (team, position) => async (dispatch) => {
+  console.log('action', team,  position)
+  return dispatch(addWinners(team, position))
 }
 
 //MOCK DATA STRUCTURE

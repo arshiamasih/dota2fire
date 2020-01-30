@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { getTeams } from '../store/actions'
 
 //changes the # teams to dynamically update rounds & brackets 
-export const defineTeamNum = {num: 4}
+export const defineTeamNum = {num: 8}
 
 class Bracket extends React.Component {
 
@@ -25,7 +25,7 @@ class Bracket extends React.Component {
   }
   render(){
    const numTeams = defineTeamNum.num
-   console.log('bracket render', this.props.teams)
+  
    return( <div className={'bracket'}>
     {this.createRounds(numTeams)}
     </div>

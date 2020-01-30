@@ -6,7 +6,7 @@ class Round extends React.Component {
   //iterate through matches based on winners
 
   createMatches(n) {
-  let positionVal = 1
+  let positionVal = 0
   return [...Array(n)].map(() => {
     return <div><Match 
     teams= {this.props.teams}
