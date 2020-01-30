@@ -34,7 +34,7 @@ class Match extends React.Component {
           matchPosition={this.props.matchPosition}
           roundPosition={this.props.roundPosition}
           name={team['name']}
-          isWinner={team.isWinner}
+          isWinner={null}
           selectWinner={this.selectWinner}
     />
           
@@ -72,9 +72,11 @@ selectWinner = async (event) =>{
       
         {this.props.roundPosition === 0 ? this.createInitialPairedTeams(teams) : null}
 
-        {/* HARD CODED LOGIC FOR INDEXING -> UPDATE THIS WITH DYNAMIC FUNCTION HELPER */}
-        {this.props.roundPosition === 1 && this.props.matchPosition === 0 ? <p>hi</p> : null}
-        {this.props.roundPosition === 1 && this.props.matchPosition === 1 ? <p>bye</p> : null} 
+      {/* HARD CODED LOGIC FOR INDEXING -> UPDATE THIS WITH DYNAMIC FUNCTION HELPER */}
+      {this.props.roundPosition === 1 && this.props.matchPosition === 0 ? [<Team/>, <Team/> ]: null}
+      {this.props.roundPosition === 1 && this.props.matchPosition === 1 ? [<Team/>, <Team/> ] : null} 
+      {this.props.roundPosition === 2 && this.props.matchPosition === 0 ? [<Team/>, <Team/> ]: null}
+      {this.props.roundPosition === 2 && this.props.matchPosition === 1 ? [<Team/>, <Team/> ] : null} 
       
       </div>
     )
