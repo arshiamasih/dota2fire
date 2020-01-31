@@ -3,30 +3,22 @@ import Match from './Match'
 import { connect } from 'react-redux'
 import { getWinner } from '../store/actions'
 
+
 class Round extends React.Component {
   //map to state
-
-
-
   createMatches(n) {
     let positionVal = 0
     // slice team data here and pass as props
     // make a copy
     const teams = [...this.props.teams.teams]
     const rounds = [...Array(n)].map(() => {
-      return <div><Match 
+      return <div><Match
       teams= {teams.splice(0,2)}
+      winners={null}
       roundPosition={this.props.roundPosition}
       matchPosition={positionVal++}/></div>});
-    
     return rounds 
-  
-    
-
-  
   }
-
-
 
   updatesMatches(){
       //match at [index] = <Match />
@@ -38,16 +30,19 @@ class Round extends React.Component {
     //round accepts a prop to dictate # of matches
     const { numMatches } = this.props
     console.log('ROUND', this.props)
+    const matchesArr = this.createMatches(numMatches)
+
+  
     return (
     <div className={'round'}>
       {numMatches === 1 ? <p> Final round! </p> : null}
-      {this.createMatches(numMatches)}
+      {matchesArr}
     </div>
     )
   }
 }
 
 const mapState = (state) => ({
-  winner: state.teams.winner
+  winner: state.teams.winner,
 })
 export default connect(mapState)(Round)

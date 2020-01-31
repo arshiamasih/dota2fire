@@ -55,7 +55,13 @@
   margin: 10px;
   font-size: 10px;
 }
+ .tree {
+   display: flex
+ }
 
+ .node {
+   margin-top: 100px;
+ }
 
 
 @keyframes App-logo-spin {
