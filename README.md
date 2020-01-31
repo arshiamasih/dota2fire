@@ -1,5 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## DOTA2FIRE
+This is a toy app to test out tournament bracket logic.
+No style has been added.
+Logic is still hard coded and needs to be updated.
+
 ## Available Scripts
 
 In the project directory, you can run:

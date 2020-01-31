@@ -3,24 +3,11 @@ import React from 'react';
 import Bracket from './Bracket'
 import '../App.css';
 
-
-class App extends React.Component {
-  constructor(props){
-    super(props)
-  } 
-  
-  //MOVED TO REDUX
-  // async componentDidMount() {
-  //   const response = await fetch('https://api.opendota.com/api/teams')
-  //   const data = await response.json()
-  //   console.log(data)
-  // }
-  
-  render(){
+//component hierarchy: App > Round > Match > Team
+const App = () => {
     return (
       <div className="App">
         <header className="App-header">
-       
           <p>
            <code>DOTA 2 FIRE</code> 
           </p>
@@ -28,7 +15,5 @@ class App extends React.Component {
         </header>
       </div>
     );
-  }
 }
-
 export default App;

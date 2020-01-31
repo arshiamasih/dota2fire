@@ -15,22 +15,20 @@ class Match extends React.Component {
       match: null,
       team: null
     },
+    //hard code test 
     winners: {
       0: null,
-      1: 'vikings',
+      1: null,
       2: null,
-      3: 'OG'
+      3: null
     }
   }
-  this.selectWinner = this.selectWinner.bind(this)
 }
 
-  //this logic is not correct
+  //this logic should come from parent component passing down team prop to each match child
   createInitialPairedTeams(teams){
-
    //gets team data from props and executes this.
     const teamsCopy = [...teams]
-  
     return teamsCopy.splice(0,2).map((team, i) => {
       return (
       <div key={i}>
@@ -44,7 +42,7 @@ class Match extends React.Component {
           selectWinner={this.selectWinner}
     />         
       </div> )
-      })
+    })
    
   }
 
@@ -53,6 +51,7 @@ class Match extends React.Component {
     const arr = []  
     const {teamData} = this.props.winner
     const {winners} = {...this.state}
+
     //HARD CODED FOR TESTING
     if(this.props.roundPosition === 1 && this.props.matchPosition === 0) {
       arr[0] = <Team name={teamData}/> 
@@ -60,16 +59,11 @@ class Match extends React.Component {
 
     }
     if(this.props.roundPosition === 1 && this.props.matchPosition === 1 ) {
-      arr[0] = <Team name={winners[2]}/> 
-      arr[1] = <Team name={winners[3]}/> 
-    }
-
-    if(this.props.roundPosition === 2 && this.props.matchPosition === 0 ) {
-      arr[0] = <Team name={winners[1]}/> 
+      arr[0] = <Team name={null}/> 
+      arr[1] = <Team name={null}/> 
     }
     return arr
   }
-
 
   selectWinner = async (event) =>{
     event.preventDefault()
@@ -91,24 +85,21 @@ class Match extends React.Component {
 
   render() {
     const teams = [...this.props.teams.teams]
-    console.log(this.props)
+    const seedRound = 0
 
     return (
       <div className={'match'}>
       <p style={{fontSize: '10px'}}>{this.props.position}</p> 
-      
-        {this.props.roundPosition === 0 ? this.createInitialPairedTeams(teams) : null}
-        {this.props.roundPosition !== 0 ? this.addWinnerToNextRound(this.props.winner.teamData) : null}
-      
+        {this.props.roundPosition === seedRound ? this.createInitialPairedTeams(teams) : null}
+        {this.props.roundPosition !== seedRound ? this.addWinnerToNextRound(this.props.winner.teamData) : null}
       </div>
     )
   }
 }
 
 const mapState = (state) => ({
-  winner: state.teamsTest.winner
+  winner: state.teams.winner
 })
-
 const mapDispatch = (dispatch) => ({
   getWinner: (t,p)=>dispatch(getWinner(t,p))
 })

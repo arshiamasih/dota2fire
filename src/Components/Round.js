@@ -6,11 +6,18 @@ class Round extends React.Component {
 
   createMatches(n) {
     let positionVal = 0
+    //slice team data here and pass as props
     return [...Array(n)].map(() => {
       return <div><Match 
       teams= {this.props.teams}
       roundPosition={this.props.roundPosition}
       matchPosition={positionVal++}/></div>});
+  }
+
+  updatesMatches(){
+      //match at index = <Match />
+      //team winner prop set to true
+      // updates name from null
   }
  
   render(){

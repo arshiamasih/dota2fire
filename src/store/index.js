@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import teamReducer from './reducer';
 
 const reducers = combineReducers({
-  teamsTest: teamReducer,
+  teams: teamReducer,
 });
 
 export default reducers;
