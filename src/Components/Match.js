@@ -42,8 +42,7 @@ class Match extends React.Component {
           name={team['name']}
           isWinner={false}
           selectWinner={this.selectWinner}
-    />
-          
+    />         
       </div> )
       })
    
@@ -51,45 +50,23 @@ class Match extends React.Component {
 
   //this logic can potentially go up to round level
   addWinnerToNextRound(team){
-    //console.log('winner', this.props.winner.teamData)
-    
-    //map state to winner prop from redux
-    //updates name prop
-    //copy state so that it does not override
-    //'current round' vs 'next round'
     const arr = []  
-  
-    //const {round, match, team} = this.props.winner.positions
     const {teamData} = this.props.winner
     const {winners} = {...this.state}
-  
+    //HARD CODED FOR TESTING
     if(this.props.roundPosition === 1 && this.props.matchPosition === 0) {
       arr[0] = <Team name={teamData}/> 
-      //if this.props.winner.positions.team = 0
-      //arr[team] = <Team name={''}/> 
-
       arr[1] = <Team name={winners[1]}/> 
-      //if this.props.winner.positions.team = 1
-      //arr[team] = <Team name={''}/> 
-    }
 
+    }
     if(this.props.roundPosition === 1 && this.props.matchPosition === 1 ) {
       arr[0] = <Team name={winners[2]}/> 
-      //if this.props.winner.positions.team = 0
-      //arr[team] = <Team name={''}/> 
-  
       arr[1] = <Team name={winners[3]}/> 
-      //if this.props.winner.positions.team = 1
-      //arr[team] = <Team name={''}/> 
     }
 
     if(this.props.roundPosition === 2 && this.props.matchPosition === 0 ) {
       arr[0] = <Team name={winners[1]}/> 
-      //if this.props.winner.positions.team = 0
-      //arr[team] = <Team name={''}/> 
- 
     }
-    
     return arr
   }
 
@@ -107,14 +84,9 @@ class Match extends React.Component {
       name: name, 
       positions: position
     })
-    
-    //this.props.getWinner(this.state.name, this.state.positions)
 
     this.props.getWinner(this.state.name, this.state.positions)
     //this.addWinnerToNextRound() 
-    //might need to split this into logic and presentation
-    //call add winner to round here or somewhere with props passing team data
-   
   }
 
   render() {
@@ -126,14 +98,7 @@ class Match extends React.Component {
       <p style={{fontSize: '10px'}}>{this.props.position}</p> 
       
         {this.props.roundPosition === 0 ? this.createInitialPairedTeams(teams) : null}
-
-      {/* HARD CODED LOGIC FOR INDEXING -> UPDATE THIS WITH DYNAMIC FUNCTION HELPER */}
-        {/* {this.props.roundPosition === 1 && this.props.matchPosition === 0 ? [<Team/>, <Team/> ]: null}
-        {this.props.roundPosition === 1 && this.props.matchPosition === 1 ? [<Team/>, <Team/> ] : null}
-        {this.props.roundPosition === 2 && this.props.matchPosition === 0 ? [<Team/>, <Team/> ]: null}
-        {this.props.roundPosition === 2 && this.props.matchPosition === 1 ? [<Team/>, <Team/> ] : null}  */}
         {this.props.roundPosition !== 0 ? this.addWinnerToNextRound(this.props.winner.teamData) : null}
-      
       
       </div>
     )
