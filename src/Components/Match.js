@@ -9,12 +9,7 @@ class Match extends React.Component {
     super(props)
 
   this.state = {
-    name: '',
-    positions: {
-      round: null,
-      match: null,
-      team: null
-    },
+    name: ''
   }
 }
 
@@ -42,31 +37,38 @@ class Match extends React.Component {
 
      //HARD CODED LOGIC - update with correct mapping
       if(this.props.roundPosition === 1 && this.props.matchPosition === 0 ) {
+        const {one, two} = this.props.winner
+        console.log('test', one[0])
         arr[0] = <Team 
-          name={this.props.winner.win? this.props.winner[0]: null}
+          name={one.win? one[0] || one[1] : null}
           id={0} 
           matchPosition={this.props.matchPosition}
           roundPosition={this.props.roundPosition}
           selectWinner={this.selectWinner}/> 
         arr[1] = <Team 
-          name={this.props.winner.win? this.props.winner[1]: null}
+          name={one.win? two[0] || two[1]: null}
           id={1} 
           matchPosition={this.props.matchPosition}
           roundPosition={this.props.roundPosition}
           selectWinner={this.selectWinner}/>     
       }
-    
-    // } 
+
+ 
+
     return arr
   }
 
   selectWinner = async (event) =>{
     event.preventDefault()
+    const {matchPosition} = {...this.props}
+    console.log('HELLO MATCH POSITION', matchPosition)
     const {id, name} = event.target
     await this.setState({
-      [id]: name
+      [id]: name,
+      match: matchPosition
     })
-    this.props.getWinner(this.state[id], id)
+    console.log('select winner',this.state.match)
+    this.props.getWinner(this.state.match, this.state[id], id)
   }
 
   render() {
@@ -87,7 +89,7 @@ const mapState = (state) => ({
 
 })
 const mapDispatch = (dispatch) => ({
-  getWinner: (t,p)=>dispatch(getWinner(t,p))
+  getWinner: (p,n,k)=>dispatch(getWinner(p,n,k))
 })
 
 export default connect(mapState, mapDispatch)(Match)

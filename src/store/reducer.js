@@ -3,9 +3,16 @@ import { ADD_WINNERS, GET_TEAMS } from "./types";
 const initialState = {
   teams: [],
   winner: {
-    win: false,
-    0: null,
-    1: null
+    one: {
+      win: false,
+      0: null,
+      1: null
+    },
+    two: {
+      win: false,
+      0: null,
+      1: null
+    }
   }
 }
 
@@ -13,12 +20,22 @@ const initialState = {
 const teamReducer=(state = initialState, action) => {
   switch (action.type) {
     case ADD_WINNERS:    
-      return {
+      return  {
         ...state,
         winner: {
           ...state.winner,
-          [action.key]: action.payload.winner,
-          win: true
+          [action.pos]: {
+            ...state.winner.one,
+            [action.key]: action.payload.winner,
+            win: true
+
+          },
+          [action.pos]: {
+            ...state.winner.two,
+            [action.key]: action.payload.winner,
+            win: true
+          }
+       
         }
       };
     case GET_TEAMS: 

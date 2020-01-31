@@ -1,6 +1,6 @@
-import React from './node_modules/react'
+import React from 'react'
 import Match from './Match'
-import { connect } from './node_modules/react-redux'
+import { connect } from 'react-redux'
 import { getWinner } from '../store/actions'
 
 
