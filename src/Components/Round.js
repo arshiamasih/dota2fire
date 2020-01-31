@@ -1,6 +1,6 @@
-import React from 'react'
+import React from './node_modules/react'
 import Match from './Match'
-import { connect } from 'react-redux'
+import { connect } from './node_modules/react-redux'
 import { getWinner } from '../store/actions'
 
 
@@ -8,8 +8,6 @@ class Round extends React.Component {
   //map to state
   createMatches(n) {
     let positionVal = 0
-    // slice team data here and pass as props
-    // make a copy
     const teams = [...this.props.teams.teams]
     const rounds = [...Array(n)].map(() => {
       return <div><Match
