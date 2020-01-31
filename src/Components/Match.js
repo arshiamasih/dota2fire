@@ -25,11 +25,16 @@ class Match extends React.Component {
   }
 }
 
-  //this logic should come from parent component passing down team prop to each match child
-  createInitialPairedTeams(teams){
-   //gets team data from props and executes this.
-    const teamsCopy = [...teams]
-    return teamsCopy.splice(0,2).map((team, i) => {
+
+  createInitialPairedTeams(){
+    //const teams = [...this.props.teams]
+    const teams = [...this.props.teams]
+    //how to set team iswinner to true with the info i have?
+    //iterate
+    //if this.props.winner.teamname === this.props.name
+    //set isWinner to true
+    //if isWinner is true, update name
+    return teams.map((team, i) => {
       return (
       <div key={i}>
         <Team
@@ -46,6 +51,8 @@ class Match extends React.Component {
    
   }
 
+
+
   //this logic can potentially go up to round level
   addWinnerToNextRound(team){
     const arr = []  
@@ -54,19 +61,20 @@ class Match extends React.Component {
 
     //HARD CODED FOR TESTING
     if(this.props.roundPosition === 1 && this.props.matchPosition === 0) {
-      arr[0] = <Team name={teamData}/> 
+      arr[0] = <Team name={teamData }
+        id={0} 
+        matchPosition={this.props.matchPosition}
+        roundPosition={this.props.roundPosition}
+        isWinner={false}
+        selectWinner={this.selectWinner}/> 
       arr[1] = <Team name={winners[1]}/> 
-
-    }
-    if(this.props.roundPosition === 1 && this.props.matchPosition === 1 ) {
-      arr[0] = <Team name={null}/> 
-      arr[1] = <Team name={null}/> 
     }
     return arr
   }
 
   selectWinner = async (event) =>{
     event.preventDefault()
+    console.log('am i firing??')
     const {id, name} = event.target
     const {roundPosition, matchPosition} = {...this.props}
     const position =  {
@@ -80,17 +88,18 @@ class Match extends React.Component {
     })
 
     this.props.getWinner(this.state.name, this.state.positions)
-    //this.addWinnerToNextRound() 
+    this.addWinnerToNextRound() 
   }
 
   render() {
-    const teams = [...this.props.teams.teams]
+    const teams = [...this.props.teams]
     const seedRound = 0
 
     return (
       <div className={'match'}>
       <p style={{fontSize: '10px'}}>{this.props.position}</p> 
-        {this.props.roundPosition === seedRound ? this.createInitialPairedTeams(teams) : null}
+        {this.props.roundPosition === seedRound ? this.createInitialPairedTeams(teams) : null}  
+   
         {this.props.roundPosition !== seedRound ? this.addWinnerToNextRound(this.props.winner.teamData) : null}
       </div>
     )
