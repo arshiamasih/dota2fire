@@ -38,7 +38,7 @@ class Match extends React.Component {
      //HARD CODED LOGIC - update with correct mapping
       if(this.props.roundPosition === 1 && this.props.matchPosition === 0 ) {
         const {one, two} = this.props.winner
-        console.log('test', one[0])
+   
         arr[0] = <Team 
           name={one.win? one[0] || one[1] : null}
           id={0} 
@@ -46,12 +46,31 @@ class Match extends React.Component {
           roundPosition={this.props.roundPosition}
           selectWinner={this.selectWinner}/> 
         arr[1] = <Team 
-          name={one.win? two[0] || two[1]: null}
+          name={two.win? two[0] || two[1]: null}
           id={1} 
           matchPosition={this.props.matchPosition}
           roundPosition={this.props.roundPosition}
           selectWinner={this.selectWinner}/>     
       }
+
+
+    if(this.props.roundPosition === 1 && this.props.matchPosition === 1 ) {
+        const {three, four} = this.props.winner
+   
+        arr[0] = <Team 
+          name={three.win? three[0] || three[1] : null}
+          id={0} 
+          matchPosition={this.props.matchPosition}
+          roundPosition={this.props.roundPosition}
+          selectWinner={this.selectWinner}/> 
+        arr[1] = <Team 
+          name={four.win? four[0] || four[1]: null}
+          id={1} 
+          matchPosition={this.props.matchPosition}
+          roundPosition={this.props.roundPosition}
+          selectWinner={this.selectWinner}/>     
+      }
+  
 
  
 

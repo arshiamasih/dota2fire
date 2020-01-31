@@ -12,7 +12,17 @@ const initialState = {
       win: false,
       0: null,
       1: null
-    }
+    },
+    three: {
+      win: false,
+      0: null,
+      1: null
+    },
+    four: {
+      win: false,
+      0: null,
+      1: null
+    },
   }
 }
 
@@ -28,13 +38,22 @@ const teamReducer=(state = initialState, action) => {
             ...state.winner.one,
             [action.key]: action.payload.winner,
             win: true
-
           },
           [action.pos]: {
             ...state.winner.two,
             [action.key]: action.payload.winner,
             win: true
-          }
+          },
+          [action.pos]: {
+            ...state.winner.three,
+            [action.key]: action.payload.winner,
+            win: true
+          },
+          [action.pos]: {
+            ...state.winner.four,
+            [action.key]: action.payload.winner,
+            win: true
+          },
        
         }
       };
