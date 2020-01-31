@@ -40,7 +40,7 @@ class Match extends React.Component {
           matchPosition={this.props.matchPosition}
           roundPosition={this.props.roundPosition}
           name={team['name']}
-          isWinner={null}
+          isWinner={false}
           selectWinner={this.selectWinner}
     />
           
@@ -50,7 +50,7 @@ class Match extends React.Component {
   }
 
   //this logic can potentially go up to round level
-  addWinnerToNextRound(newWinner = this.props.winner.teamData){
+  addWinnerToNextRound(team){
     //console.log('winner', this.props.winner.teamData)
     
     //map state to winner prop from redux
@@ -60,11 +60,11 @@ class Match extends React.Component {
     const arr = []  
   
     //const {round, match, team} = this.props.winner.positions
-    //const {name} = this.props.winner.name
+    const {teamData} = this.props.winner
     const {winners} = {...this.state}
   
     if(this.props.roundPosition === 1 && this.props.matchPosition === 0) {
-      arr[0] = <Team name={winners[0]}/> 
+      arr[0] = <Team name={teamData}/> 
       //if this.props.winner.positions.team = 0
       //arr[team] = <Team name={''}/> 
 
@@ -89,9 +89,7 @@ class Match extends React.Component {
       //arr[team] = <Team name={''}/> 
  
     }
-
-   
-
+    
     return arr
   }
 
@@ -134,7 +132,7 @@ class Match extends React.Component {
         {this.props.roundPosition === 1 && this.props.matchPosition === 1 ? [<Team/>, <Team/> ] : null}
         {this.props.roundPosition === 2 && this.props.matchPosition === 0 ? [<Team/>, <Team/> ]: null}
         {this.props.roundPosition === 2 && this.props.matchPosition === 1 ? [<Team/>, <Team/> ] : null}  */}
-        {this.props.roundPosition !== 0 ? this.addWinnerToNextRound() : null}
+        {this.props.roundPosition !== 0 ? this.addWinnerToNextRound(this.props.winner.teamData) : null}
       
       
       </div>
