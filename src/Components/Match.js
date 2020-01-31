@@ -7,9 +7,7 @@ import { getWinner } from '../store/actions'
 class Match extends React.Component {
   constructor(props) {
     super(props)
-
-  this.state = {
-    name: ''
+    this.state = {
   }
 }
 
@@ -37,7 +35,7 @@ class Match extends React.Component {
 
      //HARD CODED LOGIC - update with correct mapping
       if(this.props.roundPosition === 1 && this.props.matchPosition === 0 ) {
-        const {one, two} = this.props.winner
+        const {one, two} = {...this.props.winner}
    
         arr[0] = <Team 
           name={one.win? one[0] || one[1] : null}
@@ -72,21 +70,21 @@ class Match extends React.Component {
       }
   
 
- 
-
+      //is there a way to clear state once all are complete??
+      if(this.props.roundPosition === 2 && this.props.matchPosition === 0 ) {
+    
+      }
     return arr
   }
 
   selectWinner = async (event) =>{
     event.preventDefault()
     const {matchPosition} = {...this.props}
-    console.log('HELLO MATCH POSITION', matchPosition)
     const {id, name} = event.target
     await this.setState({
       [id]: name,
       match: matchPosition
     })
-    console.log('select winner',this.state.match)
     this.props.getWinner(this.state.match, this.state[id], id)
   }
 

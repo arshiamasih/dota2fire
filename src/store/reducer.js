@@ -1,5 +1,8 @@
 import { ADD_WINNERS, GET_TEAMS } from "./types";
 
+//const helper function depending on how many rounds/matches
+//is there a better more dynamic structure??
+
 const initialState = {
   teams: [],
   winner: {
