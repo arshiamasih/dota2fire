@@ -7,6 +7,7 @@ import { structure } from '../Components/Bracket'
 
 const initialState = {
   teams: [],
+  teamPlayers: [],
   winner: structure
 }
 
@@ -44,16 +45,16 @@ const teamReducer=(state = initialState, action) => {
         ...state,
         winner: {
           ...state.winner,
-          [action.pos]: {
+          [action.pos]: Object.assign({},{
             ...state.winner.one,
             [action.key]: action.payload.winner,
             win: true
-          },
-          [action.pos]: {
+          }),
+          [action.pos]: Object.assign({},{
             ...state.winner.two,
             [action.key]: action.payload.winner,
             win: true
-          },
+          }),
           [action.pos]: {
             ...state.winner.three,
             [action.key]: action.payload.winner,

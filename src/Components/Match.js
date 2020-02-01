@@ -72,10 +72,11 @@ class Match extends React.Component {
 
       //is there a way to clear state once all are complete??
       if(this.props.roundPosition === 2 && this.props.matchPosition === 0 ) {
-    
       }
+
     return arr
   }
+
 
   selectWinner = async (event) =>{
     event.preventDefault()
