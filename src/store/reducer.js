@@ -1,33 +1,40 @@
 import { ADD_WINNERS, GET_TEAMS } from "./types";
+import { structure } from '../Components/Bracket'
 
 //const helper function depending on how many rounds/matches
 //is there a better more dynamic structure??
+//const winner = createStructure()
 
 const initialState = {
   teams: [],
-  winner: {
-    one: {
-      win: false,
-      0: null,
-      1: null
-    },
-    two: {
-      win: false,
-      0: null,
-      1: null
-    },
-    three: {
-      win: false,
-      0: null,
-      1: null
-    },
-    four: {
-      win: false,
-      0: null,
-      1: null
-    },
-  }
+  winner: structure
 }
+
+// const initialState = {
+//   teams: [],
+//   winner: {
+//     one: {
+//       win: false,
+//       0: null,
+//       1: null
+//     },
+//     two: {
+//       win: false,
+//       0: null,
+//       1: null
+//     },
+//     three: {
+//       win: false,
+//       0: null,
+//       1: null
+//     },
+//     four: {
+//       win: false,
+//       0: null,
+//       1: null
+//     },
+//   }
+// }
 
 //object.assign?
 const teamReducer=(state = initialState, action) => {
