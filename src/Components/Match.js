@@ -31,38 +31,43 @@ class Match extends React.Component {
 
   //this logic can potentially go up to round level
  addWinnerToNextRound(){
-    const arr = []  
+    const arr = []
+    const winner = {...this.props.winner}  
 
      //HARD CODED LOGIC - update with correct mapping
       if(this.props.roundPosition === 1 && this.props.matchPosition === 0 ) {
-        const {one, two} = {...this.props.winner}
+        //const {one, two} = {...this.props.winner}
+        
+       // console.log(winner[1][0])
+
+          arr[0] = <Team 
+            name={winner[0]['win']? winner[0][0] || winner[0][1] : null}
+            id={0} 
+            matchPosition={this.props.matchPosition}
+            roundPosition={this.props.roundPosition}
+            selectWinner={this.selectWinner}/> 
+          arr[1] = <Team 
+            name={winner[1]['win']? winner[1][0] || winner[1][1] : null}
+            id={1} 
+            matchPosition={this.props.matchPosition}
+            roundPosition={this.props.roundPosition}
+          selectWinner={this.selectWinner}/>  
    
-        arr[0] = <Team 
-          name={one.win? one[0] || one[1] : null}
-          id={0} 
-          matchPosition={this.props.matchPosition}
-          roundPosition={this.props.roundPosition}
-          selectWinner={this.selectWinner}/> 
-        arr[1] = <Team 
-          name={two.win? two[0] || two[1]: null}
-          id={1} 
-          matchPosition={this.props.matchPosition}
-          roundPosition={this.props.roundPosition}
-          selectWinner={this.selectWinner}/>     
+      
       }
 
 
     if(this.props.roundPosition === 1 && this.props.matchPosition === 1 ) {
-        const {three, four} = this.props.winner
+   
    
         arr[0] = <Team 
-          name={three.win? three[0] || three[1] : null}
+          name={winner[2]['win']? winner[2][0] || winner[2][1] : null}
           id={0} 
           matchPosition={this.props.matchPosition}
           roundPosition={this.props.roundPosition}
           selectWinner={this.selectWinner}/> 
         arr[1] = <Team 
-          name={four.win? four[0] || four[1]: null}
+          name={winner[3]['win']? winner[3][0] || winner[3][1]: null}
           id={1} 
           matchPosition={this.props.matchPosition}
           roundPosition={this.props.roundPosition}
@@ -70,9 +75,9 @@ class Match extends React.Component {
       }
   
 
-      //is there a way to clear state once all are complete??
-      if(this.props.roundPosition === 2 && this.props.matchPosition === 0 ) {
-      }
+    //   //is there a way to clear state once all are complete??
+    //   if(this.props.roundPosition === 2 && this.props.matchPosition === 0 ) {
+    //   }
 
     return arr
   }

@@ -52,14 +52,15 @@ export default connect(mapState, mapDispatch)(Bracket)
 
 const createStructure = (num) => {
   const hash = {
-    1: 'one',
-    2: 'two',
-    3: 'three',
-    4: 'four',
-    5: 'five',
-    6: 'six',
-    7: 'seven',
-    8: 'eight'
+    0: 0,
+    1: 1,
+    2: 2,
+    3: 3,
+    4: 4,
+    5: 5,
+    6: 6,
+    7: 7,
+    8: 8
   }
   let arr = Object.values(hash)
   arr = arr.slice(0,num/2)
@@ -72,6 +73,8 @@ const createStructure = (num) => {
     obj[el] = match
     return obj
   }, {} )
+
+  console.log(obj)
   return obj
 }
 

@@ -32,51 +32,30 @@ const createStructure = (num) => {
 
 export const structure = createStructure(defineTeamNum.num)
 
-  // const winner =  {
-  //   one:{ 
-  //     one: {
-  //       win: false,
-  //       0: null,
-  //       1: null
-  //     },
-  //     two: {
-  //       win: false,
-  //       0: null,
-  //       1: null
-  //     },
-  //     three: {
-  //       win: false,
-  //       0: null,
-  //       1: null
-  //     },
-  //     four: {
-  //       win: false,
-  //       0: null,
-  //       1: null
-  //     },
-  //   two:{ 
-  //       one: {
-  //         win: false,
-  //         0: null,
-  //         1: null
-  //       },
-  //       two: {
-  //         win: false,
-  //         0: null,
-  //         1: null
-  //       },  
-  //     },
-  //   three:{ 
-  //       one: {
-  //         win: false,
-  //         0: null,
-  //         1: null
-  //       },
-  //       two: {
-  //         win: false,
-  //         0: null,
-  //         1: null
-  //       },  
-  //     }    
-  //   }
-  // }
+
+// initial state looks like this
+// const initialState = {
+//   teams: [],
+//   winner: {
+//     0: {
+//       win: false,
+//       0: 'test',
+//       1: 'test'
+//     },
+//     1: {
+//       win: false,
+//       0: null,
+//       1: null
+//     },
+//     2: {
+//       win: false,
+//       0: null,
+//       1: null
+//     },
+//     3: {
+//       win: false,
+//       0: null,
+//       1: null
+//     },
+//   }
+// }

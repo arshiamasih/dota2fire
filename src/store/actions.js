@@ -10,10 +10,6 @@ import {ADD_WINNERS, GET_TEAMS} from './types'
 // })
 
 export const addWinners = (pos, winner, key) => {
-if(pos === 0) { pos = 'one'}
-if(pos === 1) { pos = 'two'}
-if(pos === 2) { pos = 'three'}
-if(pos === 3) { pos = 'four'}
 
   return {
     //round should round++ 

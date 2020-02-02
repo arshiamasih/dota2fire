@@ -3,6 +3,7 @@ import { structure } from '../Components/Bracket'
 
 //const helper function depending on how many rounds/matches
 //is there a better more dynamic structure??
+//refer to helper.js for visual of data structure
 //const winner = createStructure()
 
 const initialState = {
@@ -11,31 +12,6 @@ const initialState = {
   winner: structure
 }
 
-// const initialState = {
-//   teams: [],
-//   winner: {
-//     one: {
-//       win: false,
-//       0: null,
-//       1: null
-//     },
-//     two: {
-//       win: false,
-//       0: null,
-//       1: null
-//     },
-//     three: {
-//       win: false,
-//       0: null,
-//       1: null
-//     },
-//     four: {
-//       win: false,
-//       0: null,
-//       1: null
-//     },
-//   }
-// }
 
 //object.assign?
 const teamReducer=(state = initialState, action) => {
@@ -78,3 +54,31 @@ const teamReducer=(state = initialState, action) => {
   }
 }
 export default teamReducer
+
+
+// initial state looks like this
+// const initialState = {
+//   teams: [],
+//   winner: {
+//     0: {
+//       win: false,
+//       0: 'test',
+//       1: 'test'
+//     },
+//     1: {
+//       win: false,
+//       0: null,
+//       1: null
+//     },
+//     2: {
+//       win: false,
+//       0: null,
+//       1: null
+//     },
+//     3: {
+//       win: false,
+//       0: null,
+//       1: null
+//     },
+//   }
+// }
