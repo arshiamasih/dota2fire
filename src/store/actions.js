@@ -1,29 +1,7 @@
 import {ADD_WINNERS, GET_TEAMS} from './types'
-
-// export const addWinners = (teamData, positions) => ({
-//   //round should round++ 
-//   type: ADD_WINNERS,
-//   payload: {
-//     teamData,
-//     positions
-//   }
-// })
-
 export const addWinners = (round, match, winner) => {
 
-  //this logic is resetting [0][1] values
-  // let winnerZero = '';
-  // let winnerOne= '';
-
-  // if (round === 0) {
-  //   winnerZero = winner
-  // }
-  // if (round === 1)
-  //   winnerOne = winner
-
-  //conditionals on rounds
-  return {
-    //round should round++ 
+return { 
     type: ADD_WINNERS,
     payload: {
       round : winner
@@ -31,7 +9,6 @@ export const addWinners = (round, match, winner) => {
     round,
     match
   }
-
 }
 
 export const fetchTeamData = (teams) => ({
@@ -47,11 +24,6 @@ export const getTeams = (num) => async (dispatch) => {
   const teams = data.slice(0,num);
   return dispatch(fetchTeamData(teams))
 }
-
-// export const getWinner = (team, position) => async (dispatch) => {
-//   console.log('action', team,  position)
-//   return dispatch(addWinners(team, position))
-// }
 
 export const getWinner = (round, match, winner) => async (dispatch) => {
   console.log('action wtfff', round, match, winner)

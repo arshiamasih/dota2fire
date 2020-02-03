@@ -33,16 +33,12 @@ class Match extends React.Component {
     })
    
   }
-
-  //this logic can potentially go up to round level
  addWinnerToNextRound(){
 
     const arr = []
     const team = 'team'
     const win = 'win'
     const winner = {...this.props.winner}
-    console.log('test', winner[0][0], winner[0][1], winner[0][2], winner[0][3]) 
-
 
       if(this.props.roundPosition === 1 && this.props.matchPosition === 0 ) {
           arr[0] = <Team 
@@ -75,8 +71,6 @@ class Match extends React.Component {
           selectWinner={this.selectWinner}/>     
       }
   
-
-    //   //is there a way to clear state once all are complete??
       if(this.props.roundPosition === 2 && this.props.matchPosition === 0 ) {
 
         arr[0] = <Team 
