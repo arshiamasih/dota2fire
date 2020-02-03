@@ -17,32 +17,31 @@ const initialState = {
 const teamReducer=(state = initialState, action) => {
   switch (action.type) {
     case ADD_WINNERS:    
+    console.log('reducer', action.payload)
       return  {
         ...state,
         winner: {
           ...state.winner,
-          [action.pos]: Object.assign({},{
-            ...state.winner.one,
-            [action.key]: action.payload.winner,
+          0: {
+            ...state.winner[0],
+            [action.match]: Object.assign({},{
+            team: action.payload.winner,
             win: true
           }),
-          [action.pos]: Object.assign({},{
-            ...state.winner.two,
-            [action.key]: action.payload.winner,
+            [action.match]: Object.assign({},{
+            team: action.payload.winner,
             win: true
           }),
-          [action.pos]: {
-            ...state.winner.three,
-            [action.key]: action.payload.winner,
+            [action.match]: Object.assign({},{
+            team: action.payload.winner,
             win: true
-          },
-          [action.pos]: {
-            ...state.winner.four,
-            [action.key]: action.payload.winner,
+          }),
+            [action.match]: Object.assign({},{
+            team: action.payload.winner,
             win: true
-          },
-       
+          }),
         }
+      }
       };
     case GET_TEAMS: 
       return {
@@ -82,3 +81,33 @@ export default teamReducer
 //     },
 //   }
 // }
+
+
+// case ADD_WINNERS:    
+// return  {
+//   ...state,
+//   winner: {
+//     ...state.winner,
+//     [action.pos]: Object.assign({},{
+//       ...state.winner.one,
+//       [action.key]: action.payload.winner,
+//       win: true
+//     }),
+//     [action.pos]: Object.assign({},{
+//       ...state.winner.two,
+//       [action.key]: action.payload.winner,
+//       win: true
+//     }),
+//     [action.pos]: {
+//       ...state.winner.three,
+//       [action.key]: action.payload.winner,
+//       win: true
+//     },
+//     [action.pos]: {
+//       ...state.winner.four,
+//       [action.key]: action.payload.winner,
+//       win: true
+//     },
+ 
+//   }
+// };

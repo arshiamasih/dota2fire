@@ -66,8 +66,7 @@ const createStructure = (num) => {
   arr = arr.slice(0,num/2)
   const match = {
     win: false,
-    0: null,
-    1: null
+    team: null
   }
   const obj = arr.reduce((obj, el) =>{
     obj[el] = match
@@ -75,56 +74,38 @@ const createStructure = (num) => {
   }, {} )
 
   console.log(obj)
-  return obj
+  //return obj
+
+  const winner = {
+    0: 
+      {
+        0: {
+          win: false,
+          team: null
+        },
+        1: {
+          win: false,
+          team: null
+        },
+        2: {
+          win: false,
+          team: null
+        },
+        3: {
+          win: false,
+          team: null
+        },
+      },
+  }
+  return winner
 }
 
 export const structure = createStructure(defineTeamNum.num)
 
-  // const winner =  {
-  //   one:{ 
-  //     one: {
-  //       win: false,
-  //       0: null,
-  //       1: null
-  //     },
-  //     two: {
-  //       win: false,
-  //       0: null,
-  //       1: null
-  //     },
-  //     three: {
-  //       win: false,
-  //       0: null,
-  //       1: null
-  //     },
-  //     four: {
-  //       win: false,
-  //       0: null,
-  //       1: null
-  //     },
-  //   two:{ 
-  //       one: {
-  //         win: false,
-  //         0: null,
-  //         1: null
-  //       },
-  //       two: {
-  //         win: false,
-  //         0: null,
-  //         1: null
-  //       },  
-  //     },
-  //   three:{ 
-  //       one: {
-  //         win: false,
-  //         0: null,
-  //         1: null
-  //       },
-  //       two: {
-  //         win: false,
-  //         0: null,
-  //         1: null
-  //       },  
-  //     }    
-  //   }
+
+
+  // {
+  //   win: false,
+  //   0: null,
+  //   1: null
   // }

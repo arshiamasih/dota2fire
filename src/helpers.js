@@ -59,3 +59,37 @@ export const structure = createStructure(defineTeamNum.num)
 //     },
 //   }
 // }
+
+
+  winner = {
+    1: 
+      {
+        0: {
+          win: false,
+          team: null
+        },
+        1: {
+          win: false,
+          team: null
+        },
+        2: {
+          win: false,
+          team: null
+        },
+        3: {
+          win: false,
+          team: null
+        },
+      },
+    2: 
+      {
+        0: {
+          win: false,
+          team: null
+        },
+        1: {
+          win: false,
+          team: null
+        },
+      },
+  }

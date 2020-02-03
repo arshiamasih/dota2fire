@@ -9,7 +9,7 @@ import {ADD_WINNERS, GET_TEAMS} from './types'
 //   }
 // })
 
-export const addWinners = (pos, winner, key) => {
+export const addWinners = (round, match, winner) => {
 
   return {
     //round should round++ 
@@ -17,8 +17,8 @@ export const addWinners = (pos, winner, key) => {
     payload: {
       winner,
     },
-    key,
-    pos
+    round,
+    match
   }
 
 }
@@ -42,9 +42,9 @@ export const getTeams = (num) => async (dispatch) => {
 //   return dispatch(addWinners(team, position))
 // }
 
-export const getWinner = (pos, winner,key) => async (dispatch) => {
-  console.log('action wtfff', pos, winner, key)
-  return dispatch(addWinners(pos, winner, key))
+export const getWinner = (round, match, winner) => async (dispatch) => {
+  console.log('action wtfff', round, match, winner)
+  return dispatch(addWinners(round, match, winner))
 }
 
 
