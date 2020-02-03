@@ -11,11 +11,22 @@ import {ADD_WINNERS, GET_TEAMS} from './types'
 
 export const addWinners = (round, match, winner) => {
 
+  //this logic is resetting [0][1] values
+  // let winnerZero = '';
+  // let winnerOne= '';
+
+  // if (round === 0) {
+  //   winnerZero = winner
+  // }
+  // if (round === 1)
+  //   winnerOne = winner
+
+  //conditionals on rounds
   return {
     //round should round++ 
     type: ADD_WINNERS,
     payload: {
-      winner,
+      round : winner
     },
     round,
     match

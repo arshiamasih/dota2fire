@@ -77,8 +77,22 @@ class Match extends React.Component {
   
 
     //   //is there a way to clear state once all are complete??
-    //   if(this.props.roundPosition === 2 && this.props.matchPosition === 0 ) {
-    //   }
+      if(this.props.roundPosition === 2 && this.props.matchPosition === 0 ) {
+
+        arr[0] = <Team 
+        name={winner[1][0][win]? winner[1][0][team] : null}
+        id={0} 
+        matchPosition={this.props.matchPosition}
+        roundPosition={this.props.roundPosition}
+        selectWinner={this.selectWinner}/> 
+      arr[1] = <Team 
+        name={winner[1][1][win]? winner[1][1][team]: null}
+        id={1} 
+        matchPosition={this.props.matchPosition}
+        roundPosition={this.props.roundPosition}
+        selectWinner={this.selectWinner}/>  
+
+      }
 
     return arr
   }

@@ -96,6 +96,17 @@ const createStructure = (num) => {
           team: null
         },
       },
+    1: 
+      {
+        0: {
+          win: false,
+          team: null
+        },
+        1: {
+          win: false,
+          team: null
+        },
+      },
   }
   return winner
 }

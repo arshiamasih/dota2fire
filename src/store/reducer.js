@@ -17,31 +17,19 @@ const initialState = {
 const teamReducer=(state = initialState, action) => {
   switch (action.type) {
     case ADD_WINNERS:    
-    console.log('reducer', action.payload)
+    console.log('reducer', action.payload.round)
       return  {
         ...state,
         winner: {
           ...state.winner,
-          0: {
-            ...state.winner[0],
+        [action.round]: {
+            ...state.winner[action.round],
             [action.match]: Object.assign({},{
-            team: action.payload.winner,
+            team: action.payload.round,
             win: true
-          }),
-            [action.match]: Object.assign({},{
-            team: action.payload.winner,
-            win: true
-          }),
-            [action.match]: Object.assign({},{
-            team: action.payload.winner,
-            win: true
-          }),
-            [action.match]: Object.assign({},{
-            team: action.payload.winner,
-            win: true
-          }),
+           }),
+         },
         }
-      }
       };
     case GET_TEAMS: 
       return {
@@ -53,61 +41,3 @@ const teamReducer=(state = initialState, action) => {
   }
 }
 export default teamReducer
-
-
-// initial state looks like this
-// const initialState = {
-//   teams: [],
-//   winner: {
-//     0: {
-//       win: false,
-//       0: 'test',
-//       1: 'test'
-//     },
-//     1: {
-//       win: false,
-//       0: null,
-//       1: null
-//     },
-//     2: {
-//       win: false,
-//       0: null,
-//       1: null
-//     },
-//     3: {
-//       win: false,
-//       0: null,
-//       1: null
-//     },
-//   }
-// }
-
-
-// case ADD_WINNERS:    
-// return  {
-//   ...state,
-//   winner: {
-//     ...state.winner,
-//     [action.pos]: Object.assign({},{
-//       ...state.winner.one,
-//       [action.key]: action.payload.winner,
-//       win: true
-//     }),
-//     [action.pos]: Object.assign({},{
-//       ...state.winner.two,
-//       [action.key]: action.payload.winner,
-//       win: true
-//     }),
-//     [action.pos]: {
-//       ...state.winner.three,
-//       [action.key]: action.payload.winner,
-//       win: true
-//     },
-//     [action.pos]: {
-//       ...state.winner.four,
-//       [action.key]: action.payload.winner,
-//       win: true
-//     },
- 
-//   }
-// };
