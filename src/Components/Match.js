@@ -40,6 +40,7 @@ class Match extends React.Component {
     const win = 'win'
     const winner = {...this.props.winner}
 
+      //HARD CODED - MAKE MORE DYNAMIC
       if(this.props.roundPosition === 1 && this.props.matchPosition === 0 ) {
           arr[0] = <Team 
             name={winner[0][0][win]? winner[0][0][team] : null}
