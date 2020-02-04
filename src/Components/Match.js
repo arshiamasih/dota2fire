@@ -30,20 +30,10 @@ class Match extends React.Component {
    
   }
  addWinnerToNextRound(){
-    //need a current and next round prop
-    // let currRound = this.state.currRound
-    // console.log(this.props.winner[currRound].winningTeams.length)
-    // if(this.props.winner[currRound].winningTeams.length === 4) {
-    //   this.setState({currRound: 1})
-    // }
     const arr = []
     const team = 'team'
     const win = 'win'
-    //const currRound = 1
-    //previous round
-    //const nextRound = currRound+1
     const winners = {...this.props.winner}
-    console.log('WINNERS FROM STATE', winners)
     //const winner = winners[0]
     //const rounds = Object.keys(winner)  
     //winner[current]
