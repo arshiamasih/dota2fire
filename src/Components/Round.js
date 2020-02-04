@@ -9,19 +9,29 @@ class Round extends React.Component {
   createMatches(n) {
     let positionVal = 0
     const teams = [...this.props.teams.teams]
-    const rounds = [...Array(n)].map(() => {
+    const matches = [...Array(n)].map(() => {
       return <div><Match
       teams= {teams.splice(0,2)}
       winners={null}
       roundPosition={this.props.roundPosition}
       matchPosition={positionVal++}/></div>});
-    return rounds 
+    return matches
   }
 
   updatesMatches(){
-      //match at [index] = <Match />
-      //team winner prop set to true
-      // updates name from null
+    const teams = this.props.matches
+    let positionVal = 0
+    //respective match spliced 
+    //this.props.matches
+
+    const matches = [...Array(8)].map(() => {
+      return <div><Match
+      teams= {teams.splice(0,2)}
+      winners={null}
+      roundPosition={this.props.roundPosition}
+      matchPosition={positionVal++}/></div>});
+    return matches
+  
   }
  
   render(){
@@ -29,12 +39,14 @@ class Round extends React.Component {
     const { numMatches } = this.props
     console.log('ROUND', this.props)
     const matchesArr = this.createMatches(numMatches)
+    const updateMatches= this.updateMatches()
 
   
     return (
     <div className={'round'}>
       {numMatches === 1 ? <p> Final round! </p> : null}
       {matchesArr}
+      {updateMatches}
     </div>
     )
   }
