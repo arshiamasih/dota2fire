@@ -7,7 +7,7 @@ import { getTeams } from '../store/actions'
 //must be tournament a valid value (4, 8, 16, 32)
 //set at 8 for testing
 export const defineTeamNum = {
-  num: 8
+  num: 16
 }
 
 class Bracket extends React.Component {
@@ -66,7 +66,7 @@ const createStructure = (num) => {
   arr = arr.slice(0,num/2)
   const match = {
     win: false,
-    team: null
+    team: null,
   }
   const obj = arr.reduce((obj, el) =>{
     obj[el] = match
@@ -78,6 +78,42 @@ const createStructure = (num) => {
 
   const winner = {
     0: 
+      {
+        0: {
+          win: false,
+          team: null
+        },
+        1: {
+
+          win: false,
+          team: null
+        },
+        2: {
+          win: false,
+          team: null
+        },
+        3: {
+          win: false,
+          team: null
+        },
+        4: {
+          win: false,
+          team: null
+        },
+        5: {
+          win: false,
+          team: null
+        },
+        6: {
+          win: false,
+          team: null
+        },
+        7: {
+          win: false,
+          team: null
+        },
+      },
+    1: 
       {
         0: {
           win: false,
@@ -96,18 +132,19 @@ const createStructure = (num) => {
           team: null
         },
       },
-    1: 
-      {
-        0: {
-          win: false,
-          team: null
-        },
-        1: {
-          win: false,
-          team: null
-        },
+     2: {        
+       0: 
+       {
+        win: false,
+        team: null
+       },
+      1: {
+        win: false,
+        team: null
       },
+    }
   }
+  console.log(winner)
   return winner
 }
 

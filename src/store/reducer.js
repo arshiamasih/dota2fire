@@ -9,6 +9,7 @@ import { structure } from '../Components/Bracket'
 const initialState = {
   teams: [],
   teamPlayers: [],
+  currRound: 0,
   winner: structure
 }
 
@@ -17,14 +18,15 @@ const initialState = {
 const teamReducer=(state = initialState, action) => {
   switch (action.type) {
     case ADD_WINNERS:    
-    console.log('reducer', action.payload.round)
+
       return  {
         ...state,
         winner: {
           ...state.winner,
         [action.round]: {
             ...state.winner[action.round],
-            [action.match]: Object.assign({},{
+            // winningTeams: [...state.winner[action.round]['winningTeams'], action.payload.round],
+            [action.match]: Object.assign({},{ 
             team: action.payload.round,
             win: true
            }),

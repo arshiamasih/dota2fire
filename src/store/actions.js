@@ -11,6 +11,11 @@ return {
   }
 }
 
+// export const updateCurrentRound = (round) => ({
+//   type: UPDATE_ROUND,
+//   payload: round
+// })
+
 export const fetchTeamData = (teams) => ({
   type: GET_TEAMS,
   payload: teams

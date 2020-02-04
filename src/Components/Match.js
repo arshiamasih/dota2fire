@@ -7,12 +7,8 @@ import { getWinner } from '../store/actions'
 class Match extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      id: null,
-      matchPosition: null,
-      currRound: 0,
-      nextRound: 1,
-      winningTeams: []
+    this.state= {
+      currRound: 0
     }
 }
 
@@ -34,62 +30,189 @@ class Match extends React.Component {
    
   }
  addWinnerToNextRound(){
-
+    //need a current and next round prop
+    // let currRound = this.state.currRound
+    // console.log(this.props.winner[currRound].winningTeams.length)
+    // if(this.props.winner[currRound].winningTeams.length === 4) {
+    //   this.setState({currRound: 1})
+    // }
     const arr = []
     const team = 'team'
     const win = 'win'
-    const winner = {...this.props.winner}
+    //const currRound = 1
+    //previous round
+    //const nextRound = currRound+1
+    const winners = {...this.props.winner}
+    console.log('WINNERS FROM STATE', winners)
+    //const winner = winners[0]
+    //const rounds = Object.keys(winner)  
+    //winner[current]
+    const matches = Object.keys(winners[0])
+    console.log('length of matches', matches)
+    
+    // for(let i = 0; i < matches.length-1; i++) {
+    //   let name = winner[i][win]? winner[i][team] : null
+    //   arr.push(<Team 
+    //     name={name}
+    //     id={0} 
+    //     matchPosition={this.props.matchPosition}
+    //     roundPosition={this.props.roundPosition}
+    //     selectWinner={this.selectWinner}/>)
+    // }
+    // console.log(arr)
 
-      //HARD CODED - MAKE MORE DYNAMIC
-      if(this.props.roundPosition === 1 && this.props.matchPosition === 0 ) {
-          arr[0] = <Team 
-            name={winner[0][0][win]? winner[0][0][team] : null}
+    // //splice
+    // const hashy = {}
+    // for(let i = 0; i < arr.length; i++) {
+    //   hashy[i] = arr.splice(0,2)
+    // }
+
+    //console.log('HASHY', hashy)
+    
+ 
+
+    const hash = {
+     0:{ 
+       0: 
+            [<Team 
+            name={winners[0][0][team]}
             id={0} 
             matchPosition={this.props.matchPosition}
             roundPosition={this.props.roundPosition}
-            selectWinner={this.selectWinner}/> 
-          arr[1] = <Team 
-            name={winner[0][1][win]? winner[0][1][team] : null}
+            selectWinner={this.selectWinner}/> , 
+            <Team 
+            name={winners[0][1][team] }
             id={1} 
             matchPosition={this.props.matchPosition}
             roundPosition={this.props.roundPosition}
-            selectWinner={this.selectWinner}/>  
-      }
+            selectWinner={this.selectWinner}/> ],
+        1: 
+            [<Team 
+            name={winners[0][2]? winners[0][2][team] : null}
+            id={0} 
+            matchPosition={this.props.matchPosition}
+            roundPosition={this.props.roundPosition}
+            selectWinner={this.selectWinner}/>, 
+            <Team 
+            name={winners[0][3] ? winners[0][3][team] : null}
+            id={1} 
+            matchPosition={this.props.matchPosition}
+            roundPosition={this.props.roundPosition}
+            selectWinner={this.selectWinner}/> ],
+        2:  [<Team 
+            name={winners[0][4]? winners[0][4][team] : null}
+            id={0} 
+            matchPosition={this.props.matchPosition}
+            roundPosition={this.props.roundPosition}
+            selectWinner={this.selectWinner}/>, 
+            <Team 
+            name={winners[0][5] ? winners[0][5][team] : null}
+            id={1} 
+            matchPosition={this.props.matchPosition}
+            roundPosition={this.props.roundPosition}
+            selectWinner={this.selectWinner}/> ],
+        3:    
+            [<Team 
+            name={winners[0][6]? winners[0][6][team] : null}
+            id={0} 
+            matchPosition={this.props.matchPosition}
+            roundPosition={this.props.roundPosition}
+            selectWinner={this.selectWinner}/>, 
+            <Team 
+            name={winners[0][7] ? winners[0][7][team] : null}
+            id={1} 
+            matchPosition={this.props.matchPosition}
+            roundPosition={this.props.roundPosition}
+            selectWinner={this.selectWinner}/> ]    
+        },
 
-
-    if(this.props.roundPosition === 1 && this.props.matchPosition === 1 ) {
-        arr[0] = <Team 
-          name={winner[0][2][win]? winner[0][2][team] : null}
+    1:
+      { 
+        0: 
+            [<Team 
+            name={ winners[1][0][team]}
+            id={0} 
+            matchPosition={this.props.matchPosition}
+            roundPosition={this.props.roundPosition}
+            selectWinner={this.selectWinner}/> , 
+            <Team 
+            name={winners[1][1][team]}
+            id={1} 
+            matchPosition={this.props.matchPosition}
+            roundPosition={this.props.roundPosition}
+            selectWinner={this.selectWinner}/> ],
+        1: 
+            [<Team 
+            name={ winners[1][2][team]}
+            id={0} 
+            matchPosition={this.props.matchPosition}
+            roundPosition={this.props.roundPosition}
+            selectWinner={this.selectWinner}/> , 
+            <Team 
+            name={winners[1][3][team]}
+            id={1} 
+            matchPosition={this.props.matchPosition}
+            roundPosition={this.props.roundPosition}
+            selectWinner={this.selectWinner}/> ],  
+        },
+    2: 
+         { 0: [<Team 
+          name={ winners[2][0][team]}
           id={0} 
           matchPosition={this.props.matchPosition}
           roundPosition={this.props.roundPosition}
-          selectWinner={this.selectWinner}/> 
-        arr[1] = <Team 
-          name={winner[0][3][win]? winner[0][3][team]: null}
+          selectWinner={this.selectWinner}/> , 
+          <Team 
+          name={winners[2][1][team]}
           id={1} 
           matchPosition={this.props.matchPosition}
           roundPosition={this.props.roundPosition}
-          selectWinner={this.selectWinner}/>     
-      }
-  
-      if(this.props.roundPosition === 2 && this.props.matchPosition === 0 ) {
+          selectWinner={this.selectWinner}/> ]  
+          } 
+    }
 
-        arr[0] = <Team 
-        name={winner[1][0][win]? winner[1][0][team] : null}
-        id={0} 
-        matchPosition={this.props.matchPosition}
-        roundPosition={this.props.roundPosition}
-        selectWinner={this.selectWinner}/> 
-      arr[1] = <Team 
-        name={winner[1][1][win]? winner[1][1][team]: null}
-        id={1} 
-        matchPosition={this.props.matchPosition}
-        roundPosition={this.props.roundPosition}
-        selectWinner={this.selectWinner}/>  
+    console.log(hash)
+    //HARD CODED - MAKE MORE DYNAMIC
 
-      }
+    if(this.props.roundPosition === 1 && this.props.matchPosition === 0) {
+      return hash[0][0]
+    }
 
-    return arr
+    if(this.props.roundPosition === 1 && this.props.matchPosition === 1) {
+      return hash[0][1]
+    }
+
+    if(this.props.roundPosition === 1 && this.props.matchPosition === 2) {
+      return hash[0][2]
+    }
+
+    if(this.props.roundPosition === 1 && this.props.matchPosition === 3) {
+      return hash[0][3]
+    }
+
+    //next round
+    if(this.props.roundPosition === 2 && this.props.matchPosition === 0) {
+      return hash[1][0]
+    }
+
+    if(this.props.roundPosition === 2 && this.props.matchPosition === 1) {
+      return hash[1][1]
+    }
+
+    //next round
+    if(this.props.roundPosition === 3 && this.props.matchPosition === 0) {
+      return hash[2][0]
+    }
+
+
+
+      //THIS REPLACES DATA - too dynamic lol
+      // for(let i = 0; i < matches.length/2; i++) {
+      //   if(this.props.roundPosition === nextRound && this.props.matchPosition === i){
+      //     return hash[currRound][i]
+      //   }
+      // }
+
   }
 
 
@@ -97,12 +220,16 @@ class Match extends React.Component {
     event.preventDefault()
     const {roundPosition, matchPosition} = {...this.props}
     const {id, name} = event.target
-    await this.setState({
+
+
+   await this.setState({
       [id]: name,
       round: roundPosition,
-      match: matchPosition
+      match: matchPosition,
+      nextRound: roundPosition + 1,
     })
     this.props.getWinner(this.state.round, this.state.match, this.state[id])
+
 
   }
 
