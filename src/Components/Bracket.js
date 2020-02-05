@@ -26,9 +26,9 @@ class Bracket extends React.Component {
 
       const matches = {
       0: teams,
-      1: [...winner[0]['matches']],
-      2: [...winner[1]['matches']],
-      3: [...winner[2]['matches']]
+      1: Object.values(winner[0]['matches']),
+      2: Object.values(winner[1]['matches']),
+      3: Object.values(winner[2]['matches'])
     }
     
     const arr =  [...Array(numTeams)].map((_, i) => {
@@ -119,7 +119,8 @@ const createStructure = (num) => {
 
   const winner = {
     0: 
-      {matches: [{name:null},{name:null },{name:null},{name:null},{name:null},{name:null},{name:null},{name:null}],
+      {match: [{name:null},{name:null },{name:null},{name:null},{name:null},{name:null},{name:null},{name:null}],
+        matches: {
         0: {
           win: false,
           name: null
@@ -154,10 +155,11 @@ const createStructure = (num) => {
           name: null
         },
       },
+    },
     1: 
-      {matches:[{name:'b'},{name:null},{name:null},{name:null}]
+      {match:[{name:'b'},{name:null},{name:null},{name:null}]
       ,
-        0: {
+        matches: {0: {
           win: false,
           name: null
         },
@@ -174,8 +176,9 @@ const createStructure = (num) => {
           name: null
         },
       },
-     2: {  matches: [{name:null},{name:null}],   
-       0: 
+    },
+     2: {  match: [{name:null},{name:null}],   
+       matches:{0: 
        {
         win: false,
         name: null
@@ -184,6 +187,7 @@ const createStructure = (num) => {
         win: false,
         name: null
       },
+    }
     }
   }
   console.log(winner)
