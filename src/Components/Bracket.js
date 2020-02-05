@@ -20,13 +20,6 @@ class Bracket extends React.Component {
     const teams = [...this.props.teams.teams]
     const winner = {...this.props.winner}
 
-    // const matches = {
-    //   0: teams,
-    //   1: Object.values(winner[1]['matches']),
-    //   2: Object.values(winner[2]['matches']),
-    //   3: Object.values(winner[3]['matches']),
-    // }
-
     const matches = [...Array(numRounds)].reduce((matches, el, i)=>{
       if(i === 0) {
         matches[i] = teams

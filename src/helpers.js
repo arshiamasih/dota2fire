@@ -24,10 +24,10 @@ const createStructure = () => {
   return obj
 }
 
+//helper for createStructure
 const createMatchesHash = (arr = [], n, i ) => {
   //base case
-  if(arr.length === i)
-  return arr
+  if(arr.length === i) return arr
   else {
    n /=2 
    const node = {}
@@ -42,139 +42,6 @@ const createMatchesHash = (arr = [], n, i ) => {
   }
 
 }
-
-// const createStructure = () => {
-
-
-//   const winner = {
-//     0: [],
-//     1: 
-//       {
-//         matches: {
-//         0: {
-//           win: false,
-//           name: null
-//         },
-//         1: {
-//           win: false,
-//           name: null
-//         },
-//         2: {
-//           win: false,
-//           name: null
-//         },
-//         3: {
-//           win: false,
-//           name: null
-//         },
-//       },
-//     },
-//     2: 
-//       {
-//         matches: {
-//         0: {
-//           win: false,
-//           name: null
-//         },
-//         1: {
-//           win: false,
-//           name: null
-//         },
-//       },
-//     },
-//      3: {   
-//       matches:{
-//         0: {
-//           win: false,
-//           name: null
-//         },
-//       }
-//     },
-//   }
-//   return winner
-
-  // const winner = {
-  //   0: 
-  //     {
-  //       matches: {
-  //       0: {
-  //         win: false,
-  //         name: null
-  //       },
-  //       1: {
-  //         win: false,
-  //         name: null
-  //       },
-  //       2: {
-  //         win: false,
-  //         name: null
-  //       },
-  //       3: {
-  //         win: false,
-  //         name: null
-  //       },
-  //       4: {
-  //         win: false,
-  //         name: null
-  //       },
-  //       5: {
-  //         win: false,
-  //         name: null
-  //       },
-  //       6: {
-  //         win: false,
-  //         name: null
-  //       },
-  //       7: {
-  //         win: false,
-  //         name: null
-  //       },
-  //     },
-  //   },
-  //   1: 
-  //     {
-  //       matches: {
-  //       0: {
-  //         win: false,
-  //         name: null
-  //       },
-  //       1: {
-  //         win: false,
-  //         name: null
-  //       },
-  //       2: {
-  //         win: false,
-  //         name: null
-  //       },
-  //       3: {
-  //         win: false,
-  //         name: null
-  //       },
-  //     },
-  //   },
-  //    2: {   
-  //     matches:{
-  //       0: {
-  //         win: false,
-  //         name: null
-  //       },
-  //       1: {
-  //         win: false,
-  //         name: null
-  //      },
-  //     }
-  //   },
-  //   3:  {   
-  //     matches:{
-  //       0: {
-  //         win: false,
-  //         name: null
-  //       },
-  //     }
-  //   }    
-  // }
-   //return winner
-//}
 
 export const structure = createStructure()
 
