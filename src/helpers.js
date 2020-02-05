@@ -93,3 +93,168 @@ export const structure = createStructure(defineTeamNum.num)
         },
       },
   }
+
+
+
+//   const winner = {
+//     0: 
+//       {matches: {
+//         0: [[ <Team 
+//           name={null}
+//           id={0} 
+//           matchPosition={null}
+//           roundPosition={this.props.roundPosition ? this.props.roundPosition : null}
+//           selectWinner={this.selectWinner ? this.selectWinner : null}/> , 
+//           <Team 
+//           name={null}
+//           id={1} 
+//           matchPosition={this.props.matchPosition}
+//           roundPosition={this.props.roundPosition}
+//           selectWinner={this.selectWinner}/> ]],
+//         1: [[ <Team 
+//           name={null}
+//           id={0} 
+//           matchPosition={this.props.matchPosition}
+//           roundPosition={this.props.roundPosition}
+//           selectWinner={this.selectWinner}/> , 
+//           <Team 
+//           name={null}
+//           id={1} 
+//           matchPosition={this.props.matchPosition}
+//           roundPosition={this.props.roundPosition}
+//           selectWinner={this.selectWinner}/> ]],
+//         2: [[ <Team 
+//           name={null}
+//           id={0} 
+//           matchPosition={this.props.matchPosition}
+//           roundPosition={this.props.roundPosition}
+//           selectWinner={this.selectWinner}/> , 
+//           <Team 
+//           name={null}
+//           id={1} 
+//           matchPosition={this.props.matchPosition}
+//           roundPosition={this.props.roundPosition}
+//           selectWinner={this.selectWinner}/> ]],
+//         3: [[ <Team 
+//           name={null}
+//           id={0} 
+//           matchPosition={this.props.matchPosition}
+//           roundPosition={this.props.roundPosition}
+//           selectWinner={this.selectWinner}/> , 
+//           <Team 
+//           name={null}
+//           id={1} 
+//           matchPosition={this.props.matchPosition}
+//           roundPosition={this.props.roundPosition}
+//           selectWinner={this.selectWinner}/> ]]
+//       },
+//         0: {
+//           win: false,
+//           team: null
+//         },
+//         1: {
+
+//           win: false,
+//           team: null
+//         },
+//         2: {
+//           win: false,
+//           team: null
+//         },
+//         3: {
+//           win: false,
+//           team: null
+//         },
+//         4: {
+//           win: false,
+//           team: null
+//         },
+//         5: {
+//           win: false,
+//           team: null
+//         },
+//         6: {
+//           win: false,
+//           team: null
+//         },
+//         7: {
+//           win: false,
+//           team: null
+//         },
+//       },
+//     1: 
+//       {matches:{
+//         0: [[ <Team 
+//           name={null}
+//           id={0} 
+//           matchPosition={this.props.matchPosition}
+//           roundPosition={this.props.roundPosition}
+//           selectWinner={this.selectWinner}/> , 
+//           <Team 
+//           name={null}
+//           id={1} 
+//           matchPosition={this.props.matchPosition}
+//           roundPosition={this.props.roundPosition}
+//           selectWinner={this.selectWinner}/> ]],
+//         1: [[ <Team 
+//           name={null}
+//           id={0} 
+//           matchPosition={this.props.matchPosition}
+//           roundPosition={this.props.roundPosition}
+//           selectWinner={this.selectWinner}/> , 
+//           <Team 
+//           name={null}
+//           id={1} 
+//           matchPosition={this.props.matchPosition}
+//           roundPosition={this.props.roundPosition}
+//           selectWinner={this.selectWinner}/> ]],
+//       },
+//         0: {
+//           win: false,
+//           team: null
+//         },
+//         1: {
+//           win: false,
+//           team: null
+//         },
+//         2: {
+//           win: false,
+//           team: null
+//         },
+//         3: {
+//           win: false,
+//           team: null
+//         },
+//       },
+//      2: {  matches: {
+//       0: [[ <Team 
+//         name={null}
+//         id={0} 
+//         matchPosition={this.props.matchPosition}
+//         roundPosition={this.props.roundPosition}
+//         selectWinner={this.selectWinner}/> , 
+//         <Team 
+//         name={null}
+//         id={1} 
+//         matchPosition={this.props.matchPosition}
+//         roundPosition={this.props.roundPosition}
+//         selectWinner={this.selectWinner}/> ]],
+//     },      
+//        0: 
+//        {
+//         win: false,
+//         team: null
+//        },
+//       1: {
+//         win: false,
+//         team: null
+//       },
+//     }
+//   }
+//   console.log(winner)
+//   return winner
+// }
+
+// export const structure = createStructure(defineTeamNum.num)
+
+

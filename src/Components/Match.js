@@ -13,8 +13,9 @@ class Match extends React.Component {
 }
 
   createInitialPairedTeams(){
-    const teams = [...this.props.teams]
-    return teams.map((team, i) => {
+    //const teams = [...this.props.teams]
+    //console.log('MATCH', teams)
+    return this.props.teams.splice(0,2).map((team, i) => {
       return (
       <div key={i}>
         <Team
@@ -258,7 +259,7 @@ class Match extends React.Component {
     return (
       <div className={'match'}>
       <p style={{fontSize: '10px'}}>{this.props.position}</p> 
-        {this.props.roundPosition === seedRound ? this.createInitialPairedTeams(): null}
+        {this.createInitialPairedTeams()}
         {/* {this.props.roundPosition !== seedRound ? this.addWinnerToNextRound() : null} */}
       </div>
     )

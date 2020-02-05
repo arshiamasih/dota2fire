@@ -27,7 +27,7 @@ const teamReducer=(state = initialState, action) => {
             ...state.winner[action.round],
             // winningTeams: [...state.winner[action.round]['winningTeams'], action.payload.round],
             [action.match]: Object.assign({},{ 
-            team: action.payload.round,
+            name: action.payload.round,
             win: true
            }),
          },
