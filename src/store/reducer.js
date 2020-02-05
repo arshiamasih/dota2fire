@@ -15,7 +15,7 @@ const teamReducer=(state = initialState, action) => {
       return  {
         ...state,
         winner: {
-          ...state.winner,
+          ...state.winner,  
         [action.round]: {
             ...state.winner[action.round],
             matches: {
@@ -30,7 +30,11 @@ const teamReducer=(state = initialState, action) => {
     case GET_TEAMS: 
       return {
         ...state,
-        teams: action.payload
+        teams: action.payload,
+        winner: {
+          ...state.winner,
+          0: action.payload
+        }
       };  
     default:
       return state;  

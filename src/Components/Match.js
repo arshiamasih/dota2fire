@@ -53,7 +53,7 @@ class Match extends React.Component {
 
     return (
       <div className={'match'}>
-      <p style={{fontSize: '10px'}}>{this.props.position}</p> 
+ 
         {this.createInitialPairedTeams()}
       </div>
     )

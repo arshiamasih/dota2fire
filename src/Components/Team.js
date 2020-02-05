@@ -3,10 +3,10 @@ import React from 'react'
 const Team = (props) => {
     return (
       <div className={'team'}>
-      <p >Team {props.name}</p>
+      {props.name? <p >Team {props.name}</p> : null}
       {/* show button upon winner selection */}
-        {props.name ? 
-        <button 
+   
+    <button 
           id={props.id}
           matchPosition={props.matchPosition}
           roundPostion={props.roundPosition}
@@ -14,7 +14,7 @@ const Team = (props) => {
           name={props.name}
           onClick={props.selectWinner}>
           Select Winner
-        </button> : null}
+        </button> 
       </div>
     )
 }
