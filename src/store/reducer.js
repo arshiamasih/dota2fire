@@ -1,10 +1,5 @@
 import { ADD_WINNERS, GET_TEAMS } from "./types";
-import { structure } from '../Components/Bracket'
-
-//const helper function depending on how many rounds/matches
-//is there a better more dynamic structure??
-//refer to helper.js for visual of data structure
-//const winner = createStructure()
+import { structure } from '../helpers'
 
 const initialState = {
   teams: [],
@@ -13,8 +8,6 @@ const initialState = {
   winner: structure
 }
 
-
-//object.assign?
 const teamReducer=(state = initialState, action) => {
   switch (action.type) {
     case ADD_WINNERS:    
@@ -25,7 +18,6 @@ const teamReducer=(state = initialState, action) => {
           ...state.winner,
         [action.round]: {
             ...state.winner[action.round],
-            // winningTeams: [...state.winner[action.round]['winningTeams'], action.payload.round],
             matches: {
             ...state.winner[action.round].matches,
             [action.match]: Object.assign({},{ 

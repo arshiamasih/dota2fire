@@ -9,9 +9,6 @@ class Round extends React.Component {
   createMatches(n) {
     let positionVal = 0
     const matches = [...this.props.matches]
-    console.log('WHAT THE FUCK', matches)
-
-
 
     return [...Array(n)].map((_, i) => {
       console.log('count', i)
@@ -20,37 +17,16 @@ class Round extends React.Component {
       winners={null}
       roundPosition={this.props.roundPosition}
       matchPosition={positionVal++}/></div>});
-   
   }
 
-  // updatesMatches(){
-  //   const teams = this.props.matches
-  //   let positionVal = 0
-  //   //respective match spliced 
-  //   //this.props.matches
-
-  //   const matches = [...Array(8)].map(() => {
-  //     return <div><Match
-  //     teams= {teams.splice(0,2)}
-  //     winners={null}
-  //     roundPosition={this.props.roundPosition}
-  //     matchPosition={positionVal++}/></div>});
-  //   return matches
-  
-  // }
- 
   render(){
     //round accepts a prop to dictate # of matches
     const { numMatches } = this.props
-    console.log('ROUND', this.props)
-    const matchesArr = this.createMatches(numMatches)
 
-
-  
     return (
     <div className={'round'}>
       {numMatches === 1 ? <p> Final round! </p> : null}
-      {matchesArr}
+      {this.createMatches(numMatches)}
     </div>
     )
   }
