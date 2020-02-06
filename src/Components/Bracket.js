@@ -6,17 +6,12 @@ import { defineTeamNum } from '../helpers'
 
 class Bracket extends React.Component {
 
-
-
   async componentDidMount(){  
    const numTeams = defineTeamNum.n
    this.props.getTeams(numTeams)
 
   }
-
-
-
-
+  
   createRounds = (n) => {
     const numRounds =  Math.log2(n)
     let matchCalculation = n/2
