@@ -38,15 +38,15 @@
 .round {
   display: flex;
   flex-direction: column;
-  padding: 1em;
-  /* border: 1px dashed pink; */
+  padding: 2em;
+
 }
 
 .match {
   display:flex;
   flex-direction: column;
   border: 1px solid white;
-  margin: .5em;
+  margin: .1em;
 
 }
 

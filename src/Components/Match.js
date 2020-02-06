@@ -12,7 +12,7 @@ class Match extends React.Component {
   createPairedTeams(){
     return this.props.teams.splice(0,2).map((team, i) => {
       return (
-      <div key={i}>
+      <div key={i} style={{paddingTop: this.props.padding, paddingBottom: this.props.padding}}>
         <Team
           id={i}
           matchPosition={this.props.matchPosition}

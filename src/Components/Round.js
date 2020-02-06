@@ -7,11 +7,15 @@ const Round = (props) => {
   const createMatches=(n) =>{
     let positionVal = 0
     const matches = [...props.matches]
+    
     return [...Array(n)].map((_, i) => {
-      return <div><Match
+
+      return <div style={{paddingTop: props.padding, paddingBottom: props.padding}}><Match
       key={i}
       teams={matches}
+      className={null}
       roundPosition={props.roundPosition}
+      padding={props.padding}
       matchPosition={positionVal++}/></div>});
   }
 
