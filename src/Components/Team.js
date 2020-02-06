@@ -1,10 +1,11 @@
 import React from 'react'
 
+
 const Team = (props) => {
     return (
       <div className={'team'}>
-      {props.name? <p >Team {props.name}</p> : null}
-      {/* show button upon winner selection */}
+      {props.win? <div><p >Team {props.name}</p> </div>
+       : null}
    
     <button 
           id={props.id}

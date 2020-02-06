@@ -5,16 +5,8 @@ import { getWinner } from '../store/actions'
 
 
 class Match extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state= {
-      currRound: 0
-    }
-}
 
-  createInitialPairedTeams(){
-    //const teams = [...this.props.teams]
-    //console.log('MATCH', teams)
+  createPairedTeams(){
     return this.props.teams.splice(0,2).map((team, i) => {
       return (
       <div key={i}>
@@ -23,20 +15,18 @@ class Match extends React.Component {
           matchPosition={this.props.matchPosition}
           roundPosition={this.props.roundPosition}
           name={team['name']}
+          win={team['name']? true: false}
           isWinner={false}
           selectWinner={this.selectWinner}
     />         
       </div> )
     })
-   
   }
-
 
   selectWinner = async (event) =>{
     event.preventDefault()
     const {roundPosition, matchPosition} = {...this.props}
     const {id, name} = event.target
-
 
    await this.setState({
       [id]: name,
@@ -45,16 +35,12 @@ class Match extends React.Component {
       nextRound: roundPosition + 1,
     })
     this.props.getWinner(this.state.round, this.state.match, this.state[id])
-
-
   }
 
   render() {
-
     return (
       <div className={'match'}>
- 
-        {this.createInitialPairedTeams()}
+        {this.createPairedTeams()}
       </div>
     )
   }

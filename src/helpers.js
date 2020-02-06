@@ -1,6 +1,6 @@
 //helpers to define game parameters
 
-//DEFINES CALCULATIONS
+//DEFINES CALCULATIONS: enter num of teams below
 const defineParams = (n) => {
   const num = n*2
   return {
@@ -9,7 +9,7 @@ const defineParams = (n) => {
   }
 }
 
-//DEFINE GAME HERE : ENTER # OF TEAMS!
+//*****DEFINE GAME HERE : ENTER # OF TEAMS!*****//
 export const defineTeamNum = defineParams(16)
 
 
@@ -20,7 +20,6 @@ const createStructure = () => {
   for(let i =0; i < arr.length; i++) {
       obj[i+1] = {matches:arr[i]}
   }
-  console.log(obj)
   return obj
 }
 
@@ -44,5 +43,6 @@ const createMatchesHash = (arr = [], n, i ) => {
 }
 
 export const structure = createStructure()
+
 
 

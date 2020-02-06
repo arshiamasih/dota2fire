@@ -1,40 +1,29 @@
 import React from 'react'
 import Match from './Match'
-import { connect } from 'react-redux'
 import { defineTeamNum } from '../helpers'
 
-
-class Round extends React.Component {
-
-  createMatches(n) {
+const Round = (props) => {
+  
+  const createMatches=(n) =>{
     let positionVal = 0
-    const matches = [...this.props.matches]
-
+    const matches = [...props.matches]
     return [...Array(n)].map((_, i) => {
       return <div><Match
-      teams= {matches}
-      winners={null}
-      roundPosition={this.props.roundPosition}
+      key={i}
+      teams={matches}
+      roundPosition={props.roundPosition}
       matchPosition={positionVal++}/></div>});
   }
 
-  render(){
-    //round accepts a prop to dictate # of matches
-    const { numMatches, roundPosition } = this.props
+    //round accepts a prop to dictate # of matches per round
+    const { numMatches, roundPosition } = props
     const winningRound = Math.log2(defineTeamNum.n)
 
     return (
     <div className={'round'}>
-      {roundPosition === winningRound-1 ? <p> Final Match! </p> : null}
-      {roundPosition === winningRound ? <p> Winner! </p> : null}
-      {this.createMatches(numMatches)}
+      <p>{roundPosition !== winningRound? roundPosition+1:  'Winner!' }</p>
+      {createMatches(numMatches)}
     </div>
     )
-  }
 }
-
-const mapState = (state) => ({
-  winner: state.teams.winner,
-  teams: state.teams,
-})
-export default connect(mapState)(Round)
+export default Round
