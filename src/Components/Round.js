@@ -10,7 +10,7 @@ const Round = (props) => {
     
     return [...Array(n)].map((_, i) => {
 
-      return <div style={{paddingTop: props.padding, paddingBottom: props.padding}}><Match
+      return <div style={{paddingBottom: props.padding}}><Match
       key={i}
       teams={matches}
       className={null}

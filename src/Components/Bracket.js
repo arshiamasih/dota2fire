@@ -22,17 +22,30 @@ class Bracket extends React.Component {
       else matches[i] = Object.values(winner[i]['matches'])
       return matches
     }, {})
-    let padding = '10%'
+  
+    const matchPadding = {
+      0: '5%',
+      1: '100%',
+      2: '200%'
+    }
+
+    const padding = {
+      0: '0%',
+      1: '10%',
+      2: '20%',
+      3: '35%',
+      4: '37.25%'
+    }
+    
     
     return [...Array(numRounds)].map((_, i) => {
-      padding = parseInt(padding)
-      padding = padding * 2 
-      return <div style={{paddingTop:padding}}><Round 
+
+      return <div style={{paddingTop:padding[i]}}><Round 
       key={i}
       teams={null}
       roundPosition={i} 
       matches={matches[i]}
-      padding={padding}
+      padding={matchPadding[i]}
       numMatches={Math.ceil(matchCalculation /= 2)}/></div>
     });
   }

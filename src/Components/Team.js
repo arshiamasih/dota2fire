@@ -12,7 +12,7 @@ const Team = (props) => {
       {/* {props.win? <div><p >Team {props.name}</p> </div>
        : null} */}
    
-   {roundPosition !== winningRound?
+
     <button 
           id={props.id}
           matchPosition={props.matchPosition}
@@ -22,9 +22,21 @@ const Team = (props) => {
           win={false}
           onClick={props.selectWinner}>
           {props.name}
-        </button> : <p>{props.name}</p>}
+        </button> 
       </div>
     )
 }
 
 export default Team
+
+// {roundPosition !== winningRound?
+//   <button 
+//         id={props.id}
+//         matchPosition={props.matchPosition}
+//         roundPostion={props.roundPosition}
+//         className={'select-winner-btn'}
+//         name={props.name}
+//         win={false}
+//         onClick={props.selectWinner}>
+//         {props.name}
+//       </button> : <p>{props.name}</p>}
