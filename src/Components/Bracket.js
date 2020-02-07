@@ -24,28 +24,31 @@ class Bracket extends React.Component {
     }, {})
   
     const matchPadding = {
-      0: '5%',
-      1: '100%',
-      2: '200%'
+      0: '4%',
+      1: '30%',
+      2: '60%',
+      3: '50%',
+      4: '10%'
     }
 
-    const padding = {
-      0: '0%',
-      1: '10%',
-      2: '20%',
-      3: '35%',
+    const paddingTop = {
+      0: '5%',
+      1: '5%',
+      2: '15%',
+      3: '28%', 
       4: '37.25%'
     }
     
     
     return [...Array(numRounds)].map((_, i) => {
 
-      return <div style={{paddingTop:padding[i]}}><Round 
+      return <div style={{paddingTop:paddingTop[i], paddingBottom:paddingTop[i]}}><Round 
       key={i}
       teams={null}
       roundPosition={i} 
       matches={matches[i]}
       padding={matchPadding[i]}
+      paddingTop={paddingTop}
       numMatches={Math.ceil(matchCalculation /= 2)}/></div>
     });
   }
@@ -56,6 +59,7 @@ class Bracket extends React.Component {
     <div>
       {/* <div style={{padding: '1em'}}><input/></div> */}
       <div className={'bracket'}>
+        
         {this.createRounds(defineTeamNum.num)}
       </div>
     </div>

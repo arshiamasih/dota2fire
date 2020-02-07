@@ -11,9 +11,11 @@ const App = () => {
           <p>
            <code>DOTA 2 FIRE</code> 
           </p>
-          <Bracket/>
+ 
         </header>
-
+        <main className="main">
+        <Bracket/>
+        </main>
       </div>
     );
 }
