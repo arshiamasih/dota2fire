@@ -1,5 +1,6 @@
 import React from 'react'
 import Round from './Round'
+import Ruler from './Ruler'
 import { connect } from 'react-redux'
 import { getTeams } from '../store/actions'
 
@@ -51,6 +52,7 @@ const Bracket = (props) => {
       <div className={'bracket'}>
         {createRounds(props.gameNum.num)}
       </div>
+      <Ruler/>
     </div>
    )
   
