@@ -1,12 +1,12 @@
 import { ADD_WINNERS, GET_TEAMS, CREATE_GAME } from "./types";
-import { structure } from '../helpers'
-import { getGameNum } from "./actions";
+// import { structure } from '../helpers'
+// console.log('in reducer', structure)
 
 const initialState = {
   teams: [],
   teamPlayers: [],
   currRound: 0,
-  winner: structure,
+  winner: {},
   gameNum: {
     n: 16,
     num: 32,
@@ -17,11 +17,11 @@ const initialState = {
 const teamReducer=(state = initialState, action) => {
   switch (action.type) {
     case CREATE_GAME: 
-    console.log('REDUCER',action.payload)
+
     return {
       ...state,
       gameNum: Object.assign({}, action.payload),
-      winner: structure
+      winner: action.structure
     }
     case ADD_WINNERS:    
 

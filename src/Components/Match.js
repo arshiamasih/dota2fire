@@ -18,7 +18,11 @@ class Match extends React.Component {
   }
 
   createPairedTeams(){
-    return this.props.teams.splice(0,2).map((team, i) => {
+    const {roundPosition, gameNum} = this.props
+    const winningRound = Math.log2(gameNum.n)
+    let arr = this.props.teams.splice(0,2)
+ 
+    return arr.map((team, i) => {
       return (
       <div key={i} >
         <Team
@@ -64,6 +68,7 @@ class Match extends React.Component {
 
 const mapState = (state) => ({
   winner: state.teams.winner,
+  gameNum: state.teams.gameNum
 
 })
 const mapDispatch = (dispatch) => ({

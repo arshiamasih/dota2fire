@@ -19,18 +19,22 @@ export const fetchTeamData = (teams) =>
     payload: teams
   })
 
-export const createGame = (n) => 
+export const createGame = (n, structure) => 
   ({
     type: CREATE_GAME,
-    payload: {
+    payload: 
+     {
       n,
       num: n*2,
       start: true
-    }
+    },
+    structure
   })
 
 export const getGameNum = (n) => async (dispatch) =>{
-  return dispatch(createGame(n))
+  const structure = createStructure(n)
+  console.log(structure)
+  return dispatch(createGame(n, structure))
 }
 export const getTeams = (num) => async (dispatch) => {
   //API ALREADY RANKS BY ELO SCORE
@@ -45,6 +49,38 @@ export const getWinner = (round, match, winner) => async (dispatch) => {
   console.log('action wtfff', round, match, winner)
   return dispatch(addWinners(round, match, winner))
 }
+
+
+
+const createStructure = (n) => {
+  const arr = createMatchesHash([], n, Math.log2(n))
+  const obj = {0: []}
+  for(let i =0; i < arr.length; i++) {
+      obj[i+1] = {matches:arr[i]}
+  }
+  return obj
+}
+
+//helper for createStructure
+const createMatchesHash = (arr = [], n, i ) => {
+  //base case
+  if(arr.length === i) return arr
+  else {
+   n /=2 
+   const node = {}
+   for(let i = 0; i < n; i++) {
+     node[i] = {
+       win: false,
+       name: null
+     }
+   }
+   arr.push(node) 
+   return createMatchesHash(arr, n, i ) 
+  }
+
+}
+
+
 
 
 
