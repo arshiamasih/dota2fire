@@ -23,11 +23,17 @@
   height: 8vh;
   min-width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: calc(8px + 2vmin);
   color: white;
+}
+
+.header-text {
+  margin: .35em .25em  .5em .35em;
+}
+
+.logo {
+  margin-left: 5px;
 }
 
 .App-link {
@@ -95,6 +101,32 @@
   background: #d6249f;
   background: radial-gradient(circle at 10% 107%,#fd5949 0%,#d6249f 40%,#285AEB 90%);
   box-shadow: 0px 3px 10px rgba(0,0,0,.25)
+}
+
+
+.winner:hover {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
  .tree {
    display: flex
