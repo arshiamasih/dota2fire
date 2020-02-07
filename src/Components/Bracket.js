@@ -2,23 +2,14 @@ import React from 'react'
 import Round from './Round'
 import { connect } from 'react-redux'
 import { getTeams } from '../store/actions'
-import { defineTeamNum } from '../helpers'
 
-class Bracket extends React.Component {
 
-  async componentDidMount(){  
-   const numTeams = this.props.gameNum.n
-   const {gameNum} = this.props.gameNum
-   console.log('game num', gameNum)
-   this.props.getTeams(numTeams)
-
-  }
-  
-  createRounds = (n) => {
+const Bracket = (props) => {  
+  const createRounds = (n) => {
     const numRounds =  Math.log2(n)
     let matchCalculation = n/2
-    const teams = [...this.props.teams.teams]
-    const winner = {...this.props.winner}
+    const teams = [...props.teams.teams]
+    const winner = {...props.winner}
     const matches = [...Array(numRounds)].reduce((matches, el, i)=>{
       if(i === 0) matches[i] = teams
       else matches[i] = Object.values(winner[i]['matches'])
@@ -43,30 +34,26 @@ class Bracket extends React.Component {
     
     
     return [...Array(numRounds)].map((_, i) => {
-
-      return <div style={{paddingTop:paddingTop[i], paddingBottom:paddingTop[i]}}><Round 
-      key={i}
-      teams={null}
-      roundPosition={i} 
-      matches={matches[i]}
-      padding={matchPadding[i]}
-      paddingTop={paddingTop}
-      numMatches={Math.ceil(matchCalculation /= 2)}/></div>
+      return <div style={{paddingTop:paddingTop[i], paddingBottom:paddingTop[i]}}>
+      <Round 
+        key={i}
+        teams={null}
+        roundPosition={i} 
+        matches={matches[i]}
+        padding={matchPadding[i]}
+        paddingTop={paddingTop}
+        numMatches={Math.ceil(matchCalculation /= 2)}/></div>
     });
   }
 
-  render(){
-  console.log('round', this.props.gameNum)
    return( 
     <div>
-      {/* <div style={{padding: '1em'}}><input/></div> */}
       <div className={'bracket'}>
-        
-        {this.createRounds(this.props.gameNum.num)}
+        {createRounds(props.gameNum.num)}
       </div>
     </div>
    )
-  }
+  
 }
 
 const mapState = (state) => {

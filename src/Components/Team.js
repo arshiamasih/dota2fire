@@ -11,39 +11,35 @@ const Team = (props) => {
     } else {
       buttonStyle = style.default
     }
-
-
-
     return (
       <div className={'team'}>
-      {/* {props.win? <div><p >Team {props.name}</p> </div>
-       : null} */}
    
-   {roundPosition !== winningRound?
-    <button 
+      {roundPosition !== winningRound?
+      <button 
           id={props.id}
           matchPosition={props.matchPosition}
           roundPostion={props.roundPosition}
           className={buttonStyle}
           name={props.name}
           win={props.win}
-          onClick={props.selectWinner}>
+          onClick={props.selectWinner}
+          >
           {props.name}
         </button> 
       :
       <button 
-      id={props.id}
-      matchPosition={props.matchPosition}
-      roundPostion={props.roundPosition}
-      className={buttonStyle}
-      name={props.name}
-      win={props.win}
-     >
+          id={props.id}
+          matchPosition={props.matchPosition}
+          roundPostion={props.roundPosition}
+          className={buttonStyle}
+          name={props.name}
+          win={props.win}
+          >
       {props.name}
     </button> 
 
    }
-      </div>
+    </div>
 
 
     )
