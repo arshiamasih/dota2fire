@@ -67,6 +67,7 @@
   font-weight: bold;
 }
 
+
 .select-winner-btn {
   color: white;
   /* border-left: 8px solid mediumaquamarine; */
@@ -77,19 +78,23 @@
   height: 30px;
   border-radius: 5px;
   background: #d6249f;
-  background: radial-gradient(circle at 10% 107%, #fdf497 0%,#fd5949 0%,#d6249f 40%,#285AEB 90%);
+  background: radial-gradient(circle at 10% 107%,#fd5949 0%,#d6249f 40%,#285AEB 90%);
   box-shadow: 0px 3px 10px rgba(0,0,0,.25)
 }
 
 
 .winner {
   color: white;
-  font-size: 8px;
+  /* border-left: 8px solid mediumaquamarine; */
+  border-left: 8px solid mediumaquamarine;
+  font-size: 12px;
   font-weight: bolder;
-  width: 100px;
-  height: 35px;
+  width: 150px;
+  height: 30px;
   border-radius: 5px;
-  background: green
+  background: #d6249f;
+  background: radial-gradient(circle at 10% 107%,#fd5949 0%,#d6249f 40%,#285AEB 90%);
+  box-shadow: 0px 3px 10px rgba(0,0,0,.25)
 }
  .tree {
    display: flex

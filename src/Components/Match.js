@@ -7,6 +7,14 @@ import { getWinner } from '../store/actions'
 class Match extends React.Component {
   constructor(props){
     super(props)
+
+    this.state = {
+      style : {
+        id: null,
+        default: 'select-winner-btn',
+        winner: 'winner'
+      }
+    }
   }
 
   createPairedTeams(){
@@ -20,6 +28,7 @@ class Match extends React.Component {
           name={team['name']}
           win={team['win']}
           selectWinner={this.selectWinner}
+          style={this.state.style}
     />         
       </div> )
     })
@@ -34,6 +43,11 @@ class Match extends React.Component {
       [id]: name,
       round: roundPosition,
       match: matchPosition,
+      style: {
+        id: id,
+        default: 'select-winner-btn',
+        winner: 'winner'
+      }
     })
    
     this.props.getWinner(this.state.round, this.state.match, this.state[id])

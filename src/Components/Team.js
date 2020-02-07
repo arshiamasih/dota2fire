@@ -3,9 +3,16 @@ import { defineTeamNum } from '../helpers'
 
 
 const Team = (props) => {
-    const {roundPosition} = props
+    const {roundPosition, style, id} = props
     const winningRound = Math.log2(defineTeamNum.n)
- 
+    let buttonStyle = style.default
+    if(id === parseInt(style.id)) {
+      buttonStyle = style.winner
+    } else {
+      buttonStyle = style.default
+    }
+
+
 
     return (
       <div className={'team'}>
@@ -17,9 +24,9 @@ const Team = (props) => {
           id={props.id}
           matchPosition={props.matchPosition}
           roundPostion={props.roundPosition}
-          className={'select-winner-btn'}
+          className={buttonStyle}
           name={props.name}
-          win={false}
+          win={props.win}
           onClick={props.selectWinner}>
           {props.name}
         </button> 
