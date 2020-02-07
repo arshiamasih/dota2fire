@@ -1,12 +1,12 @@
 import React from 'react'
-import { defineTeamNum } from '../helpers'
+import { connect } from 'react-redux'
 
 
 const Team = (props) => {
-    const {roundPosition, style, id} = props
-    const winningRound = Math.log2(defineTeamNum.n)
+    const {roundPosition, style, id, gameNum} = props
+    const winningRound = Math.log2(gameNum.n)
     let buttonStyle = style.default
-    if(id === parseInt(style.id)) {
+    if(id === parseInt(style.id) && props.name) {
       buttonStyle = style.winner
     } else {
       buttonStyle = style.default
@@ -19,7 +19,7 @@ const Team = (props) => {
       {/* {props.win? <div><p >Team {props.name}</p> </div>
        : null} */}
    
-
+   {roundPosition !== winningRound?
     <button 
           id={props.id}
           matchPosition={props.matchPosition}
@@ -30,20 +30,29 @@ const Team = (props) => {
           onClick={props.selectWinner}>
           {props.name}
         </button> 
+      :
+      <button 
+      id={props.id}
+      matchPosition={props.matchPosition}
+      roundPostion={props.roundPosition}
+      className={buttonStyle}
+      name={props.name}
+      win={props.win}
+     >
+      {props.name}
+    </button> 
+
+   }
       </div>
+
+
     )
 }
 
-export default Team
+const mapState = (state) => {
+  return {
+    gameNum: state.teams.gameNum
+  }
+}
 
-// {roundPosition !== winningRound?
-//   <button 
-//         id={props.id}
-//         matchPosition={props.matchPosition}
-//         roundPostion={props.roundPosition}
-//         className={'select-winner-btn'}
-//         name={props.name}
-//         win={false}
-//         onClick={props.selectWinner}>
-//         {props.name}
-//       </button> : <p>{props.name}</p>}
+export default connect(mapState)(Team)

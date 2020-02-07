@@ -1,10 +1,14 @@
 import React from 'react';
 import logoDota from '../logoDota.png';
 import Bracket from './Bracket'
+import Intro from './Intro'
+import GameButtonGroup from './ButtonGroup'
+import { connect } from 'react-redux'
 import '../App.css';
 
+
 //component hierarchy: App > Round > Match > Team
-const App = () => {
+const App = (props) => {
     return (
       <div className="App">
         <header className="App-header">
@@ -16,10 +20,19 @@ const App = () => {
           </div>
  
         </header>
-        <main className="main">
-        <Bracket/>
+        <main className={'main'}>
+     
+        <GameButtonGroup/>  
+       
+        {props.gameNum.start? <Bracket/> : <Intro/>}
         </main>
       </div>
     );
 }
-export default App;
+
+const mapState = (state) => {
+  return {
+    gameNum: state.teams.gameNum
+  }
+}
+export default connect(mapState)(App);

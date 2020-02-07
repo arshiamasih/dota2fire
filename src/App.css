@@ -3,9 +3,21 @@
   flex-direction: column;
   text-align: center;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly ;
 }
 
+.main {
+  display: flex;
+ 
+  justify-content: space-between;
+  margin: 1em;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+
+}
 
 .App-logo {
   height: 40vmin;
@@ -43,7 +55,8 @@
 .bracket{
   display: flex;
   flex-direction: row;
-  margin: 1em;
+  /* border: 1px solid pink */
+
   /* margin: 2em 2em 2em 8em ; */
   
 }

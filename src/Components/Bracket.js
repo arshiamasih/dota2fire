@@ -7,7 +7,9 @@ import { defineTeamNum } from '../helpers'
 class Bracket extends React.Component {
 
   async componentDidMount(){  
-   const numTeams = defineTeamNum.n
+   const numTeams = this.props.gameNum.n
+   const {gameNum} = this.props.gameNum
+   console.log('game num', gameNum)
    this.props.getTeams(numTeams)
 
   }
@@ -25,14 +27,14 @@ class Bracket extends React.Component {
   
     const matchPadding = {
       0: '4%',
-      1: '30%',
+      1: '25%',
       2: '60%',
       3: '50%',
       4: '10%'
     }
 
     const paddingTop = {
-      0: '5%',
+      0: '0%',
       1: '5%',
       2: '15%',
       3: '28%', 
@@ -54,13 +56,13 @@ class Bracket extends React.Component {
   }
 
   render(){
-
+  console.log('round', this.props.gameNum)
    return( 
     <div>
       {/* <div style={{padding: '1em'}}><input/></div> */}
       <div className={'bracket'}>
         
-        {this.createRounds(defineTeamNum.num)}
+        {this.createRounds(this.props.gameNum.num)}
       </div>
     </div>
    )
@@ -70,7 +72,8 @@ class Bracket extends React.Component {
 const mapState = (state) => {
   return {
     teams: state.teams,
-    winner: state.teams.winner
+    winner: state.teams.winner,
+    gameNum: state.teams.gameNum
   }
 }
 

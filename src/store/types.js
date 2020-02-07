@@ -1,4 +1,6 @@
 
+
+export const CREATE_GAME = 'CREATE_GAME';
 //FETCH data from api 
 export const GET_TEAMS = 'GET_TEAMS';
 

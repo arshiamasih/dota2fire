@@ -1,4 +1,4 @@
-import {ADD_WINNERS, GET_TEAMS} from './types'
+import {ADD_WINNERS, GET_TEAMS, CREATE_GAME} from './types'
 export const addWinners = (round, match, winner) => {
 
 return { 
@@ -13,14 +13,28 @@ return {
 
 
 
-export const fetchTeamData = (teams) => ({
-  type: GET_TEAMS,
-  payload: teams
-})
+export const fetchTeamData = (teams) => 
+  ({
+    type: GET_TEAMS,
+    payload: teams
+  })
 
+export const createGame = (n) => 
+  ({
+    type: CREATE_GAME,
+    payload: {
+      n,
+      num: n*2,
+      start: true
+    }
+  })
+
+export const getGameNum = (n) => async (dispatch) =>{
+  return dispatch(createGame(n))
+}
 export const getTeams = (num) => async (dispatch) => {
   //API ALREADY RANKS BY ELO SCORE
-  console.log('HOW MANY TIMES HAVE I BEEN CALLED')
+  //remove the no name team member
   const response = await fetch('https://api.opendota.com/api/teams')
   const data = await response.json()
   const teams = data.slice(0,num);
