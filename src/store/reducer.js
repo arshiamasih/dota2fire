@@ -1,10 +1,13 @@
-import { ADD_WINNERS, GET_TEAMS, CREATE_GAME } from "./types";
+import { ADD_WINNERS, GET_TEAMS, CREATE_GAME, CALL_API, RECEIVE_API, GET_PLAYERS } from "./types";
 // import { structure } from '../helpers'
 // console.log('in reducer', structure)
 
 const initialState = {
+  apiStatus: {
+    status: null
+  },
   teams: [],
-  teamPlayers: [],
+  players: [],
   currRound: 0,
   winner: {},
   gameNum: {
@@ -16,15 +19,29 @@ const initialState = {
 
 const teamReducer=(state = initialState, action) => {
   switch (action.type) {
+    case CALL_API:
+      return {
+        ...state,
+        apiStatus: action.payload
+      } 
+      case RECEIVE_API:
+        return {
+          ...state,
+          apiStatus: action.payload
+      } 
     case CREATE_GAME: 
-
+    return {
+      ...state,
+      gameNum: Object.assign({}, action.payload),
+      winner: action.structure
+    }
+    case CREATE_GAME: 
     return {
       ...state,
       gameNum: Object.assign({}, action.payload),
       winner: action.structure
     }
     case ADD_WINNERS:    
-
       return  {
         ...state,
         winner: {
@@ -48,7 +65,12 @@ const teamReducer=(state = initialState, action) => {
           ...state.winner,
           0: action.payload
         }
-      };  
+      };
+      case GET_PLAYERS: 
+      return {
+        ...state,
+        players: action.payload
+      };     
     default:
       return state;  
   }

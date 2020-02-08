@@ -3,6 +3,7 @@
 export const CREATE_GAME = 'CREATE_GAME';
 //FETCH data from api 
 export const GET_TEAMS = 'GET_TEAMS';
+export const GET_PLAYERS = 'GET_PLAYERS'
 
 //add winners to next round
 export const ADD_WINNERS = 'ADD_WINNERS';

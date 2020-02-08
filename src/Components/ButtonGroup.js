@@ -1,5 +1,5 @@
 import React from 'react';
-import { getGameNum, getTeams } from '../store/actions'
+import { getGameNum, getTeams, getPlayers } from '../store/actions'
 import { connect } from 'react-redux'
 
 
@@ -15,7 +15,8 @@ const GameButtonGroup = (props) => {
     }
     console.log('BUTTON', obj[event.target.id])
     props.getGameNum(obj[event.target.id])
-    await props.getTeams(obj[event.target.id])
+    props.getTeams(obj[event.target.id])
+    await props.getPlayers(obj[event.target.id])
 
   }
 
@@ -35,7 +36,8 @@ const GameButtonGroup = (props) => {
 
 const mapDispatch = (dispatch) => ({
   getGameNum: (n)=>dispatch(getGameNum(n)),
-  getTeams: (n)=>dispatch(getTeams(n))
+  getTeams: (n)=>dispatch(getTeams(n)),
+  getPlayers: (n)=>dispatch(getPlayers(n))
 })
 
 export default connect(null, mapDispatch)(GameButtonGroup)
