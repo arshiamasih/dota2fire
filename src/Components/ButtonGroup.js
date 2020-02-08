@@ -22,17 +22,22 @@ const GameButtonGroup = (props) => {
 
   return (
     <div className={'button-group'}>
-        <p>Select # of Teams</p>
+    {props.gameNum.start? <div ><p>Restart game:</p></div> : <div ><p>Select # of teams:</p></div>} 
+        <div className={'button-group-btn'} >
         <button className={'game-btn'} id={0} onClick={event => onClick(event)}>Two</button>
         <button className={'game-btn'} id={1}  onClick={event => onClick(event)}>Four</button>
         <button className={'game-btn'} id={2}  onClick={event => onClick(event)}>Eight</button>
         <button className={'game-btn'} id={3}  onClick={event => onClick(event)}>Sixteen</button>
-
+        </div>
     </div>
   );
 }
 
-
+const mapState = (state) => {
+  return {
+    gameNum: state.teams.gameNum
+  }
+}
 
 const mapDispatch = (dispatch) => ({
   getGameNum: (n)=>dispatch(getGameNum(n)),
@@ -40,4 +45,4 @@ const mapDispatch = (dispatch) => ({
   getPlayers: (n)=>dispatch(getPlayers(n))
 })
 
-export default connect(null, mapDispatch)(GameButtonGroup)
+export default connect(mapState, mapDispatch)(GameButtonGroup)

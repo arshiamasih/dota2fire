@@ -80,17 +80,17 @@ export const getPlayers = (num) => async (dispatch) => {
   const data = await response.json()
  
   const teams = data.slice(0,num);
-  const players = []
-  for(let i =0; i < teams.length; i++) {
-    const responseID = await fetch(`https://api.opendota.com/api/teams/${teams[i]['team_id']}/players`)
-    const dataID = await responseID.json()
+  const players = teams
+  // for(let i =0; i < teams.length; i++) {
+  //   const responseID = await fetch(`https://api.opendota.com/api/teams/${teams[i]['team_id']}/players`)
+  //   const dataID = await responseID.json()
 
-    const obj = {
-      name: teams[i]['name'],
-      players: dataID.map(player => player.name)
-    }
-    players.push(obj)
-  }
+  //   const obj = {
+  //     name: teams[i]['name'],
+  //     players: dataID.map(player => player.name)
+  //   }
+  //   players.push(obj)
+  // }
 
   
   dispatch(fetchTeamPlayers(players))

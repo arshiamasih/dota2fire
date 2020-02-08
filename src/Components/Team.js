@@ -27,17 +27,19 @@ const Team = (props) => {
           {props.name}
         </button> 
       :
+  <div>    
+{props.name? <p className={'grand-winner-text'}>Grand Winner is {props.name} !</p> : null}
       <button 
           id={props.id}
           matchPosition={props.matchPosition}
           roundPostion={props.roundPosition}
-          className={buttonStyle}
+          className={props.name? 'grand-winner' :buttonStyle}
           name={props.name}
           win={props.win}
           >
       {props.name}
     </button> 
-
+</div>
    }
     </div>
 
