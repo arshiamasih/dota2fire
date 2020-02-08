@@ -11,7 +11,7 @@ const Round = (props) => {
 
     return [...Array(n)].map((_, i) => {
 
-      return <div style={{paddingTop: props.padding, paddingBottom: props.padding}}><Match
+      return <div style={{paddingTop: props.padding}}><Match
       key={i}
       teams={matches}
       className={null}
@@ -21,7 +21,8 @@ const Round = (props) => {
   }
 
     //round accepts a prop to dictate # of matches per round
-    const { numMatches, roundPosition } = props
+    const { numMatches, roundPosition, gameNum } = props
+    //replace with gameNum
     const winningRound = Math.log2(defineTeamNum.n)
 
     return (

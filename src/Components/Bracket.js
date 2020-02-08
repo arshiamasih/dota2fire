@@ -43,6 +43,7 @@ const Bracket = (props) => {
         matches={matches[i]}
         padding={matchPadding[i]}
         paddingTop={paddingTop}
+        gameNum={props.gameNum}
         numMatches={Math.ceil(matchCalculation /= 2)}/></div>
     });
   }
