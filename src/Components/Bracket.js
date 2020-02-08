@@ -32,12 +32,12 @@ const Bracket = (props) => {
       1: '5%',
       2: '15%',
       3: '28%', 
-      4: '37.25%'
+      4: '28.25%'
     }
     
     
     return [...Array(numRounds)].map((_, i) => {
-      return <div style={{paddingTop:paddingTop[i], paddingBottom:paddingTop[i]}}>
+      return <div style={{paddingTop:paddingTop[i]}}>
       <Round 
         key={i}
         teams={null}
@@ -58,6 +58,7 @@ const Bracket = (props) => {
         {createRounds(props.gameNum.num)}
       </div>
       <Ruler/>
+      
     </div>
    )
   
