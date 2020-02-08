@@ -12,7 +12,8 @@ class Match extends React.Component {
       style : {
         id: null,
         default: 'select-winner-btn',
-        winner: 'winner'
+        winner: 'winner',
+        nextRound: 'next-round'
       }
     }
   }

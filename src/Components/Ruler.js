@@ -16,48 +16,39 @@ class Ruler extends React.Component {
     }
   }
 
-  handleOnClick=(event)=>{
-    for(let i = 0; i < this.props.players.length; i++) {
-      if(event.target.id === this.props.players[i]['name']) {
-        console.log(event.target.id, this.props.players.name)
-        this.setState({
-          names: this.props.players[i]['players'],
-          expand: !this.state.expand
+  handleOnClick= async (event)=>{
+    const { id, name } = event.target  
+    const response = await fetch(`https://api.opendota.com/api/teams/${id}/players`)
+    const data= await response.json()
+    const players= data.map(team => team.name)
+    console.log(players)
 
-        })
-      }
-     
-    }
+    this.setState({
+      players: players,
+      expand: !this.state.expand
+    })
 
   }
 
   render() {
-    console.log('ruler RENDER', this.props)
-    const { players } = {...this.props}
+    const { teams } = {...this.props}
     return (
       <div className={'player-ruler'}>
       <div><p>Team Details</p></div>
       {this.props.apiStatus.status === 'success' ?  <div className={'team-details'}>
-          {players.map((el,i) => {
+          {teams.map((el,i) => {
             return <div >
               <button 
               className={'team-details-btn'}
               onClick={event=>this.handleOnClick(event)}
-              id={el.name} 
-              name={el.name} 
-              expand={this.state.expand}
-              players={el.players}>
-              {el.name}</button>
-        
+              id={el['team_id']}
+              name={el['name']} 
+              expand={this.state.expand}>
+              {el.name}        
+              </button>
               </div>
           })}
-      </div> : <Loading/>}
-
-       
-        {this.state.expand? <div className={'name-details'}>{this.state.names.map(name=>{
-            return <p>{name}</p>
-          })}</div> : null}
-       
+      </div> : <Loading/>} 
       </div>
     )
   }
@@ -67,7 +58,7 @@ const mapState = (state) => {
   return {
 
     gameNum: state.teams.gameNum,
-    players: state.teams.players,
+    teams: state.teams.teams,
     apiStatus: state.teams.apiStatus
   }
 }

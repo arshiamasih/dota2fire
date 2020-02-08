@@ -6,7 +6,7 @@ const Loading =(props) => {
   return (
     <div>
     <h1>Loading...</h1>
-    <img src={loading} height={'100%'}></img>
+    <img src={loading} width={'100px'} height={'100px'}></img>
     </div>
   )
 }

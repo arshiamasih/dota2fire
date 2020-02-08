@@ -66,7 +66,7 @@ html, body {
   display: flex;
   width: 70px;
   height: 50px;
-  border: 5px solid #282c34;
+  border: 2px solid #282c34;
   border-radius: 2px; 
 }
 
@@ -163,6 +163,7 @@ html, body {
   box-shadow: 0px 3px 10px rgba(0,0,0,.25)
 }
 
+
 .grand-winner-text {
   transform: translateY(-10px);
   transition: all 0.3s ease 0s;
@@ -184,9 +185,8 @@ html, body {
     background: radial-gradient(circle at 10% 107%,#99bb3a 5%,#4e8086 40%,#285AEB 90%);
     box-shadow: 0px 3px 10px rgba(0,0,0,.25);
     transform: translateY(20px);
-    transition: all 0.3s ease 0s;
+    transition: all 0.5s ease 0s;
     -webkit-transform: scale(1.5);
-    -ms-transform: scale(1.5);
     transform: scale(1.5);
 
   

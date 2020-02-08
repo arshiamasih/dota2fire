@@ -27,9 +27,6 @@ export const addWinners = (round, match, winner) =>
     match
   })
 
-
-
-
 export const fetchTeamData = (teams) => 
   ({
     type: GET_TEAMS,
@@ -76,25 +73,10 @@ export const getPlayers = (num) => async (dispatch) => {
   //remove the no name team member
   try {
   dispatch(requestAPI())
-  const response = await fetch('https://api.opendota.com/api/teams')
-  const data = await response.json()
- 
-  const teams = data.slice(0,num);
-  const players = teams
-  // for(let i =0; i < teams.length; i++) {
-  //   const responseID = await fetch(`https://api.opendota.com/api/teams/${teams[i]['team_id']}/players`)
-  //   const dataID = await responseID.json()
-
-  //   const obj = {
-  //     name: teams[i]['name'],
-  //     players: dataID.map(player => player.name)
-  //   }
-  //   players.push(obj)
-  // }
-
-  
-  dispatch(fetchTeamPlayers(players))
-  dispatch(receiveAPI())
+ //send id and make call here and put players on redux
+ //app can get data to open a modal over app
+  // dispatch(fetchTeamPlayers(players))
+  // dispatch(receiveAPI())
   }
   catch (error) {
     console.log(error)
