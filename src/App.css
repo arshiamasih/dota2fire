@@ -107,7 +107,7 @@ html, body {
   display: flex;
   flex-direction: row;
   padding: 2em;
-  margin: 2em;
+  margin: 1em;
 }
 
 .round {
@@ -120,8 +120,12 @@ html, body {
   display:flex;
   justify-content: space-evenly;
   flex-direction: column;
-  border-left: 1px solid white;
-  margin: 0 .2em 0 .5em
+  border: 1px solid rgb(190, 189, 189);
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  margin: .25em;
+  padding: .75em
 
 }
 
@@ -200,7 +204,7 @@ html, body {
 }
 
 .player-ruler {
-  padding: 2em;
+  padding: 1em;
 }
 
 @keyframes shake {

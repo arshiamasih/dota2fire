@@ -32,12 +32,13 @@ const Bracket = (props) => {
       1: '5%',
       2: '15%',
       3: '28%', 
-      4: '30.25%'
+      4: '36.25%'
     }
     
     
     return [...Array(numRounds)].map((_, i) => {
       return <div style={{paddingTop:paddingTop[i]}}>
+      <p style={{color: 'rgb(190, 189, 189)'}}>{i+1}</p>  
       <Round 
         key={i}
         teams={null}
@@ -54,10 +55,10 @@ const Bracket = (props) => {
     <div>
       <div className={'bracket'}>
      
-        {/* {props.apiStatus.status === 'success' ? createRounds(props.gameNum.num) : <Loading/>} */}
-        {createRounds(props.gameNum.num)}
+        {props.apiStatus.status === 'success' ? createRounds(props.gameNum.num) : <Loading/>}
+        {/* {createRounds(props.gameNum.num)} */}
       </div>
-      {props.apiStatus.status === 'success' ? <Ruler/> : <Loading/>}
+       <Ruler/> 
       
     </div>
    )

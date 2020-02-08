@@ -26,7 +26,7 @@ const App = (props) => {
         <GameButtonGroup/>  
        
     {props.gameNum.start? <Bracket/> : <Intro/>}
-    {/* {props.gameNum.start? <Ruler/> : null} */}
+
         
         </main>
 

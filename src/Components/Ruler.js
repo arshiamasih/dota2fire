@@ -34,8 +34,8 @@ class Ruler extends React.Component {
     const { teams } = {...this.props}
     return (
       <div className={'player-ruler'}>
-      <div><p>Team Details</p></div>
-      {this.props.apiStatus.status === 'success' ?  <div className={'team-details'}>
+      <div><p>Team Players</p></div>
+    <div className={'team-details'}>
           {teams.map((el,i) => {
             return <div >
               <button 
@@ -48,7 +48,7 @@ class Ruler extends React.Component {
               </button>
               </div>
           })}
-      </div> : <Loading/>} 
+      </div>
       </div>
     )
   }
