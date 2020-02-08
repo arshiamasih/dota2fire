@@ -22,7 +22,7 @@ const GameButtonGroup = (props) => {
 
   return (
     <div className={'button-group'}>
-
+        <p>Select # of Teams</p>
         <button id={0} onClick={event => onClick(event)}>Two</button>
         <button id={1}  onClick={event => onClick(event)}>Four</button>
         <button id={2}  onClick={event => onClick(event)}>Eight</button>

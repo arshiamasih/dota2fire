@@ -57,7 +57,7 @@ const Bracket = (props) => {
         {/* {props.apiStatus.status === 'success' ? createRounds(props.gameNum.num) : <Loading/>} */}
         {createRounds(props.gameNum.num)}
       </div>
-      <Ruler/>
+      {/* <Ruler/> */}
       
     </div>
    )

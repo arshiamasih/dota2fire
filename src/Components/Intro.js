@@ -1,8 +1,11 @@
 import React from 'react'
+import fuel from '../fuel.png'
 
 const Intro = () => {
   return (
-    <h1>Welcome</h1>
+    <div className={'intro-img'}>
+    <img src={fuel} ></img>
+    </div>
   )
 }
 

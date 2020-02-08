@@ -74,6 +74,7 @@ export const getTeams = (num) => async (dispatch) => {
 export const getPlayers = (num) => async (dispatch) => {
   //API ALREADY RANKS BY ELO SCORE
   //remove the no name team member
+  try {
   dispatch(requestAPI())
   const response = await fetch('https://api.opendota.com/api/teams')
   const data = await response.json()
@@ -90,9 +91,14 @@ export const getPlayers = (num) => async (dispatch) => {
     }
     players.push(obj)
   }
-  console.log('actions', players)
-  dispatch(receiveAPI())
+
+  
   dispatch(fetchTeamPlayers(players))
+  dispatch(receiveAPI())
+  }
+  catch (error) {
+    console.log(error)
+  }
 
 }
 
