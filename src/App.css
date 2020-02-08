@@ -26,24 +26,23 @@
 }
 
 .team-details-btn {
-  color: white;
+  color: #282c34; 
   display: flex;
   width: 70px;
   height: 50px;
-  background-color:#282c34;
- 
+  border: 5px solid #282c34;
+  border-radius: 2px; 
+}
+
+.team-details-btn:hover {
+  background: #282c34;
+  color: white;
 }
 
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -140,23 +139,6 @@
   perspective: 1000px;
 }
 
-@keyframes shake {
-  10%, 90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-  
-  20%, 80% {
-    transform: translate3d(2px, 0, 0);
-  }
-
-  30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%, 60% {
-    transform: translate3d(4px, 0, 0);
-  }
-}
  .tree {
    display: flex
  }
@@ -166,11 +148,3 @@
  }
 
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
