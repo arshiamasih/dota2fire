@@ -2,6 +2,7 @@ import React from 'react';
 import logoDota from '../logoDota.png';
 import Bracket from './Bracket'
 import Intro from './Intro'
+import Ruler from './Ruler'
 import GameButtonGroup from './ButtonGroup'
 import { connect } from 'react-redux'
 import '../App.css';
@@ -25,6 +26,7 @@ const App = (props) => {
         <GameButtonGroup/>  
        
     {props.gameNum.start? <Bracket/> : <Intro/>}
+    {/* {props.gameNum.start? <Ruler/> : null} */}
         
         </main>
 

@@ -32,7 +32,7 @@ const Bracket = (props) => {
       1: '5%',
       2: '15%',
       3: '28%', 
-      4: '28.25%'
+      4: '30.25%'
     }
     
     
@@ -57,7 +57,7 @@ const Bracket = (props) => {
         {/* {props.apiStatus.status === 'success' ? createRounds(props.gameNum.num) : <Loading/>} */}
         {createRounds(props.gameNum.num)}
       </div>
-      {/* <Ruler/> */}
+      {props.apiStatus.status === 'success' ? <Ruler/> : <Loading/>}
       
     </div>
    )

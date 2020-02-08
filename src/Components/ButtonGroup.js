@@ -23,10 +23,10 @@ const GameButtonGroup = (props) => {
   return (
     <div className={'button-group'}>
         <p>Select # of Teams</p>
-        <button id={0} onClick={event => onClick(event)}>Two</button>
-        <button id={1}  onClick={event => onClick(event)}>Four</button>
-        <button id={2}  onClick={event => onClick(event)}>Eight</button>
-        <button id={3}  onClick={event => onClick(event)}>Sixteen</button>
+        <button className={'game-btn'} id={0} onClick={event => onClick(event)}>Two</button>
+        <button className={'game-btn'} id={1}  onClick={event => onClick(event)}>Four</button>
+        <button className={'game-btn'} id={2}  onClick={event => onClick(event)}>Eight</button>
+        <button className={'game-btn'} id={3}  onClick={event => onClick(event)}>Sixteen</button>
 
     </div>
   );
