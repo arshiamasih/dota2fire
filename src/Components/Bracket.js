@@ -3,11 +3,12 @@ import Round from './Round'
 import Ruler from './Ruler'
 import Loading from './Loading'
 import { connect } from 'react-redux'
-import { getTeams } from '../store/actions'
+import { getTeams } from '../reducer/actions'
 
 
-const Bracket = (props) => {  
- 
+const Bracket = (props) => { 
+  const { apiStatus, gameNum } = props
+
   const createRounds = (n) => {
     const numRounds =  Math.log2(n)
     let matchCalculation = n/2
@@ -38,7 +39,8 @@ const Bracket = (props) => {
     
     return [...Array(numRounds)].map((_, i) => {
       return <div style={{paddingTop:paddingTop[i]}}>
-      <p style={{color: 'rgb(190, 189, 189)'}}>{i+1}</p>  
+    {i === numRounds-1 ? <p style={{color: 'rgb(190, 189, 189)', fontSize: '14px'}}>winner</p>:
+    <p style={{color: 'rgb(190, 189, 189)', fontSize: '14px'}}>round {i+1}</p>}  
       <Round 
         key={i}
         teams={null}
@@ -51,15 +53,12 @@ const Bracket = (props) => {
     });
   }
 
-   return( 
+   return ( 
     <div>
       <div className={'bracket'}>
-     
-        {props.apiStatus.status === 'success' ? createRounds(props.gameNum.num) : <Loading/>}
-        {/* {createRounds(props.gameNum.num)} */}
+        {apiStatus.status === 'success' ? createRounds(gameNum.num) : <Loading/>}
       </div>
        <Ruler/> 
-      
     </div>
    )
   

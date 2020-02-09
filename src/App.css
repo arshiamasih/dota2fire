@@ -23,10 +23,9 @@ html, body {
   z-index: 10;
 }
 
-/* just some content with arbitrary styles for explanation purposes */
+
 .modal { 
   width: 30%;
-  /* height: 50%; */
   position: fixed;
   top: 80%;
   left: 50%;
@@ -35,7 +34,7 @@ html, body {
   background-color: white;
   border-radius: 10px;
   text-align: center;
-  z-index: 11; /* 1px higher than the overlay layer */
+  z-index: 11;
   padding: 30px 0;
 }
 
@@ -62,12 +61,11 @@ html, body {
   color: white;
   background-color:  rgb(218, 8, 183);
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
+  transform: translateY(2px);
 }
 
 .main {
   display: flex;
-  /* flex-direction: column; */
   justify-content: space-evenly;
   margin: 1em;
 }
@@ -117,15 +115,20 @@ html, body {
   text-align: center;
   font-weight: 900; 
   display: flex;
+  cursor: pointer;
   width: 70px;
   height: 50px;
   border: 2px solid #282c34;
-  border-radius: 2px; 
+  border-radius: 5px; 
 }
 
 .team-details-btn:hover {
-  background: #282c34;
   color: white;
+  background: #282c34;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  transform: translateY(-7px);
+  outline: none;
 }
 
 .players {

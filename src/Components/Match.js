@@ -1,7 +1,7 @@
 import React from 'react'
 import Team from './Team'
 import { connect } from 'react-redux'
-import { getWinner } from '../store/actions'
+import { getWinner } from '../reducer/actions'
 
 
 class Match extends React.Component {

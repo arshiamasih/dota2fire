@@ -1,21 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { closeModal } from '../store/actions'
+import { closeModal } from '../reducer/actions'
 
 
 const Modal = (props) => {
-
-  const closeModal=()=>{
-    props.closeModal()
-  }
   return (
     <div className={'overlay'}>
       <div className={'modal'}>
-        {/* props.players */}
         <div className={'players'}>
-        {props.players.map((player, i )=> <p> {player}</p>)}
+        {props.players.map(player=> <p> {player}</p>)}
         </div>
-        <button onClick={closeModal}className={'close-btn'}> Return to Game</button>
+        <button onClick={()=>{props.closeModal()}}className={'close-btn'}> Return to Game</button>
       </div>
     </div>
   )

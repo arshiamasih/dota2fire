@@ -1,38 +1,24 @@
 //get team player details
 //create a 'ruler' where user can hover for team info
 import React from 'react'
-import Loading from './Loading'
 import { connect } from 'react-redux'
-import { getPlayers } from '../store/actions'
+import { getPlayers } from '../reducer/actions'
 
 
 class Ruler extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      players: [],
-    }
-  }
 
-  handleOnClick= async (event)=>{
-    const { id} = event.target  
+  handleOnClick = async (event)=>{
+    const { id } = event.target  
     const response = await fetch(`https://api.opendota.com/api/teams/${id}/players`)
     const data= await response.json()
     const players= data.map(team => team.name)
-    console.log(players)
     this.props.getPlayers(players)
-    this.setState({
-      players: players,
-      expand: !this.state.expand
-    })
-
   }
 
   render() {
     const { teams } = {...this.props}
     return (
       <div className={'player-ruler'}>
-     
       <div className={'team-details'}>
           {teams.map((el,i) => {
             return <div >
@@ -41,13 +27,13 @@ class Ruler extends React.Component {
               onClick={event=>this.handleOnClick(event)}
               id={el['team_id']}
               name={el['name']} 
-              expand={this.state.expand}>
+              >
               {el.name}        
               </button>
               </div>
           })}
       </div>
-      <div><p>check out the team players</p></div>
+      <div style={{padding: '1em'}}><p><code>discover the players</code></p></div>
       </div>
     )
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { getGameNum, getTeams, getPlayers } from '../store/actions'
+import { getGameNum, getTeams, getPlayers } from '../reducer/actions'
 import { connect } from 'react-redux'
 
 
