@@ -22,8 +22,6 @@ export const hideModal = () => ({
   
 })
 
-
-
 export const addWinners = (round, match, winner) => 
 ({ 
     type: ADD_WINNERS,
@@ -67,6 +65,7 @@ export const getGameNum = (n) => async (dispatch) =>{
 export const getTeams = (num) => async (dispatch) => {
   //API ALREADY RANKS BY ELO SCORE
   //remove the no name team member
+  //add try catch
   dispatch(requestAPI())
   const response = await fetch('https://api.opendota.com/api/teams')
   const data = await response.json()
@@ -83,16 +82,12 @@ export const getPlayers = (players) => async (dispatch) => {
 
 export const closeModal = () => async (dispatch) => {
   return dispatch(hideModal())
-
 }
-
 
 export const getWinner = (round, match, winner) => async (dispatch) => {
-  console.log('action wtfff', round, match, winner)
+
   return dispatch(addWinners(round, match, winner))
 }
-
-
 
 const createStructure = (n) => {
   const arr = createMatchesHash([], n, Math.log2(n))

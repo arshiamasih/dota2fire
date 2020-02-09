@@ -7,8 +7,6 @@ const Round = (props) => {
   const createMatches=(n) =>{
     let positionVal = 0
     const matches = [...props.matches]
- 
-
     return [...Array(n)].map((_, i) => {
 
       return <div style={{paddingTop: props.padding}}><Match
@@ -23,7 +21,7 @@ const Round = (props) => {
     //round accepts a prop to dictate # of matches per round
     const { numMatches, roundPosition, gameNum } = props
     //replace with gameNum
-    const winningRound = Math.log2(defineTeamNum.n)
+    //const winningRound = Math.log2(defineTeamNum.n)
 
     return (
     <div className={'round'}>
