@@ -10,7 +10,6 @@ import '../App.css';
 
 //component hierarchy: App > Round > Match > Team
 const App = (props) => {
-  console.log('IN APP', props)
     return (
       <div className="App">
         <header className="App-header">

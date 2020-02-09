@@ -7,7 +7,10 @@ const initialState = {
   },
   modalExpand: false,
   teams: [],
-  players: [],
+  players: {
+    team: null,
+    names:[]
+  },
   currRound: 0,
   winner: {},
   gameNum: {
@@ -35,12 +38,6 @@ const teamReducer=(state = initialState, action) => {
       gameNum: Object.assign({}, action.payload),
       winner: action.structure
     }
-    case CREATE_GAME: 
-    return {
-      ...state,
-      gameNum: Object.assign({}, action.payload),
-      winner: action.structure
-    }
     case ADD_WINNERS:    
       return  {
         ...state,
@@ -58,6 +55,7 @@ const teamReducer=(state = initialState, action) => {
         }
       };
     case GET_TEAMS: 
+    console.log('in reducer', action.payload)
       return {
         ...state,
         teams: action.payload,
@@ -70,7 +68,9 @@ const teamReducer=(state = initialState, action) => {
     return {
       ...state,
       modalExpand: true,
-      players: action.payload
+      players: Object.assign({}, {
+        ...action.payload
+      })
     }; 
     case CLOSE_MODAL: 
     return {

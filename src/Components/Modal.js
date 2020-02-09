@@ -4,11 +4,14 @@ import { closeModal } from '../reducer/actions'
 
 
 const Modal = (props) => {
+  console.log('modal', props.players)
+  const { names, team } = props.players
   return (
     <div className={'overlay'}>
       <div className={'modal'}>
+      <h3 className={'modal-header'}>Team {team}</h3>
         <div className={'players'}>
-        {props.players.map(player=> <p> {player}</p>)}
+        {names.filter(Boolean).map(player=><div> <p> <span>Player:</span> {player} </p> </div>)}
         </div>
         <button onClick={()=>{props.closeModal()}}className={'close-btn'}> Return to Game</button>
       </div>

@@ -9,11 +9,11 @@ import { getPlayers } from '../reducer/actions'
 class Ruler extends React.Component {
 
   handleOnClick = async (event)=>{
-    const { id } = event.target  
+    const { id, name } = event.target  
     const response = await fetch(`https://api.opendota.com/api/teams/${id}/players`)
     const data= await response.json()
     const players= data.map(team => team.name)
-    this.props.getPlayers(players)
+    this.props.getPlayers(players, name)
   }
 
   render() {
@@ -52,7 +52,7 @@ const mapState = (state) => {
 }
 
 const mapDispatch = (dispatch) => ({
-  getPlayers: (n)=>dispatch(getPlayers(n))
+  getPlayers: (players, name)=>dispatch(getPlayers(players, name))
 })
 
 export default connect(mapState, mapDispatch)(Ruler)

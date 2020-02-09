@@ -39,10 +39,13 @@ export const fetchTeamData = (teams) =>
   })
 
 
-export const fetchTeamPlayers = (players) => 
+export const fetchTeamPlayers = (players, name) => 
 ({
   type: GET_PLAYERS,
-  payload: players,
+  payload: {
+    team: name, 
+    names: players
+  },
   modalExpand: true
 })  
 
@@ -66,17 +69,23 @@ export const getTeams = (num) => async (dispatch) => {
   //API ALREADY RANKS BY ELO SCORE
   //remove the no name team member
   //add try catch
-  dispatch(requestAPI())
+  try {
+    dispatch(requestAPI())
   const response = await fetch('https://api.opendota.com/api/teams')
   const data = await response.json()
   dispatch(receiveAPI())
   const teams = data.slice(0,num);
+  console.log('in actions', teams)
   return dispatch(fetchTeamData(teams))
+  }
+  catch (error) {
+    //dispatch server failure
+  }
 }
 
 
-export const getPlayers = (players) => async (dispatch) => {
-  return dispatch(fetchTeamPlayers(players))
+export const getPlayers = (players, name) => async (dispatch) => {
+  return dispatch(fetchTeamPlayers(players, name))
 
 }
 
@@ -85,7 +94,6 @@ export const closeModal = () => async (dispatch) => {
 }
 
 export const getWinner = (round, match, winner) => async (dispatch) => {
-
   return dispatch(addWinners(round, match, winner))
 }
 
