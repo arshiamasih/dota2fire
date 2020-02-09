@@ -35,21 +35,21 @@ const Bracket = (props) => {
       3: '28%', 
       4: '36.25%'
     }
-    
+    // style={{paddingTop:paddingTop[i]}}
     
     return [...Array(numRounds)].map((_, i) => {
-      return <div style={{paddingTop:paddingTop[i]}}>
-    {i === numRounds-1 ? <p style={{color: 'rgb(190, 189, 189)', fontSize: '14px'}}>winner</p>:
-    <p style={{color: 'gray', fontSize: '14px'}}>round {i+1}</p>}  
-      <Round 
-        key={i}
-        teams={null}
-        roundPosition={i} 
-        matches={matches[i]}
-        padding={matchPadding[i]}
-        paddingTop={paddingTop}
-        gameNum={props.gameNum}
-        numMatches={Math.ceil(matchCalculation /= 2)}/></div>
+      return <div >
+        {i === numRounds-1 ? <p style={{color: 'rgb(190, 189, 189)', fontSize: '14px'}}>winner</p>:
+        <p style={{color: 'gray', fontSize: '14px'}}>round {i+1}</p>}  
+        <Round 
+          key={i}
+          teams={null}
+          roundPosition={i} 
+          matches={matches[i]}
+          padding={matchPadding[i]}
+          paddingTop={paddingTop}
+          gameNum={props.gameNum}
+          numMatches={Math.ceil(matchCalculation /= 2)}/></div>
     });
   }
 

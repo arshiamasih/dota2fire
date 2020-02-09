@@ -72,8 +72,15 @@ export const getTeams = (num) => async (dispatch) => {
     const response = await fetch('https://api.opendota.com/api/teams')
     const data = await response.json()
     dispatch(receiveAPI(type))
-    const teams = data.slice(0,num+1);
-    teams.splice(6,1) //this is a null team
+    const teams = data.slice(0,num);
+    console.log('teams in actions', teams)
+    teams.map(team => {
+      if(team.name === '') {
+        team.name = 'noName'
+      }
+    })
+
+
     return dispatch(fetchTeamData(teams))
   }
   catch (error) {
@@ -133,6 +140,12 @@ const createMatchesHash = (arr = [], n, i ) => {
    return createMatchesHash(arr, n, i ) 
   }
 
+}
+
+const createSeedRound = (teams) => {
+  //teams is an array
+  //take first and last
+  //flatten array
 }
 
 
