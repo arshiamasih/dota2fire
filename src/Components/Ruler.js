@@ -1,19 +1,13 @@
-//get team player details
-//create a 'ruler' where user can hover for team info
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import info from '../info.png'
 import { getPlayers } from '../reducer/actions'
 
 
-class Ruler extends React.Component {
-
-  handleOnClick = async (event)=>{
+class Ruler extends Component {
+  //create a 'ruler' where user can click for team info
+  handleOnClick = async (event) =>{
     const { id, name } = event.target  
-    const response = await fetch(`https://api.opendota.com/api/teams/${id}/players`)
-    const data= await response.json()
-    const players= data.map(team => team.name)
-    this.props.getPlayers(players, name)
+    this.props.getPlayers(id, name)
   }
 
   render() {
@@ -35,24 +29,20 @@ class Ruler extends React.Component {
           })}
       </div>
       <div style={{display: 'flex', justifyContent: 'center', padding: '1em'}}>
-        {/* <div><img src={info} style={{padding: '12.25px 5px 0 0'}}width={'25px'} height={'25px'}/></div> */}
         <div></div><p><code>discover the players</code></p></div>
       </div>
     )
   }
 }
 
-const mapState = (state) => {
-  return {
-
-    gameNum: state.teams.gameNum,
-    teams: state.teams.teams,
-    apiStatus: state.teams.apiStatus
-  }
-}
+const mapState = (state) => ({
+  gameNum: state.teams.gameNum,
+  teams: state.teams.teams,
+  apiStatus: state.teams.apiStatus
+})
 
 const mapDispatch = (dispatch) => ({
-  getPlayers: (players, name)=>dispatch(getPlayers(players, name))
+  getPlayers: (id,  name)=>dispatch(getPlayers(id,  name))
 })
 
 export default connect(mapState, mapDispatch)(Ruler)

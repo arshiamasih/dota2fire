@@ -3,7 +3,8 @@ import { ADD_WINNERS, GET_TEAMS, CREATE_GAME, CALL_API, RECEIVE_API, GET_PLAYERS
 
 const initialState = {
   apiStatus: {
-    status: null
+    teams: null,
+    players: null
   },
   modalExpand: false,
   teams: [],
@@ -14,8 +15,8 @@ const initialState = {
   currRound: 0,
   winner: {},
   gameNum: {
-    n: 16,
-    num: 32,
+    n: 0,
+    num: 0,
     start: false
   }
 }
@@ -25,12 +26,18 @@ const teamReducer=(state = initialState, action) => {
     case CALL_API:
       return {
         ...state,
-        apiStatus: action.payload
+        apiStatus: {
+          ...state.apiStatus,
+          [action.call]: action.payload
+        }
       } 
     case RECEIVE_API:
       return {
         ...state,
-        apiStatus: action.payload
+        apiStatus: {
+          ...state.apiStatus,
+          [action.call]: action.payload
+        }
     } 
     case CREATE_GAME: 
     return {

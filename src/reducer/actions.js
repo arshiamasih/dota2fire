@@ -1,23 +1,20 @@
 import {ADD_WINNERS, GET_TEAMS, CREATE_GAME, CALL_API, RECEIVE_API, GET_PLAYERS, CLOSE_MODAL} from './types'
 
-export const requestAPI = () => ({
+export const requestAPI = (call) => ({
   type: CALL_API,
-  payload: {
-    status: 'pending'
-  }
+  payload: 'pending',
+  call
   
 })
 
-export const receiveAPI = () => ({
+export const receiveAPI = (call) => ({
   type: RECEIVE_API,
-  payload: {
-    status: 'success'
-  }
-  
+  payload: 'success',
+  call
 })
 
 export const hideModal = () => ({
-  type: CLOSE_MODAL,
+  type: CLOSE_MODAL, 
   payload: false
   
 })
@@ -69,14 +66,15 @@ export const getTeams = (num) => async (dispatch) => {
   //API ALREADY RANKS BY ELO SCORE
   //remove the no name team member
   //add try catch
+  const type = 'teams'
   try {
-    dispatch(requestAPI())
-  const response = await fetch('https://api.opendota.com/api/teams')
-  const data = await response.json()
-  dispatch(receiveAPI())
-  const teams = data.slice(0,num);
-  console.log('in actions', teams)
-  return dispatch(fetchTeamData(teams))
+    dispatch(requestAPI(type))
+    const response = await fetch('https://api.opendota.com/api/teams')
+    const data = await response.json()
+    dispatch(receiveAPI(type))
+    const teams = data.slice(0,num+1);
+    teams.splice(6,1) //this is a null team
+    return dispatch(fetchTeamData(teams))
   }
   catch (error) {
     //dispatch server failure
@@ -84,8 +82,20 @@ export const getTeams = (num) => async (dispatch) => {
 }
 
 
-export const getPlayers = (players, name) => async (dispatch) => {
-  return dispatch(fetchTeamPlayers(players, name))
+export const getPlayers = (id, name) => async (dispatch) => {
+  const type = 'players'
+  try {
+    dispatch(requestAPI(type))
+    const response = await fetch(`https://api.opendota.com/api/teams/${id}/players`)
+    const data= await response.json()
+    dispatch(receiveAPI(type))
+    const players= data.map(team => team.name)
+    return dispatch(fetchTeamPlayers(players, name))
+  } 
+  catch (error) {
+    //dispatch server failure
+  }
+  
 
 }
 

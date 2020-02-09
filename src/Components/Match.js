@@ -59,8 +59,9 @@ class Match extends React.Component {
   }
 
   render() {
+    const { style } = this.state
     return (
-      <div className={'match'}>
+      <div className={style.id ? 'match-win' : 'match'}>
         {this.createPairedTeams()}
       </div>
     )

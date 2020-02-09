@@ -1,27 +1,40 @@
 import React from 'react'
+import Loading from './Loading'
 import { connect } from 'react-redux'
 import { closeModal } from '../reducer/actions'
 
 
 const Modal = (props) => {
-  console.log('modal', props.players)
+
   const { names, team } = props.players
+  const { apiStatus } = props
+  const success = 'success'
   return (
+  
     <div className={'overlay'}>
+      
       <div className={'modal'}>
+        
+      {apiStatus.players === success ?
+      <div>
       <h3 className={'modal-header'}>Team {team}</h3>
         <div className={'players'}>
         {names.filter(Boolean).map(player=><div> <p> <span>Player:</span> {player} </p> </div>)}
         </div>
         <button onClick={()=>{props.closeModal()}}className={'close-btn'}> Return to Game</button>
-      </div>
+        </div> : <Loading />}
+      </div> 
     </div>
+    
   )
 }
 
 const mapState = (state) => ({
-  players: state.teams.players
+  players: state.teams.players,
+  apiStatus: state.teams.apiStatus
 })
+
+
 
 const mapDispatch = (dispatch) => ({
   closeModal: (n)=>dispatch(closeModal())
