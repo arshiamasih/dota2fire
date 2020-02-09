@@ -16,13 +16,13 @@ const GameButtonGroup = (props) => {
     console.log('BUTTON', obj[event.target.id])
     props.getGameNum(obj[event.target.id])
     props.getTeams(obj[event.target.id])
-    await props.getPlayers(obj[event.target.id])
+    // await props.getPlayers(obj[event.target.id])
 
   }
 
   return (
     <div className={'button-group'}>
-    {props.gameNum.start? <div ><p>Restart game:</p></div> : <div ><p>Select # of teams:</p></div>} 
+    {props.gameNum.start? <div ><p><code>Restart game:</code></p></div> : <div ><p><code>Select # of teams:</code></p></div>} 
         <div className={'button-group-btn'} >
         <button className={'game-btn'} id={0} onClick={event => onClick(event)}>Two</button>
         <button className={'game-btn'} id={1}  onClick={event => onClick(event)}>Four</button>

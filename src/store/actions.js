@@ -1,4 +1,4 @@
-import {ADD_WINNERS, GET_TEAMS, CREATE_GAME, CALL_API, RECEIVE_API, GET_PLAYERS} from './types'
+import {ADD_WINNERS, GET_TEAMS, CREATE_GAME, CALL_API, RECEIVE_API, GET_PLAYERS, CLOSE_MODAL} from './types'
 
 export const requestAPI = () => ({
   type: CALL_API,
@@ -15,6 +15,13 @@ export const receiveAPI = () => ({
   }
   
 })
+
+export const hideModal = () => ({
+  type: CLOSE_MODAL,
+  payload: false
+  
+})
+
 
 
 export const addWinners = (round, match, winner) => 
@@ -37,7 +44,8 @@ export const fetchTeamData = (teams) =>
 export const fetchTeamPlayers = (players) => 
 ({
   type: GET_PLAYERS,
-  payload: players
+  payload: players,
+  modalExpand: true
 })  
 
 export const createGame = (n, structure) => 
@@ -68,19 +76,13 @@ export const getTeams = (num) => async (dispatch) => {
 }
 
 
-export const getPlayers = (num) => async (dispatch) => {
-  //API ALREADY RANKS BY ELO SCORE
-  //remove the no name team member
-  try {
-  dispatch(requestAPI())
- //send id and make call here and put players on redux
- //app can get data to open a modal over app
-  // dispatch(fetchTeamPlayers(players))
-  // dispatch(receiveAPI())
-  }
-  catch (error) {
-    console.log(error)
-  }
+export const getPlayers = (players) => async (dispatch) => {
+  return dispatch(fetchTeamPlayers(players))
+
+}
+
+export const closeModal = () => async (dispatch) => {
+  return dispatch(hideModal())
 
 }
 

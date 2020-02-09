@@ -11,18 +11,16 @@ class Ruler extends React.Component {
     super(props)
     this.state = {
       players: [],
-      names: [],
-      expand: false
     }
   }
 
   handleOnClick= async (event)=>{
-    const { id, name } = event.target  
+    const { id} = event.target  
     const response = await fetch(`https://api.opendota.com/api/teams/${id}/players`)
     const data= await response.json()
     const players= data.map(team => team.name)
     console.log(players)
-
+    this.props.getPlayers(players)
     this.setState({
       players: players,
       expand: !this.state.expand
@@ -34,8 +32,8 @@ class Ruler extends React.Component {
     const { teams } = {...this.props}
     return (
       <div className={'player-ruler'}>
-      <div><p>Team Players</p></div>
-    <div className={'team-details'}>
+     
+      <div className={'team-details'}>
           {teams.map((el,i) => {
             return <div >
               <button 
@@ -49,6 +47,7 @@ class Ruler extends React.Component {
               </div>
           })}
       </div>
+      <div><p>check out the team players</p></div>
       </div>
     )
   }

@@ -2,14 +2,15 @@ import React from 'react';
 import logoDota from '../logoDota.png';
 import Bracket from './Bracket'
 import Intro from './Intro'
-import Ruler from './Ruler'
 import GameButtonGroup from './ButtonGroup'
+import Modal from './Modal'
 import { connect } from 'react-redux'
 import '../App.css';
 
 
 //component hierarchy: App > Round > Match > Team
 const App = (props) => {
+  console.log('IN APP', props)
     return (
       <div className="App">
         <header className="App-header">
@@ -21,22 +22,19 @@ const App = (props) => {
           </div>
  
         </header>
-        <main className={'main'}>
-     
-        <GameButtonGroup/>  
-       
-    {props.gameNum.start? <Bracket/> : <Intro/>}
-
-        
+          <main className={'main'}>
+          <GameButtonGroup/>  
+          {props.gameNum.start ? <Bracket/> : <Intro/>}
+          {props.modal? <Modal/> : null}
         </main>
-
       </div>
     );
 }
 
 const mapState = (state) => {
   return {
-    gameNum: state.teams.gameNum
+    gameNum: state.teams.gameNum,
+    modal: state.teams.modalExpand
   }
 }
 export default connect(mapState)(App);

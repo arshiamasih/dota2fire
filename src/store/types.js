@@ -12,3 +12,5 @@ export const ADD_WINNERS = 'ADD_WINNERS';
 export const CALL_API = 'CALL_API';
 export const RECEIVE_API = 'RECEIVE_API';
 export const API_FAILURE = 'API_FAILURE';
+
+export const CLOSE_MODAL = 'CLOSE_MODAL';
