@@ -4,16 +4,18 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 A cool and sleek tournament bracket app.
 
-Get started:
-Create a directory
-cd into directory
-run npm -i
-run npm start
+### Get started:
 
-To play:
-Select number of teams in the bracket.
-Click to advance winner from each match to the next round.
-Play again.
+Create a directory<br />
+cd into directory<br />
+run npm -i<br />
+run npm start<br />
+
+### To play:
+
+Select number of teams in the bracket.<br />
+Click to advance winner from each match to the next round.<br />
+Play again.<br />
 
 ## Available Scripts
 
