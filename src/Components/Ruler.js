@@ -2,8 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { getPlayers } from "../reducer/actions";
 
+//create a 'ruler' where user can click for team info
 const Ruler = props => {
-  //create a 'ruler' where user can click for team info
+  //handle fetch request for player info
   const handleOnClick = async event => {
     const { id, name } = event.target;
     await props.getPlayers(id, name);
@@ -27,10 +28,7 @@ const Ruler = props => {
           );
         })}
       </div>
-      <div
-        style={{ display: "flex", justifyContent: "center", padding: "1em" }}
-      >
-        <div></div>
+      <div>
         <p>
           <code>discover the players</code>
         </p>

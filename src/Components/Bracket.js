@@ -24,11 +24,9 @@ const Bracket = props => {
       return (
         <div>
           {i === numRounds - 1 ? (
-            <p style={{ color: "rgb(190, 189, 189)", fontSize: "14px" }}>
-              winner
-            </p>
+            <p className={"round-winner-text"}>winner</p>
           ) : (
-            <p style={{ color: "gray", fontSize: "14px" }}>round {i + 1}</p>
+            <p className={"round-number-text"}>round {i + 1}</p>
           )}
           <Round
             key={i}
