@@ -1,21 +1,19 @@
-
-html, body {
+html,
+body {
   height: 100%;
-  width: 100%
+  width: 100%;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   display: flex;
 }
-
 
 .App {
   display: flex;
   flex-direction: column;
-  text-align: center; 
+  text-align: center;
 }
-
 
 /* HEADER */
 .App-header {
@@ -26,12 +24,12 @@ body {
   justify-content: flex-start;
   font-size: calc(8px + 2vmin);
   color: white;
-  padding: 0 .5em;
-  position: fixed
+  padding: 0 0.5em;
+  position: fixed;
 }
 
 .header-text {
-  margin: .35em .25em  .5em .35em;
+  margin: 0.35em 0.25em 0.5em 0.35em;
 }
 
 .logo {
@@ -59,15 +57,15 @@ body {
 
 .game-btn {
   font-size: 1em;
-  color:#DB2B94;
+  color: #db2b94;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   font-weight: 900;
   width: 100px;
   padding: 1em;
   margin: 2em;
-  background-color:white;
+  background-color: white;
   border-radius: 40px;
-  border: 1px solid #DB2B94;
+  border: 1px solid #db2b94;
   outline: none;
 }
 
@@ -75,9 +73,9 @@ body {
   color: white;
   padding: 1em;
   margin: 2em;
-  background-color: #DB2B94;
+  background-color: #db2b94;
   border-radius: 45px;
-  border: 1px solid #DB2B94;
+  border: 1px solid #db2b94;
   box-shadow: 0px 15px 20px rgba(219, 43, 148, 0.4);
   text-transform: uppercase;
   transition: all 0.3s ease 0s;
@@ -85,7 +83,6 @@ body {
   transform: translateY(-7px);
   outline: none;
 }
-
 
 /* MODAL */
 .overlay {
@@ -95,11 +92,11 @@ body {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 10;
 }
 
-.modal { 
+.modal {
   width: 40%;
   position: fixed;
   top: 80%;
@@ -114,19 +111,18 @@ body {
 }
 
 .modal-header {
-  margin: 0
+  margin: 0;
 }
 
-.player-detail > p{
+.player-detail > p {
   font-size: 12px;
-  color: rgb(168, 161, 161),
-  
+  color: rgb(121, 115, 115);
 }
 
 .close-btn {
   width: 170px;
   height: 50px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
@@ -144,31 +140,28 @@ body {
 
 .close-btn:hover {
   color: white;
-  background-color:  rgb(218, 8, 183);
+  background-color: rgb(218, 8, 183);
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   transform: translateY(2px);
 }
 
-
-
 /* PLAYER INFO */
 .team-details {
   display: flex;
-  justify-content: space-between
- 
+  justify-content: space-between;
 }
 
 .team-details-btn {
   color: #282c34;
   text-align: center;
-  font-weight: 900; 
+  font-weight: 900;
   display: flex;
   cursor: pointer;
   width: 70px;
   height: 50px;
   border: 1.5px solid #282c34;
-  border-radius: 5px; 
-  margin: .05em;
+  border-radius: 5px;
+  margin: 0.05em;
   outline: none;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.05);
 }
@@ -194,54 +187,49 @@ body {
   padding: 1em 2em;
 }
 
-
 /* BRACKET */
-.bracket{
+.bracket {
   display: flex;
   flex-direction: row;
-  padding: 0 .5em;
-  margin: .5em;
+  padding: 0 0.5em;
+  margin: 0.5em;
 }
 
 .small-bracket {
   display: flex;
   flex-direction: row;
   padding-left: 6em;
-  margin: .5em;
+  margin: 0.5em;
 }
-
 
 .round {
   display: flex;
   flex-direction: column;
-  padding: 0 .05em
-  
+  padding: 0 0.05em;
 }
 
 .match {
-  display:flex;
+  display: flex;
   justify-content: space-evenly;
   flex-direction: column;
   border: 1px solid rgb(190, 189, 189);
   background-color: white;
   border-radius: 20px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  margin: .15em;
-  padding: .75em
-
+  margin: 0.15em;
+  padding: 0.75em;
 }
 
 .match-win {
-  display:flex;
+  display: flex;
   justify-content: space-evenly;
   flex-direction: column;
   border: 1px solid #61dafb;
   background-color: white;
   border-radius: 20px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  margin: .25em;
-  padding: .75em
-
+  margin: 0.25em;
+  padding: 0.75em;
 }
 
 .team {
@@ -249,7 +237,6 @@ body {
   font-size: 10px;
   font-weight: bold;
 }
-
 
 /* TEAM SELECTION BUTTONS */
 .select-winner-btn {
@@ -263,11 +250,15 @@ body {
   border-radius: 5px;
   outline: none;
   background: #d6249f;
-  background: radial-gradient(circle at 10% 107%,#fd5949 0%,#d6249f 40%,#285AEB 90%);
-  box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+  background: radial-gradient(
+    circle at 10% 107%,
+    #fd5949 0%,
+    #d6249f 40%,
+    #285aeb 90%
+  );
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
   text-transform: lowercase;
 }
-
 
 .winner {
   color: white;
@@ -280,11 +271,15 @@ body {
   text-align: left;
   border-radius: 5px;
   background: #d6249f;
-  background: radial-gradient(circle at 10% 107%,#fd5949 0%,#d6249f 40%,#285AEB 90%);
-  box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+  background: radial-gradient(
+    circle at 10% 107%,
+    #fd5949 0%,
+    #d6249f 40%,
+    #285aeb 90%
+  );
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
   outline: none;
 }
-
 
 .grand-winner-text {
   transform: translateY(-10px);
@@ -303,8 +298,13 @@ body {
   width: 150px;
   height: 30px;
   border-radius: 5px;
-  background: radial-gradient(circle at 10% 107%,#99bb3a 5%,#4e8086 40%,#285AEB 90%);
-  box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+  background: radial-gradient(
+    circle at 10% 107%,
+    #99bb3a 5%,
+    #4e8086 40%,
+    #285aeb 90%
+  );
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
   transform: translateY(20px);
   transition: all 0.5s ease 0s;
   -webkit-transform: scale(1.5);
@@ -312,76 +312,77 @@ body {
 }
 
 .winner:hover {
-  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
 }
 
-
-
 @keyframes shake {
-  10%, 90% {
+  10%,
+  90% {
     transform: translate3d(-1px, 0, 0);
   }
-  
-  20%, 80% {
+
+  20%,
+  80% {
     transform: translate3d(2px, 0, 0);
   }
 
-  30%, 50%, 70% {
+  30%,
+  50%,
+  70% {
     transform: translate3d(-4px, 0, 0);
   }
 
-  40%, 60% {
+  40%,
+  60% {
     transform: translate3d(4px, 0, 0);
   }
 }
 
 /* BRACKET CONNECTOR */
 .connector {
-  display:flex;
+  display: flex;
   width: 10px;
   height: 100px;
-  margin: 0
+  margin: 0;
 }
 
 .connector-second {
-  display:flex;
+  display: flex;
   width: 10px;
   height: 200px;
-  margin: 0
+  margin: 0;
 }
 
-
 .connector-final {
-  display:flex;
+  display: flex;
   width: 10px;
   height: 50px;
-  margin: 0
+  margin: 0;
 }
 
 .vertical-line-left {
   border-right: 1px solid rgb(231, 230, 230);
   display: flex;
-  width: 0
+  width: 0;
 }
 
 .vertical-line-right {
   display: flex;
   flex-direction: column;
   display: flex;
-  width: 10px
+  width: 10px;
 }
 
-
-.inner-div-top{
+.inner-div-top {
   width: 20px;
   height: 50px;
 }
 
-.inner-div-bottom{
-  border-top: .1px solid rgb(168, 167, 167);
+.inner-div-bottom {
+  border-top: 0.1px solid rgb(168, 167, 167);
   width: 20px;
   height: 50px;
 }
@@ -389,6 +390,3 @@ body {
 .match-connector {
   display: flex;
 }
-
-
-

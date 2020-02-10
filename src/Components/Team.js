@@ -1,54 +1,54 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React from "react";
+import { connect } from "react-redux";
 
+const Team = props => {
+  const { roundPosition, style, id, gameNum, name } = props;
+  const winningRound = Math.log2(gameNum.n);
 
-const Team = (props) => {
-    const { roundPosition, style, id, gameNum } = props
-    const winningRound = Math.log2(gameNum.n)
-    let buttonStyle = style.default
-    if(id === parseInt(style.id) && props.name) {
-      buttonStyle = style.winner
-    } else {
-      buttonStyle = style.default
-    }
-    return (
-      <div className={'team'}>
-   
-      {roundPosition !== winningRound?
-      <button 
+  //conditional styling
+  let buttonStyle = style.default;
+  if (id === parseInt(style.id) && name) {
+    buttonStyle = style.winner;
+  } else {
+    buttonStyle = style.default;
+  }
+  return (
+    <div className={"team"}>
+      {roundPosition !== winningRound ? (
+        <button
           id={props.id}
           matchPosition={props.matchPosition}
           roundPostion={props.roundPosition}
           className={buttonStyle}
-          name={props.name}
-          // win={props.win}
+          name={name}
           onClick={props.selectWinner}
+        >
+          {name}
+        </button>
+      ) : (
+        <div>
+          {name ? (
+            <p className={"grand-winner-text"}>Grand Winner is {name} !</p>
+          ) : null}
+          <button
+            id={props.id}
+            matchPosition={props.matchPosition}
+            roundPostion={props.roundPosition}
+            className={name ? "grand-winner" : buttonStyle}
+            name={name}
           >
-          {props.name}
-        </button> 
-      :
-      <div>    
-      {props.name? <p className={'grand-winner-text'}>Grand Winner is {props.name} !</p> : null}
-      <button 
-          id={props.id}
-          matchPosition={props.matchPosition}
-          roundPostion={props.roundPosition}
-          className={props.name? 'grand-winner' :buttonStyle}
-          name={props.name}
-          win={props.win}
-          >
-      {props.name}
-    </button> 
-    </div>  
-   }
+            {name}
+          </button>
+        </div>
+      )}
     </div>
-    )
-}
+  );
+};
 
-const mapState = (state) => {
+const mapState = state => {
   return {
     gameNum: state.teams.gameNum
-  }
-}
+  };
+};
 
-export default connect(mapState)(Team)
+export default connect(mapState)(Team);

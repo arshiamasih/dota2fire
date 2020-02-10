@@ -8,6 +8,7 @@ exports[`<App/>  should match snapshot 1`] = `
     className="App-header"
   >
     <img
+      alt="dota2-logo"
       className="logo"
       height="100%"
       src="logoDota.png"
@@ -74,6 +75,7 @@ exports[`<App/>  should match snapshot 1`] = `
       className="intro-img"
     >
       <img
+        alt="fierce-archer"
         height="100%"
         src="fuel.png"
         width="100%"
