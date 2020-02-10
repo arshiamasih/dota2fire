@@ -1,12 +1,14 @@
-body {
-  font-family: 'Roboto', sans-serif;
-  
-}
 
 html, body {
   height: 100%;
   width: 100%
 }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+}
+
 
 .App {
   display: flex;
@@ -14,12 +16,78 @@ html, body {
   text-align: center; 
 }
 
+
+/* HEADER */
 .App-header {
+  background-color: #282c34;
+  height: 8vh;
+  min-width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  font-size: calc(8px + 2vmin);
+  color: white;
   padding: 0 .5em;
   position: fixed
 }
 
+.header-text {
+  margin: .35em .25em  .5em .35em;
+}
 
+.logo {
+  margin-left: 5px;
+}
+
+/* MAIN VIEW */
+.main {
+  display: flex;
+  justify-content: flex-start;
+  margin: 1em;
+  padding: 0 2em;
+  padding-top: 60px;
+}
+
+/* TEAM NUM INPUT */
+.button-group {
+  margin-right: 0;
+}
+.button-group-btn {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.game-btn {
+  font-size: 1em;
+  color:#DB2B94;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  font-weight: 900;
+  width: 100px;
+  padding: 1em;
+  margin: 2em;
+  background-color:white;
+  border-radius: 40px;
+  border: 1px solid #DB2B94;
+  outline: none;
+}
+
+.game-btn:hover {
+  color: white;
+  padding: 1em;
+  margin: 2em;
+  background-color: #DB2B94;
+  border-radius: 45px;
+  border: 1px solid #DB2B94;
+  box-shadow: 0px 15px 20px rgba(219, 43, 148, 0.4);
+  text-transform: uppercase;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  transform: translateY(-7px);
+  outline: none;
+}
+
+
+/* MODAL */
 .overlay {
   display: flex;
   position: fixed;
@@ -81,52 +149,9 @@ html, body {
   transform: translateY(2px);
 }
 
-.main {
-  display: flex;
-  justify-content: flex-start;
-  margin: 1em;
-  padding: 0 2em;
-  padding-top: 60px;
-}
 
-.button-group {
-  margin-right: 0;
-}
-.button-group-btn {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-}
 
-.game-btn {
-  font-size: 1em;
-  color:#DB2B94;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  font-weight: 900;
-  width: 100px;
-  padding: 1em;
-  margin: 2em;
-  background-color:white;
-  border-radius: 40px;
-  border: 1px solid #DB2B94;
-  outline: none;
-}
-
-.game-btn:hover {
-  color: white;
-  padding: 1em;
-  margin: 2em;
-  background-color: #DB2B94;
-  border-radius: 45px;
-  border: 1px solid #DB2B94;
-  box-shadow: 0px 15px 20px rgba(219, 43, 148, 0.4);
-  text-transform: uppercase;
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  transform: translateY(-7px);
-  outline: none;
-}
-
+/* PLAYER INFO */
 .team-details {
   display: flex;
   justify-content: space-between
@@ -165,24 +190,12 @@ html, body {
   font-size: 16px;
 }
 
-.App-header {
-  background-color: #282c34;
-  height: 8vh;
-  min-width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  font-size: calc(8px + 2vmin);
-  color: white;
+.player-ruler {
+  padding: 1em 2em;
 }
 
-.header-text {
-  margin: .35em .25em  .5em .35em;
-}
 
-.logo {
-  margin-left: 5px;
-}
-
+/* BRACKET */
 .bracket{
   display: flex;
   flex-direction: row;
@@ -238,6 +251,7 @@ html, body {
 }
 
 
+/* TEAM SELECTION BUTTONS */
 .select-winner-btn {
   color: white;
   border-left: 6px solid gray;
@@ -304,9 +318,7 @@ html, body {
   perspective: 1000px;
 }
 
-.player-ruler {
-  padding: 1em 2em;
-}
+
 
 @keyframes shake {
   10%, 90% {
@@ -326,6 +338,7 @@ html, body {
   }
 }
 
+/* BRACKET CONNECTOR */
 .connector {
   display:flex;
   width: 10px;

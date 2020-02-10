@@ -85,6 +85,7 @@ export const getTeams = (num) => async (dispatch) => {
       if(team.name === '') {
         team.name = 'noName'
       }
+      return team
     })
     const seed = createSeed(teams)
     return dispatch(fetchTeamData(seed))

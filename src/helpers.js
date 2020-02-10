@@ -19,6 +19,7 @@
 
 
 // a style helper
+// hard coded but could be made more dynamic with some calc
   export const matchPadding = {
     2:
     {
@@ -43,7 +44,7 @@
         0: '5px',
         1: '58px',
         2: '165px',
-        3: '335px',
+        3: '330px',
         4: '400px'
       },
   }
