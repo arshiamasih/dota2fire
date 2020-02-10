@@ -1,15 +1,13 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## DOTA2FIRE
 
 A cool and sleek tournament bracket app.
 
 ### Get started:
 
-Create a directory<br />
-cd into directory<br />
-run npm -i<br />
-run npm start<br />
+git clone or open zip file <br />
+cd into directory <br />
+run npm -i <br />
+run npm start <br />
 
 ### To play:
 
