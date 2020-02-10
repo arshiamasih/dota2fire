@@ -2,6 +2,7 @@ import React from 'react'
 import Team from './Team'
 import { connect } from 'react-redux'
 import { getWinner } from '../reducer/actions'
+import Connector from './Connector'
 
 
 class Match extends React.Component {
@@ -59,10 +60,17 @@ class Match extends React.Component {
   }
 
   render() {
+    const winningRound = Math.log2(this.props.gameNum.n)
     const { style } = this.state
     return (
+      <div className={'match-connector'}>
+      {this.props.roundPosition !== 0 ? 
+      <Connector winningRound={winningRound} 
+      round={this.props.roundPosition}/> : null}
       <div className={style.id ? 'match-win' : 'match'}>
+        
         {this.createPairedTeams()}
+      </div>
       </div>
     )
   }

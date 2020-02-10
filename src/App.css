@@ -191,7 +191,8 @@ html, body {
 .round {
   display: flex;
   flex-direction: column;
-  padding:  0 1em;
+  padding: 0 .05em
+  
 }
 
 .match {
@@ -321,6 +322,55 @@ html, body {
   40%, 60% {
     transform: translate3d(4px, 0, 0);
   }
+}
+
+.connector {
+  display:flex;
+  width: 10px;
+  height: 100px;
+  margin: 0
+}
+
+.connector-final {
+  display:flex;
+  display: flex;
+  width: 10px;
+  height: 50px;
+  margin: 0
+}
+
+.vertical-line-left {
+  border-right: 1px solid rgb(231, 230, 230);
+  display: flex;
+  width: 0
+
+}
+
+.vertical-line-right {
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  width: 25px
+
+}
+
+
+.inner-div-top{
+
+ 
+  width: 20px;
+  height: 50px;
+}
+
+.inner-div-bottom{
+
+  border-top: 1px solid rgb(146, 143, 143);
+  width: 20px;
+  height: 50px;
+}
+
+.match-connector {
+  display: flex;
 }
 
 

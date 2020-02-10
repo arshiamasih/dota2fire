@@ -16,7 +16,9 @@ const Round = (props) => {
       className={null}
       roundPosition={roundPosition}
       padding={padding}
-      matchPosition={positionVal++}/></div>});
+      matchPosition={positionVal++}/></div>
+    
+    });
   }
 
     //round accepts a prop to dictate # of matches per round

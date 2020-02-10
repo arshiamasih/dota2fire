@@ -4,7 +4,7 @@ import Bracket from './Bracket'
 import Intro from './Intro'
 import GameButtonGroup from './ButtonGroup'
 import Modal from './Modal'
-import Loading from './Loading'
+import Connector from './Connector'
 
 import { connect } from 'react-redux'
 import '../App.css';
@@ -31,6 +31,7 @@ const App = (props) => {
           
         
         </main>
+    
      
       </div>
     );
