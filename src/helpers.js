@@ -1,5 +1,24 @@
 
+//LOGIC BREAKDOWN
+//input number creates a tree structure where 0 is always the formatted seed round from api
+// winner:  {
+  //    0: [], 
+  //    1: 
+  //    {
+  //      matches: {
+  //        0: {
+  //        name: '',
+  //        win: false
+  //        },
+  //      },
+  //    },
+  //  },
+//select winner action dynamically updates the structure using prop info about a team's 'position' (index)
+//lots of math based on input # 
 
+
+
+// a style helper
   export const matchPadding = {
     2:
     {

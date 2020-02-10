@@ -1,5 +1,5 @@
 
-//game params
+//game params 
 export const CREATE_GAME = 'CREATE_GAME';
 
 //FETCH data from api 

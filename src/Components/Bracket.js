@@ -16,10 +16,10 @@ const Bracket = (props) => {
     let matchCalculation = n/2
     const teams = [...props.teams.teams]
     const winner = {...props.winner}
-    const matches = [...Array(numRounds)].reduce((matches, el, i)=>{
-      if(i === 0) matches[i] = teams
-      else matches[i] = Object.values(winner[i]['matches'])
-      return matches
+    const matches = [...Array(numRounds)].reduce((match, el, i)=>{
+      if(i === 0) match[i] = teams
+      else match[i] = Object.values(winner[i]['matches'])
+      return match
     }, {})
     
     return [...Array(numRounds)].map((_, i) => {

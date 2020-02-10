@@ -114,11 +114,13 @@ export const closeModal = () => async (dispatch) => {
   return dispatch(hideModal())
 }
 
-//ADDS WINNER TO DYNAMICALLY CREATED TREE STRUCTURE
+//ADDS WINNER TO TREE STRUCTURE
 export const getWinner = (round, match, winner) => async (dispatch) => {
   return dispatch(addWinners(round, match, winner))
 }
 
+
+//CREATES THE STRUCTURE BASED ON USER INPUT
 const createStructure = (n) => {
   const arr = createMatchesHash([], n, Math.log2(n))
   const obj = {0: []}
@@ -133,6 +135,7 @@ const createMatchesHash = (arr = [], n, i ) => {
   //base case
   if(arr.length === i) return arr
   else {
+   //recursive case 
    n /=2 
    const node = {}
    for(let i = 0; i < n; i++) {
@@ -152,6 +155,7 @@ function createSeed (array, remainder = []) {
     //base case
     if(array.length === 0) {
      return remainder.flat()
+     //recursive case
     } else {
      const pair = []
      pair.push(array.shift())

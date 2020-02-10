@@ -1,5 +1,5 @@
 import React from 'react'
-import fuel from '../fuel.png'
+import fuel from '../img/fuel.png'
 
 const Welcome = () => {
   return (

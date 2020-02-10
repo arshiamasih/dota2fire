@@ -19,7 +19,7 @@ const Modal = (props) => {
       <div>
       <h3 className={'modal-header'}>Team {team}</h3>
         <div className={'players'}>
-        {names.filter(Boolean).map(player=><div> <p> <span>Player:</span> {player} </p> </div>)}
+        {names.filter(Boolean).map(player=><div className={'player-detail'}> <p> <span>Player:</span> {player} </p> </div>)}
         </div>
         <button onClick={()=>{props.closeModal()}}className={'close-btn'}> Return to Game</button>
         </div> : <Loading />}

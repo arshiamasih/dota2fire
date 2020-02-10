@@ -1,5 +1,5 @@
 import React from 'react';
-import logoDota from '../logoDota.png';
+import logoDota from '../img/logoDota.png';
 import Bracket from './Bracket'
 import Welcome from './Welcome'
 import GameButtonGroup from './ButtonGroup'

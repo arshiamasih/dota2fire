@@ -1,5 +1,5 @@
 import React from 'react'
-import loading from '../loading.png'
+import loading from '../img/loading.png'
 
 
 const Loading =(props) => {

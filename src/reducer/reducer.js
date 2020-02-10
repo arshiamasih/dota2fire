@@ -12,7 +12,18 @@ const initialState = {
     team: null,
     names:[]
   },
-  winner: {},
+  winner: {
+     0: [], 
+    1: 
+    {
+      matches: {
+      0: {
+        name: null,
+        win: false
+        },
+      },
+    },
+  },   
   gameNum: {
     n: 0,
     num: 0,
@@ -95,3 +106,5 @@ const teamReducer=(state = initialState, action) => {
   }
 }
 export default teamReducer
+
+

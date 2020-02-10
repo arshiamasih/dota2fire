@@ -1,9 +1,11 @@
 body {
   font-family: 'Roboto', sans-serif;
+  
 }
 
 html, body {
   height: 100%;
+  width: 100%
 }
 
 .App {
@@ -14,7 +16,9 @@ html, body {
 
 .App-header {
   padding: 0 .5em;
+  position: fixed
 }
+
 
 .overlay {
   display: flex;
@@ -32,8 +36,8 @@ html, body {
   position: fixed;
   top: 80%;
   left: 50%;
-  margin-top: -475px;
-  margin-left: -20%;
+  margin-top: -465px;
+  margin-left: -22%;
   background-color: white;
   border-radius: 10px;
   text-align: center;
@@ -43,6 +47,12 @@ html, body {
 
 .modal-header {
   margin: 0
+}
+
+.player-detail > p{
+  font-size: 12px;
+  color: rgb(168, 161, 161),
+  
 }
 
 .close-btn {
@@ -76,6 +86,7 @@ html, body {
   justify-content: flex-start;
   margin: 1em;
   padding: 0 2em;
+  padding-top: 60px;
 }
 
 .button-group {
@@ -130,9 +141,10 @@ html, body {
   cursor: pointer;
   width: 70px;
   height: 50px;
-  border: 2px solid #282c34;
+  border: 1.5px solid #282c34;
   border-radius: 5px; 
   margin: .05em;
+  outline: none;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.05);
 }
 
@@ -153,12 +165,6 @@ html, body {
   font-size: 16px;
 }
 
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 .App-header {
   background-color: #282c34;
   height: 8vh;
@@ -177,14 +183,10 @@ html, body {
   margin-left: 5px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 .bracket{
   display: flex;
   flex-direction: row;
-  padding: 0;
+  padding: 0 .5em;
   margin: .5em;
 }
 

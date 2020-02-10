@@ -1,8 +1,7 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import App from '../Components/App';
+import App from './Components/App';
 import Renderer from 'react-test-renderer'
-import configureStore from '../configureStore';
+import configureStore from './configureStore';
 import { Provider } from 'react-redux'
 
 const mockStore = configureStore
@@ -32,8 +31,21 @@ describe('<App/> ', () => {
             n: 16,
             num: 32,
             start: false
-        }
-      }
+        }, 
+        winner: {
+         0: [], 
+         1: 
+         {
+           matches: {
+           0: {
+             name: '',
+             win: false
+             },
+           },
+         },
+       },
+    }
+      
     });
     component = Renderer.create(
       <Provider store={store}>
