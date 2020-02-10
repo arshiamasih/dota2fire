@@ -1,24 +1,5 @@
-import {ADD_WINNERS, GET_TEAMS, CREATE_GAME, CALL_API, RECEIVE_API, GET_PLAYERS, CLOSE_MODAL} from './types'
-import { select } from 'async'
+import {ADD_WINNERS, GET_TEAMS, CREATE_GAME, CALL_API, RECEIVE_API, FAILED_API, GET_PLAYERS, CLOSE_MODAL} from './types'
 
-export const requestAPI = (call) => ({
-  type: CALL_API,
-  payload: 'pending',
-  call
-  
-})
-
-export const receiveAPI = (call) => ({
-  type: RECEIVE_API,
-  payload: 'success',
-  call
-})
-
-export const hideModal = () => ({
-  type: CLOSE_MODAL, 
-  payload: false
-  
-})
 
 export const addWinners = (round, match, winner) => 
 ({ 
@@ -59,14 +40,40 @@ export const createGame = (n, structure) =>
     structure
   })
 
+export const requestAPI = (call) => ({
+  type: CALL_API,
+  payload: 'pending',
+  call
+  
+})
+
+export const receiveAPI = (call) => ({
+  type: RECEIVE_API,
+  payload: 'success',
+  call
+})
+
+export const failedAPI = (call, error) => ({
+  type: FAILED_API,
+  payload: error,
+  call
+})
+
+export const hideModal = () => ({
+  type: CLOSE_MODAL, 
+  payload: false
+  
+})  
+
 export const getGameNum = (n) => async (dispatch) =>{
   const structure = createStructure(n)
   return dispatch(createGame(n, structure))
 }
+
+
+//API CALL TO FETCH TEAM DATA
 export const getTeams = (num) => async (dispatch) => {
-  //API ALREADY RANKS BY ELO SCORE
-  //remove the no name team member
-  //add try catch
+  //API RANKS BY ELO SCORE
   const type = 'teams'
   try {
     dispatch(requestAPI(type))
@@ -74,22 +81,20 @@ export const getTeams = (num) => async (dispatch) => {
     const data = await response.json()
     dispatch(receiveAPI(type))
     const teams = data.slice(0,num);
-    console.log('teams in actions', teams)
     teams.map(team => {
       if(team.name === '') {
         team.name = 'noName'
       }
     })
-
     const seed = createSeed(teams)
     return dispatch(fetchTeamData(seed))
   }
   catch (error) {
-    console.log(error)
+    dispatch(failedAPI(type, error))
   }
 }
 
-
+//API CALL TO FETCH PLAYERS ON TEAM
 export const getPlayers = (id, name) => async (dispatch) => {
   const type = 'players'
   try {
@@ -101,16 +106,15 @@ export const getPlayers = (id, name) => async (dispatch) => {
     return dispatch(fetchTeamPlayers(players, name))
   } 
   catch (error) {
-    console.log(error)
+    dispatch(failedAPI(type, error))
   }
-  
-
 }
 
 export const closeModal = () => async (dispatch) => {
   return dispatch(hideModal())
 }
 
+//ADDS WINNER TO DYNAMICALLY CREATED TREE STRUCTURE
 export const getWinner = (round, match, winner) => async (dispatch) => {
   return dispatch(addWinners(round, match, winner))
 }
@@ -143,8 +147,9 @@ const createMatchesHash = (arr = [], n, i ) => {
 
 }
 
-
+//helper creates seed round pairing i.e. 1 vs 16, 2 vs 15, etc.
 function createSeed (array, remainder = []) {
+    //base case
     if(array.length === 0) {
      return remainder.flat()
     } else {

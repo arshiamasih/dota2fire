@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App/>  should match snapshot 1`] = `
+<div
+  className="App"
+>
+  <header
+    className="App-header"
+  >
+    <img
+      className="logo"
+      height="100%"
+      src="logoDota.png"
+    />
+    <div
+      className="header-text"
+    >
+      <p
+        className="header-text"
+      >
+        <code>
+          DOTA 2 FIRE
+        </code>
+      </p>
+    </div>
+  </header>
+  <main
+    className="mainer"
+  >
+    <div
+      className="button-group"
+    >
+      <div>
+        <p>
+          <code>
+            Select # of teams:
+          </code>
+        </p>
+      </div>
+      <div
+        className="button-group-btn"
+      >
+        <button
+          className="game-btn"
+          id={0}
+          onClick={[Function]}
+        >
+          Two
+        </button>
+        <button
+          className="game-btn"
+          id={1}
+          onClick={[Function]}
+        >
+          Four
+        </button>
+        <button
+          className="game-btn"
+          id={2}
+          onClick={[Function]}
+        >
+          Eight
+        </button>
+        <button
+          className="game-btn"
+          id={3}
+          onClick={[Function]}
+        >
+          Sixteen
+        </button>
+      </div>
+    </div>
+    <div
+      className="intro-img"
+    >
+      <img
+        height="100%"
+        src="fuel.png"
+        width="100%"
+      />
+    </div>
+  </main>
+</div>
+`;

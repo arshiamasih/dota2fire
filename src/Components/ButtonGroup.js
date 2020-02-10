@@ -23,7 +23,7 @@ const GameButtonGroup = (props) => {
     {props.gameNum.start? <div ><p><code>Start new game:</code></p></div> : <div ><p><code>Select # of teams:</code></p></div>} 
         <div className={'button-group-btn'} >
         {labels.map((label,i) => {
-          return <button className={'game-btn'} id={i} onClick={event => onClick(event)}>{label}</button>
+          return <button className={'game-btn'} key={i} id={i} onClick={event => onClick(event)}>{label}</button>
         }) } 
        </div>
     </div>
@@ -39,7 +39,6 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => ({
   getGameNum: (n)=>dispatch(getGameNum(n)),
   getTeams: (n)=>dispatch(getTeams(n)),
-  getPlayers: (n)=>dispatch(getPlayers(n))
 })
 
 export default connect(mapState, mapDispatch)(GameButtonGroup)

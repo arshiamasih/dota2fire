@@ -6,7 +6,7 @@ import Connector from './Connector'
 
 
 class Match extends React.Component {
-
+  
     state = {
       style : {
         id: null,
@@ -28,7 +28,6 @@ class Match extends React.Component {
           matchPosition={this.props.matchPosition}
           roundPosition={this.props.roundPosition}
           name={team['name']}
-          win={team['win']}
           selectWinner={this.selectWinner}
           style={this.state.style}
     />         

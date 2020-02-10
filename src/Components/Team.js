@@ -21,7 +21,7 @@ const Team = (props) => {
           roundPostion={props.roundPosition}
           className={buttonStyle}
           name={props.name}
-          win={props.win}
+          // win={props.win}
           onClick={props.selectWinner}
           >
           {props.name}
@@ -42,8 +42,6 @@ const Team = (props) => {
     </div>  
    }
     </div>
-
-
     )
 }
 

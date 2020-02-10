@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Connector = (props) => {
- 
   const styles= {
     default: 'connector',
     second: 'connector-second',
@@ -9,6 +8,7 @@ const Connector = (props) => {
 
   }
 
+  //conditional style
   let connectorStyles = styles.default
   if(props.round === props.winningRound) {
     connectorStyles = styles.final
@@ -33,8 +33,6 @@ const Connector = (props) => {
         </div>
       </div>
     </div>
-
-
   )
 }
 

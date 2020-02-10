@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { getPlayers } from '../reducer/actions'
 
@@ -7,10 +7,8 @@ const Ruler = (props) => {
   //create a 'ruler' where user can click for team info
   const handleOnClick = async (event) =>{
     const { id, name } = event.target  
-    this.props.getPlayers(id, name)
+    await props.getPlayers(id, name)
   }
-
-
     const { teams } = {...props}
     return (
       <div className={'player-ruler'}>
@@ -36,13 +34,11 @@ const Ruler = (props) => {
 }
 
 const mapState = (state) => ({
-  gameNum: state.teams.gameNum,
   teams: state.teams.teams,
-  apiStatus: state.teams.apiStatus
 })
 
 const mapDispatch = (dispatch) => ({
-  getPlayers: (id,  name)=>dispatch(getPlayers(id,  name))
+  getPlayers: (id, name)=>dispatch(getPlayers(id,  name))
 })
 
 export default connect(mapState, mapDispatch)(Ruler)

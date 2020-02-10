@@ -38,8 +38,8 @@ const Bracket = (props) => {
   }
 
    return ( 
-    <div>
-      <div className={'bracket'}>
+    <div >
+      <div className={gameNum.n < 8? 'small-bracket' : 'bracket'}>
         {apiStatus.teams === 'success' ? createRounds(gameNum.num) : <Loading/>}
       </div>
        <Ruler/> 

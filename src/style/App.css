@@ -79,7 +79,7 @@ html, body {
 }
 
 .button-group {
-  margin: 0;
+  margin-right: 0;
 }
 .button-group-btn {
   display: flex;
@@ -188,6 +188,14 @@ html, body {
   margin: .5em;
 }
 
+.small-bracket {
+  display: flex;
+  flex-direction: row;
+  padding-left: 6em;
+  margin: .5em;
+}
+
+
 .round {
   display: flex;
   flex-direction: column;
@@ -222,7 +230,6 @@ html, body {
 }
 
 .team {
-  /* border: 1px solid black; */
   margin: 2px;
   font-size: 10px;
   font-weight: bold;
@@ -231,7 +238,6 @@ html, body {
 
 .select-winner-btn {
   color: white;
-  /* border-left: 8px solid mediumaquamarine; */
   border-left: 6px solid gray;
   font-size: 12px;
   font-weight: bolder;
@@ -240,7 +246,6 @@ html, body {
   height: 30px;
   border-radius: 5px;
   outline: none;
- 
   background: #d6249f;
   background: radial-gradient(circle at 10% 107%,#fd5949 0%,#d6249f 40%,#285AEB 90%);
   box-shadow: 0px 3px 10px rgba(0,0,0,.25);
@@ -250,7 +255,6 @@ html, body {
 
 .winner {
   color: white;
-  /* border-left: 8px solid mediumaquamarine; */
   border-left: 8px solid mediumaquamarine;
   border: 3px solid mediumaquamarine;
   text-transform: lowercase;
@@ -275,24 +279,20 @@ html, body {
   z-index: 11;
 }
 .grand-winner {
-
-    color: white;
-    /* border-left: 8px solid mediumaquamarine; */
-    border-left: 8px solid mediumaquamarine;
-    border: 3px solid mediumaquamarine;
-    font-size: 12px;
-    font-weight: bolder;
-    width: 150px;
-    height: 30px;
-    border-radius: 5px;
-    background: radial-gradient(circle at 10% 107%,#99bb3a 5%,#4e8086 40%,#285AEB 90%);
-    box-shadow: 0px 3px 10px rgba(0,0,0,.25);
-    transform: translateY(20px);
-    transition: all 0.5s ease 0s;
-    -webkit-transform: scale(1.5);
-    transform: scale(1.5);
-
-  
+  color: white;
+  border-left: 8px solid mediumaquamarine;
+  border: 3px solid mediumaquamarine;
+  font-size: 12px;
+  font-weight: bolder;
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+  background: radial-gradient(circle at 10% 107%,#99bb3a 5%,#4e8086 40%,#285AEB 90%);
+  box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+  transform: translateY(20px);
+  transition: all 0.5s ease 0s;
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
 }
 
 .winner:hover {
@@ -350,7 +350,6 @@ html, body {
   border-right: 1px solid rgb(231, 230, 230);
   display: flex;
   width: 0
-
 }
 
 .vertical-line-right {
@@ -358,19 +357,15 @@ html, body {
   flex-direction: column;
   display: flex;
   width: 10px
-
 }
 
 
 .inner-div-top{
-
- 
   width: 20px;
   height: 50px;
 }
 
 .inner-div-bottom{
-
   border-top: .1px solid rgb(168, 167, 167);
   width: 20px;
   height: 50px;

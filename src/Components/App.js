@@ -1,11 +1,11 @@
 import React from 'react';
 import logoDota from '../logoDota.png';
 import Bracket from './Bracket'
-import Intro from './Intro'
+import Welcome from './Welcome'
 import GameButtonGroup from './ButtonGroup'
 import Modal from './Modal'
 import { connect } from 'react-redux'
-import '../App.css';
+import '../style/App.css';
 
 
 //component hierarchy: App > Round > Match > Team
@@ -23,10 +23,9 @@ const App = (props) => {
         </header>
           <main className={'main'}>
           <GameButtonGroup/>  
-          {props.gameNum.start ? <Bracket/> : <Intro/>}
+          {props.gameNum.start ? <Bracket/> : <Welcome/>}
           {props.modal &&  <Modal/> }
         </main>
-  
       </div>
     );
 }

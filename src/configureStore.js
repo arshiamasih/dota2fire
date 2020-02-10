@@ -5,17 +5,17 @@ import reducers from './reducer/index';
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(
-  reducers,
-  composeEnhancer(applyMiddleware(thunk)),
-);
+// const store = createStore(
+//   reducers,
+//   composeEnhancer(applyMiddleware(thunk)),
+// );
 
-export default store;
+// export default store;
 
-// export default function configureStore(initialState) {
-//   return createStore(
-//       reducers,
-//       initialState,
-//       applyMiddleware(thunk)
-//   );
-// }
+export default function configureStore(initialState) {
+  return createStore(
+      reducers,
+      initialState,
+      applyMiddleware(thunk)
+  );
+}
