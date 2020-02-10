@@ -9,6 +9,7 @@ import "../style/App.css";
 
 //component hierarchy: App > Round > Match > Team
 const App = props => {
+  const { gameNum, modal } = props;
   return (
     <div className="App">
       <header className="App-header">
@@ -26,8 +27,8 @@ const App = props => {
       </header>
       <main className={"main"}>
         <GameButtonGroup />
-        {props.gameNum.start ? <Bracket /> : <Welcome />}
-        {props.modal && <Modal />}
+        {gameNum.start ? <Bracket /> : <Welcome />}
+        {modal && <Modal />}
       </main>
     </div>
   );
