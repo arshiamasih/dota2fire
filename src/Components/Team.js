@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 
 const Team = (props) => {
-    const {roundPosition, style, id, gameNum} = props
+    const { roundPosition, style, id, gameNum } = props
     const winningRound = Math.log2(gameNum.n)
     let buttonStyle = style.default
     if(id === parseInt(style.id) && props.name) {
@@ -27,8 +27,8 @@ const Team = (props) => {
           {props.name}
         </button> 
       :
-  <div>    
-{props.name? <p className={'grand-winner-text'}>Grand Winner is {props.name} !</p> : null}
+      <div>    
+      {props.name? <p className={'grand-winner-text'}>Grand Winner is {props.name} !</p> : null}
       <button 
           id={props.id}
           matchPosition={props.matchPosition}
@@ -39,7 +39,7 @@ const Team = (props) => {
           >
       {props.name}
     </button> 
-</div>
+    </div>  
    }
     </div>
 

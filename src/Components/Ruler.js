@@ -3,23 +3,23 @@ import { connect } from 'react-redux'
 import { getPlayers } from '../reducer/actions'
 
 
-class Ruler extends Component {
+const Ruler = (props) => {
   //create a 'ruler' where user can click for team info
-  handleOnClick = async (event) =>{
+  const handleOnClick = async (event) =>{
     const { id, name } = event.target  
     this.props.getPlayers(id, name)
   }
 
-  render() {
-    const { teams } = {...this.props}
+
+    const { teams } = {...props}
     return (
       <div className={'player-ruler'}>
       <div className={'team-details'}>
-          {teams.map((el,i) => {
+          {teams.map(el => {
             return <div >
               <button 
               className={'team-details-btn'}
-              onClick={event=>this.handleOnClick(event)}
+              onClick={event=> handleOnClick(event)}
               id={el['team_id']}
               name={el['name']} 
               >
@@ -32,7 +32,7 @@ class Ruler extends Component {
         <div></div><p><code>discover the players</code></p></div>
       </div>
     )
-  }
+  
 }
 
 const mapState = (state) => ({

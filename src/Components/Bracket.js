@@ -4,10 +4,12 @@ import Ruler from './Ruler'
 import Loading from './Loading'
 import { connect } from 'react-redux'
 import { getTeams } from '../reducer/actions'
+import { matchPadding } from '../helpers'
 
 
 const Bracket = (props) => { 
   const { apiStatus, gameNum } = props
+  const key = gameNum.n
 
   const createRounds = (n) => {
     const numRounds =  Math.log2(n)
@@ -19,23 +21,6 @@ const Bracket = (props) => {
       else matches[i] = Object.values(winner[i]['matches'])
       return matches
     }, {})
-  
-    const matchPadding = {
-      0: '4%',
-      1: '25%',
-      2: '60%',
-      3: '50%',
-      4: '10%'
-    }
-
-    const paddingTop = {
-      0: '0%',
-      1: '5%',
-      2: '15%',
-      3: '28%', 
-      4: '36.25%'
-    }
-    // style={{paddingTop:paddingTop[i]}}
     
     return [...Array(numRounds)].map((_, i) => {
       return <div >
@@ -46,8 +31,7 @@ const Bracket = (props) => {
           teams={null}
           roundPosition={i} 
           matches={matches[i]}
-          padding={matchPadding[i]}
-          paddingTop={paddingTop}
+          padding={matchPadding[key][i]}
           gameNum={props.gameNum}
           numMatches={Math.ceil(matchCalculation /= 2)}/></div>
     });

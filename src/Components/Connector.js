@@ -1,9 +1,10 @@
 import React from 'react'
 
 const Connector = (props) => {
-  console.log('in connector' , props)
+ 
   const styles= {
     default: 'connector',
+    second: 'connector-second',
     final: 'connector-final'
 
   }
@@ -11,6 +12,15 @@ const Connector = (props) => {
   let connectorStyles = styles.default
   if(props.round === props.winningRound) {
     connectorStyles = styles.final
+  }
+  if(props.round === props.winningRound-1){
+    connectorStyles = styles.second
+  }
+  if(props.round === props.winningRound) {
+    connectorStyles = styles.final
+  }
+  if(props.winningRound === 1){
+    connectorStyles = styles.second
   }
   return (
     <div className={connectorStyles}>

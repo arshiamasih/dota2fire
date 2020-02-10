@@ -4,15 +4,12 @@ import Bracket from './Bracket'
 import Intro from './Intro'
 import GameButtonGroup from './ButtonGroup'
 import Modal from './Modal'
-import Connector from './Connector'
-
 import { connect } from 'react-redux'
 import '../App.css';
 
 
 //component hierarchy: App > Round > Match > Team
 const App = (props) => {
-  console.log('app', props.apiStatus.players)
     return (
       <div className="App">
         <header className="App-header">
@@ -28,11 +25,8 @@ const App = (props) => {
           <GameButtonGroup/>  
           {props.gameNum.start ? <Bracket/> : <Intro/>}
           {props.modal &&  <Modal/> }
-          
-        
         </main>
-    
-     
+  
       </div>
     );
 }

@@ -6,22 +6,18 @@ import Connector from './Connector'
 
 
 class Match extends React.Component {
-  constructor(props){
-    super(props)
 
-    this.state = {
+    state = {
       style : {
         id: null,
         default: 'select-winner-btn',
         winner: 'winner',
         nextRound: 'next-round'
       }
-    }
+    
   }
 
   createPairedTeams(){
-    const {roundPosition, gameNum} = this.props
-    const winningRound = Math.log2(gameNum.n)
     let arr = this.props.teams.splice(0,2)
  
     return arr.map((team, i) => {
@@ -64,9 +60,9 @@ class Match extends React.Component {
     const { style } = this.state
     return (
       <div className={'match-connector'}>
-      {this.props.roundPosition !== 0 ? 
-      <Connector winningRound={winningRound} 
-      round={this.props.roundPosition}/> : null}
+        {this.props.roundPosition !== 0 ? 
+        <Connector winningRound={winningRound} 
+        round={this.props.roundPosition}/> : null}
       <div className={style.id ? 'match-win' : 'match'}>
         
         {this.createPairedTeams()}

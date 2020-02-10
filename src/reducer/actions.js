@@ -1,4 +1,5 @@
 import {ADD_WINNERS, GET_TEAMS, CREATE_GAME, CALL_API, RECEIVE_API, GET_PLAYERS, CLOSE_MODAL} from './types'
+import { select } from 'async'
 
 export const requestAPI = (call) => ({
   type: CALL_API,
@@ -80,11 +81,11 @@ export const getTeams = (num) => async (dispatch) => {
       }
     })
 
-
-    return dispatch(fetchTeamData(teams))
+    const seed = createSeed(teams)
+    return dispatch(fetchTeamData(seed))
   }
   catch (error) {
-    //dispatch server failure
+    console.log(error)
   }
 }
 
@@ -100,7 +101,7 @@ export const getPlayers = (id, name) => async (dispatch) => {
     return dispatch(fetchTeamPlayers(players, name))
   } 
   catch (error) {
-    //dispatch server failure
+    console.log(error)
   }
   
 
@@ -142,10 +143,17 @@ const createMatchesHash = (arr = [], n, i ) => {
 
 }
 
-const createSeedRound = (teams) => {
-  //teams is an array
-  //take first and last
-  //flatten array
+
+function createSeed (array, remainder = []) {
+    if(array.length === 0) {
+     return remainder.flat()
+    } else {
+     const pair = []
+     pair.push(array.shift())
+     pair.push(array.pop())
+     remainder.push(pair)
+    return createSeed(array, remainder, pair)
+    }
 }
 
 
