@@ -1,19 +1,24 @@
 ## DOTA2FIRE
 
-A cool and sleek tournament bracket app.
+A cool and sleek tournament bracket app that uses the open Dota2 api for real time team stats.
 
-### Get started:
-
-git clone or open zip file <br />
-cd into directory <br />
-run npm -i <br />
-run npm start <br />
+### Play here:
+http://dota-bracket-fire.s3-website.us-east-2.amazonaws.com/
 
 ### To play:
 
 Select number of teams in the bracket.<br />
 Click to advance winner from each match to the next round.<br />
 Play again.<br />
+
+
+### Run locally:
+
+git clone or open zip file <br />
+cd into directory <br />
+run npm -i <br />
+run npm start <br />
+
 
 ## Available Scripts
 
@@ -24,13 +29,6 @@ In the project directory, you can run:
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
